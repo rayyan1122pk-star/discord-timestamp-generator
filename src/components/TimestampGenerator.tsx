@@ -225,8 +225,8 @@ export function TimestampGenerator() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* Date Picker */}
           <div>
-            <label htmlFor="timestamp-date" className="block text-xs font-medium uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
-              <Calendar className="h-3.5 w-3.5 text-indigo-400" aria-hidden="true" />
+            <label htmlFor="timestamp-date" className="block text-xs font-medium uppercase tracking-wider text-slate-300 mb-2 flex items-center gap-1.5">
+              <Calendar className="h-3.5 w-3.5 text-white" aria-hidden="true" />
               <span>Target Date</span>
             </label>
             <input
@@ -234,14 +234,14 @@ export function TimestampGenerator() {
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="w-full rounded-lg border border-slate-700/80 bg-slate-900/90 px-3.5 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 font-mono transition-colors"
+              className="w-full rounded-lg border border-slate-700/80 bg-slate-900/90 px-3.5 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 font-mono transition-colors [color-scheme:dark]"
             />
           </div>
 
           {/* Time Picker */}
           <div>
-            <label htmlFor="timestamp-time" className="block text-xs font-medium uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
-              <Clock className="h-3.5 w-3.5 text-indigo-400" aria-hidden="true" />
+            <label htmlFor="timestamp-time" className="block text-xs font-medium uppercase tracking-wider text-slate-300 mb-2 flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5 text-white" aria-hidden="true" />
               <span>Target Time</span>
             </label>
             <input
@@ -249,15 +249,15 @@ export function TimestampGenerator() {
               type="time"
               value={time}
               onChange={(e) => setTime(e.target.value)}
-              className="w-full rounded-lg border border-slate-700/80 bg-slate-900/90 px-3.5 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 font-mono transition-colors"
+              className="w-full rounded-lg border border-slate-700/80 bg-slate-900/90 px-3.5 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 font-mono transition-colors [color-scheme:dark]"
             />
           </div>
 
           {/* Timezone Dropdown */}
           <div>
-            <label htmlFor="timestamp-tz" className="block text-xs font-medium uppercase tracking-wider text-slate-400 mb-2 flex items-center justify-between">
+            <label htmlFor="timestamp-tz" className="block text-xs font-medium uppercase tracking-wider text-slate-300 mb-2 flex items-center justify-between">
               <span className="flex items-center gap-1.5">
-                <Globe className="h-3.5 w-3.5 text-indigo-400" aria-hidden="true" />
+                <Globe className="h-3.5 w-3.5 text-white" aria-hidden="true" />
                 <span>Source Timezone</span>
               </span>
               {clientTzDetected && (
