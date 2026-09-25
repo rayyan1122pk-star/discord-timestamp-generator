@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Clock, Calendar, User, ArrowRight, Layers } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CodeBlock } from "@/components/CodeBlock";
 import { FaqAccordion } from "@/components/FaqAccordion";
@@ -64,83 +63,67 @@ export default function TimestampFormatsPage() {
     : null;
 
   return (
-    <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
       <JsonLd data={articleSchema} />
       {faqSchema && <JsonLd data={faqSchema} />}
 
       <Breadcrumbs items={[{ name: "Format Styles", href: "/discord-timestamp-formats" }]} />
 
-      <header className="mb-8 pb-8 border-b border-slate-800">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-4">
-          <Layers className="h-3.5 w-3.5" aria-hidden="true" />
-          <span>Styles &amp; Flag Reference</span>
-        </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+      <header className="mb-10 pb-8 border-b border-slate-800/80">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
           {guide.title}
         </h1>
-        <p className="mt-3 text-base text-slate-300 leading-relaxed">
-          {guide.description}
-        </p>
 
-        <div className="mt-6 flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-400">
-          <div className="flex items-center gap-1.5">
-            <User className="h-3.5 w-3.5 text-indigo-400" aria-hidden="true" />
-            <span>{guide.author.name}</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Calendar className="h-3.5 w-3.5 text-indigo-400" aria-hidden="true" />
-            <span>Updated: {guide.modifiedDate}</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Clock className="h-3.5 w-3.5 text-indigo-400" aria-hidden="true" />
-            <span>{guide.readingTime}</span>
-          </div>
+        <div className="mt-4 flex items-center gap-3 text-xs text-slate-500 font-mono">
+          <span>By {guide.author.name}</span>
+          <span>&bull;</span>
+          <span>Updated {guide.modifiedDate}</span>
+          <span>&bull;</span>
+          <span>{guide.readingTime}</span>
         </div>
       </header>
 
-      {/* Direct AEO Summary */}
-      <div className="rounded-xl border border-indigo-500/30 bg-indigo-950/20 p-5 mb-10 text-slate-200">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-indigo-300 mb-1.5">
-          At a Glance: The 7 Discord Format Flags
-        </h2>
-        <p className="text-sm leading-relaxed">{guide.summary}</p>
+      {/* Natural Lead Paragraph */}
+      <div className="text-lg text-slate-300 font-normal leading-relaxed mb-10 text-pretty">
+        {guide.summary}
       </div>
 
       {/* Guide Content Sections */}
-      <div className="space-y-10 text-slate-300 text-sm sm:text-base leading-relaxed">
+      <div className="space-y-12 text-slate-300 text-base leading-relaxed">
         {guide.sections.map((section) => (
           <section key={section.id} id={section.id} className="scroll-mt-24">
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-3">
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-white mb-4">
               {section.heading}
             </h2>
+
             <div className="text-slate-300 leading-relaxed whitespace-pre-line mb-4">
               {section.content}
             </div>
 
             {section.table && (
-              <div className="my-6 overflow-x-auto rounded-xl border border-slate-800">
-                <table className="w-full text-left text-xs sm:text-sm">
-                  <thead className="bg-slate-900 border-b border-slate-800 text-slate-400 uppercase font-mono text-[11px]">
+              <div className="my-8 overflow-x-auto rounded-lg border border-slate-800/80">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-[#0e121a] border-b border-slate-800 text-slate-400 font-mono text-xs">
                     <tr>
                       {section.table.headers.map((h, i) => (
-                        <th key={i} className="py-3 px-3.5">
+                        <th key={i} className="py-3 px-4 font-medium">
                           {h}
                         </th>
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800 font-sans">
+                  <tbody className="divide-y divide-slate-800/70">
                     {section.table.rows.map((row, rIdx) => (
-                      <tr key={rIdx} className="hover:bg-slate-800/40">
+                      <tr key={rIdx} className="hover:bg-slate-850/30">
                         {row.map((cell, cIdx) => (
                           <td
                             key={cIdx}
-                            className={`py-3 px-3.5 ${
+                            className={`py-3.5 px-4 ${
                               cIdx === 0
-                                ? "font-mono font-bold text-indigo-400"
+                                ? "font-mono font-semibold text-indigo-400"
                                 : cIdx === 2
-                                ? "font-mono text-slate-300"
-                                : "text-slate-200"
+                                ? "font-mono text-slate-300 text-xs"
+                                : "text-slate-300"
                             }`}
                           >
                             {cell}
@@ -157,7 +140,6 @@ export default function TimestampFormatsPage() {
               <CodeBlock
                 code={section.codeSnippet.code}
                 language={section.codeSnippet.language}
-                caption={section.codeSnippet.caption}
               />
             )}
           </section>
@@ -167,18 +149,17 @@ export default function TimestampFormatsPage() {
       {/* FAQs */}
       {guide.faqs && <FaqAccordion items={guide.faqs} />}
 
-      {/* Contextual Links */}
-      <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+      {/* Further Reading */}
+      <div className="mt-14 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-slate-400">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-white bg-[#5865F2] hover:bg-[#4752c4] transition-all"
+          className="hover:text-white transition-colors"
         >
-          <span>Try in Interactive Generator</span>
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          &larr; Back to Generator
         </Link>
         <Link
           href="/unix-timestamp"
-          className="text-xs font-semibold text-indigo-400 hover:underline"
+          className="text-indigo-400 hover:underline"
         >
           Next: How Unix Epoch Time Works &rarr;
         </Link>

@@ -9,8 +9,6 @@ import {
   Check,
   RotateCcw,
   Share2,
-  Sparkles,
-  Layers,
 } from "lucide-react";
 import {
   DiscordFormatStyle,
@@ -183,12 +181,8 @@ export function TimestampGenerator() {
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-800/80 gap-3">
           <div>
-            <h2 id="tool-heading" className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2.5">
-              <span>Timestamp Generator</span>
-              <span className="inline-flex items-center gap-1 rounded-full bg-indigo-500/10 px-2.5 py-0.5 text-xs font-semibold text-indigo-400 border border-indigo-500/20">
-                <Sparkles className="h-3 w-3" aria-hidden="true" />
-                Live Preview
-              </span>
+            <h2 id="tool-heading" className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+              Timestamp Generator
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1">
               Select date, time, and timezone to generate auto-adjusting Discord syntax.
@@ -336,15 +330,13 @@ export function TimestampGenerator() {
         </div>
 
         {/* Primary Generated Output Box */}
-        <div className="mt-6 rounded-xl border border-indigo-500/30 bg-gradient-to-b from-indigo-950/20 to-slate-900/60 p-4 sm:p-5">
+        <div className="mt-6 rounded-xl border border-slate-800 bg-[#0a0d13] p-4 sm:p-5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-1.5">
-                <Layers className="h-3.5 w-3.5" aria-hidden="true" />
+              <div className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-1.5 font-mono">
                 <span>Discord Timestamp Syntax</span>
-                <span className="text-slate-400 font-mono font-normal">
-                  (Epoch: {epochSeconds}s)
-                </span>
+                <span>&bull;</span>
+                <span>Epoch: {epochSeconds}s</span>
               </div>
               <div className="font-mono text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight break-all select-all">
                 {activeSyntax}
