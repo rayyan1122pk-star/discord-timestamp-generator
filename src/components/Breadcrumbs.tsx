@@ -36,7 +36,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
 
           return (
             <React.Fragment key={item.href}>
-              {idx > 0 && <ChevronRight className="h-3.5 w-3.5 flex-shrink-0 text-slate-600" aria-hidden="true" />}
+              {idx > 0 && <ChevronRight className="h-3.5 w-3.5 flex-shrink-0 text-slate-400" aria-hidden="true" />}
               {isLast ? (
                 <span className="font-medium text-slate-200 truncate max-w-[200px] sm:max-w-none" aria-current="page">
                   {item.name}

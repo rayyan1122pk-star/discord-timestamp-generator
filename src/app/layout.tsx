@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Discord Timestamp Generator — Dynamic Timezone Formatter & Preview",
+    default: "Discord Timestamp Generator: Dynamic Timezone Formatter & Preview",
     template: "%s | Discord Timestamps",
   },
   description: siteConfig.description,
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: "Discord Timestamp Generator — Dynamic Timezone Formatter & Preview",
+    title: "Discord Timestamp Generator: Dynamic Timezone Formatter & Preview",
     description: siteConfig.description,
     siteName: siteConfig.shortName,
     images: [
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Discord Timestamp Generator — Dynamic Timezone Formatter & Preview",
+    title: "Discord Timestamp Generator: Dynamic Timezone Formatter & Preview",
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },

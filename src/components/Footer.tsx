@@ -134,7 +134,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
+        <div className="mt-12 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-xs">
           <div>
             &copy; {new Date().getFullYear()} Discord Timestamps. Independent developer utility.
             Not affiliated with, endorsed by, or sponsored by Discord Inc.

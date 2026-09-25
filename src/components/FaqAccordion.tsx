@@ -50,14 +50,14 @@ export function FaqAccordion({ items, title = "Frequently Asked Questions", desc
               >
                 <span className="pr-4">{item.question}</span>
                 <ChevronDown
-                  className={`h-4 w-4 flex-shrink-0 text-slate-500 transition-transform duration-200 ${
+                  className={`h-4 w-4 flex-shrink-0 text-slate-400 transition-transform duration-200 ${
                     isOpen ? "rotate-180 text-indigo-400" : ""
                   }`}
                   aria-hidden="true"
                 />
               </button>
               {isOpen && (
-                <div id={answerId} role="region" aria-labelledby={questionId} className="mt-3 text-sm leading-relaxed text-slate-400 pr-8">
+                <div id={answerId} role="region" aria-labelledby={questionId} className="mt-3 text-sm leading-relaxed text-slate-300 pr-8">
                   <p>{item.answer}</p>
                 </div>
               )}

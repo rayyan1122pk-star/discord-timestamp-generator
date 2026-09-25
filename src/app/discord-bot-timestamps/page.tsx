@@ -74,7 +74,7 @@ export default function DiscordBotTimestampsPage() {
           {guide.title}
         </h1>
 
-        <div className="mt-4 flex items-center gap-3 text-xs text-slate-500 font-mono">
+        <div className="mt-4 flex items-center gap-3 text-xs text-slate-400 font-mono">
           <span>By {guide.author.name}</span>
           <span>&bull;</span>
           <span>Updated {guide.modifiedDate}</span>

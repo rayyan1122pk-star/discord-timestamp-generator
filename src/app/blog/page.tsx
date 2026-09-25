@@ -66,9 +66,10 @@ export default function BlogIndexPage() {
       {/* Blog Posts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {BLOG_POSTS.map((post) => (
-          <article
+          <Link
             key={post.slug}
-            className="group flex flex-col justify-between rounded-2xl border border-slate-800 bg-[#0e121a] p-6 hover:border-indigo-500/50 hover:bg-slate-900/50 transition-all"
+            href={`/blog/${post.slug}`}
+            className="group flex flex-col justify-between rounded-2xl border border-slate-800 bg-[#0e121a] p-6 hover:border-indigo-500/50 hover:bg-slate-900/50 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
           >
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
@@ -79,9 +80,7 @@ export default function BlogIndexPage() {
               </div>
 
               <h2 className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors line-clamp-2">
-                <Link href={`/blog/${post.slug}`} className="focus-visible:outline-none focus-visible:underline">
-                  {post.title}
-                </Link>
+                {post.title}
               </h2>
 
               <p className="mt-2.5 text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3">
@@ -94,12 +93,12 @@ export default function BlogIndexPage() {
                 <User className="h-3.5 w-3.5 text-indigo-400" aria-hidden="true" />
                 <span>{post.author}</span>
               </div>
-              <div className="flex items-center gap-1 font-semibold text-indigo-400 group-hover:translate-x-1 transition-transform">
+              <div className="flex items-center gap-1 font-semibold text-indigo-400 group-hover:text-indigo-300 group-hover:translate-x-1 transition-all">
                 <span>Read Article</span>
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
               </div>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </div>

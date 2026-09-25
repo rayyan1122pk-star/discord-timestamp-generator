@@ -5,6 +5,7 @@ import { TimestampGenerator } from "@/components/TimestampGenerator";
 import { FaqAccordion, FaqItem } from "@/components/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/lib/seo-config";
+import { BLOG_POSTS } from "@/data/guides-data";
 
 const HOME_FAQS: FaqItem[] = [
   {
@@ -284,6 +285,60 @@ export default function HomePage() {
               Clean implementations using discord.js v14 time() utility and discord.py helpers.
             </p>
           </Link>
+        </div>
+      </section>
+
+      {/* Featured Blog Articles & Guides */}
+      <section className="mt-16 pt-12 border-t border-slate-800/80">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight text-white mb-2">
+              Featured Guides &amp; Tutorials
+            </h2>
+            <p className="text-sm text-slate-400">
+              In-depth articles covering Discord scheduling, countdown timers, mobile shortcuts, and webhook bots.
+            </p>
+          </div>
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors whitespace-nowrap"
+          >
+            <span>View All {BLOG_POSTS.length} Articles</span>
+            <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {BLOG_POSTS.slice(0, 4).map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group flex flex-col justify-between rounded-xl border border-slate-800/80 bg-[#0d1017] p-5 hover:border-indigo-500/50 hover:bg-slate-900/50 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <span className="text-[11px] font-semibold text-indigo-400 font-mono">
+                    {post.category}
+                  </span>
+                  <span className="text-[11px] text-slate-400 font-mono">
+                    {post.readingTime}
+                  </span>
+                </div>
+                <h3 className="font-semibold text-white text-sm group-hover:text-indigo-300 transition-colors line-clamp-1 mb-1.5">
+                  {post.title}
+                </h3>
+                <p className="text-xs text-slate-400 leading-relaxed line-clamp-2">
+                  {post.excerpt}
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-400">
+                <span>By {post.author}</span>
+                <span className="text-indigo-400 font-medium group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-1">
+                  Read Article &rarr;
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
