@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { Clock, Shield, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { Shield, ExternalLink } from "lucide-react";
 import { siteConfig } from "@/lib/seo-config";
 
 export function Footer() {
@@ -14,9 +15,13 @@ export function Footer() {
               href="/"
               className="flex items-center gap-2 font-bold text-white tracking-tight text-base mb-3"
             >
-              <div className="h-6 w-6 rounded-md bg-[#5865F2] flex items-center justify-center text-white">
-                <Clock className="h-3.5 w-3.5" aria-hidden="true" />
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Discord Timestamps Logo"
+                width={26}
+                height={26}
+                className="h-6 w-6 object-contain"
+              />
               <span>Discord Timestamps</span>
             </Link>
             <p className="text-slate-400 leading-relaxed mb-4 text-xs">

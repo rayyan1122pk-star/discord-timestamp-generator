@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Clock, Menu, X, BookOpen, Terminal, Sparkles, Layers, FileCode2 } from "lucide-react";
 
@@ -28,9 +29,14 @@ export function Header() {
           href="/"
           className="flex items-center gap-2.5 font-bold text-white tracking-tight text-base sm:text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1"
         >
-          <div className="h-8 w-8 rounded-lg bg-[#5865F2] flex items-center justify-center text-white shadow-md shadow-indigo-500/20">
-            <Clock className="h-4.5 w-4.5" aria-hidden="true" />
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Discord Timestamps Logo"
+            width={34}
+            height={34}
+            className="h-8 w-8 object-contain"
+            priority
+          />
           <span className="flex items-baseline gap-1.5">
             <span>Discord</span>
             <span className="text-indigo-400 font-normal">Timestamps</span>
