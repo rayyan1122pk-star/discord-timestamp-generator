@@ -2,6 +2,7 @@
 
 > A high-performance, search-driven web utility and developer resource for creating dynamic Discord timestamps that automatically adjust to every user's local timezone.
 
+[![Live Website](https://img.shields.io/badge/Live_Site-disctimestamps.site-5865F2?style=flat-square&logo=discord&logoColor=white)](https://www.disctimestamps.site)
 [![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.2-blue?style=flat-square&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
@@ -72,7 +73,7 @@ This product is engineered to:
 
 ### Installation
 ```bash
-git clone https://github.com/discord-timestamp-generator.git
+git clone https://github.com/rayyan1122pk-star/discord-timestamp-generator.git
 cd discord-timestamp-generator
 npm install
 ```
