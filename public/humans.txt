@@ -1,6 +1,6 @@
 /* TEAM */
 Developer: Discord Timestamps Engineering Team
-Site: https://discord-timestamp-generator-swart.vercel.app
+Site: https://disctimestamps.site
 
 /* THANKS */
 Discord API Documentation & Open Source Developer Community

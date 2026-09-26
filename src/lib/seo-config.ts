@@ -19,7 +19,7 @@ const getSiteUrl = (): string => {
   if (process.env.NEXT_PUBLIC_SITE_URL) {
     return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/+$/, "");
   }
-  return "https://discord-timestamp-generator-swart.vercel.app";
+  return "https://disctimestamps.site";
 };
 
 const siteUrl = getSiteUrl();

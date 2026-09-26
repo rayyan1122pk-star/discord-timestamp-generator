@@ -1,5 +1,5 @@
-Contact: mailto:security@discordtimestamps.dev
+Contact: mailto:security@disctimestamps.site
 Expires: 2027-12-31T23:59:59.000Z
 Preferred-Languages: en
-Canonical: https://discord-timestamp-generator-swart.vercel.app/security.txt
-Policy: https://discord-timestamp-generator-swart.vercel.app/terms
+Canonical: https://disctimestamps.site/security.txt
+Policy: https://disctimestamps.site/terms
