@@ -112,17 +112,19 @@ export const COMMON_TIMEZONES: TimezoneOption[] = [
  * Formats a Discord timestamp code
  */
 export function buildDiscordSyntax(epochSeconds: number, style: DiscordFormatStyle): string {
+  const safeEpoch = isNaN(epochSeconds) ? Math.floor(Date.now() / 1000) : epochSeconds;
   if (style === "default") {
-    return `<t:${epochSeconds}>`;
+    return `<t:${safeEpoch}>`;
   }
-  return `<t:${epochSeconds}:${style}>`;
+  return `<t:${safeEpoch}:${style}>`;
 }
 
 /**
  * Calculates human readable relative time (e.g. "in 2 hours", "45 minutes ago")
  */
 export function getRelativeTimeString(epochSeconds: number, referenceDate: Date = new Date()): string {
-  const targetMs = epochSeconds * 1000;
+  const safeEpoch = isNaN(epochSeconds) ? Math.floor(referenceDate.getTime() / 1000) : epochSeconds;
+  const targetMs = safeEpoch * 1000;
   const nowMs = referenceDate.getTime();
   const diffSeconds = Math.round((targetMs - nowMs) / 1000);
 
@@ -276,8 +278,10 @@ export function calculateEpochSeconds(dateStr: string, timeStr: string, timeZone
     const totalHourOffset = dayDiff * 24 + hourDiff;
     const correctedTime = target.getTime() - totalHourOffset * 3600 * 1000 - ((partMap.minute || minutes) - minutes) * 60 * 1000;
 
-    return Math.floor(correctedTime / 1000);
+    const result = Math.floor(correctedTime / 1000);
+    return isNaN(result) ? Math.floor(Date.now() / 1000) : result;
   } catch {
-    return Math.floor(new Date(`${dateStr}T${timeStr}:00`).getTime() / 1000);
+    const fallback = Math.floor(new Date(`${dateStr}T${timeStr}:00`).getTime() / 1000);
+    return isNaN(fallback) ? Math.floor(Date.now() / 1000) : fallback;
   }
 }
