@@ -9,7 +9,7 @@ interface CodeBlockProps {
   caption?: string;
 }
 
-export function CodeBlock({ code }: CodeBlockProps) {
+export function CodeBlock({ code, language, caption }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -24,6 +24,14 @@ export function CodeBlock({ code }: CodeBlockProps) {
 
   return (
     <div className="relative group my-6 rounded-lg border border-slate-800/80 bg-[#0d1017] text-sm overflow-hidden">
+      {(caption || language) && (
+        <div className="flex items-center justify-between px-4 py-2 bg-slate-900/60 border-b border-slate-800/60 text-xs text-slate-400 font-mono">
+          <span className="text-slate-300 font-sans text-xs">{caption || ""}</span>
+          <span className="text-[11px] uppercase tracking-wider text-indigo-400/80 font-mono mr-16">
+            {language || ""}
+          </span>
+        </div>
+      )}
       <button
         type="button"
         onClick={handleCopy}

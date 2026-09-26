@@ -169,14 +169,19 @@ export default async function BlogPostPage({ params }: Props) {
                 {section.heading}
               </h2>
 
-              <p className="text-slate-300 leading-relaxed whitespace-pre-line mb-4">
-                {section.content}
-              </p>
+              <div className="space-y-4 text-slate-300 leading-relaxed mb-4">
+                {section.content.split("\n\n").map((paragraph, pIdx) => (
+                  <p key={pIdx} className="leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
 
               {section.codeSnippet && (
                 <CodeBlock
                   code={section.codeSnippet.code}
                   language={section.codeSnippet.language}
+                  caption={section.codeSnippet.caption}
                 />
               )}
 
@@ -213,6 +218,32 @@ export default async function BlogPostPage({ params }: Props) {
                       ))}
                     </tbody>
                   </table>
+                </div>
+              )}
+
+              {section.subsections && section.subsections.length > 0 && (
+                <div className="space-y-8 mt-8 pt-6 border-t border-slate-800/60">
+                  {section.subsections.map((sub, sIdx) => (
+                    <div key={sIdx} className="space-y-3">
+                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white">
+                        {sub.heading}
+                      </h3>
+                      <div className="space-y-3 text-slate-300 leading-relaxed">
+                        {sub.content.split("\n\n").map((sp, spIdx) => (
+                          <p key={spIdx} className="leading-relaxed">
+                            {sp}
+                          </p>
+                        ))}
+                      </div>
+                      {sub.codeSnippet && (
+                        <CodeBlock
+                          code={sub.codeSnippet.code}
+                          language={sub.codeSnippet.language}
+                          caption={sub.codeSnippet.caption}
+                        />
+                      )}
+                    </div>
+                  ))}
                 </div>
               )}
             </section>
