@@ -9,7 +9,6 @@ import {
   Check,
   RotateCcw,
   Share2,
-  Sparkles,
   ArrowRightLeft,
   Hash,
   ArrowRight,
@@ -353,18 +352,18 @@ export function TimestampGenerator() {
             </div>
           </div>
 
-          {/* Natural Language Quick Input Bar */}
+          {/* Quick Shorthand Input Bar */}
           <div className="mb-6 p-4 rounded-xl border border-indigo-950/60 bg-indigo-950/20">
             <form onSubmit={handleNaturalSubmit} className="flex flex-col sm:flex-row gap-2">
               <div className="relative flex-1">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Sparkles className="h-4 w-4 text-indigo-400" aria-hidden="true" />
+                  <Clock className="h-4 w-4 text-indigo-400" aria-hidden="true" />
                 </div>
                 <input
                   type="text"
                   value={naturalText}
                   onChange={(e) => setNaturalText(e.target.value)}
-                  placeholder="Natural language: 'tomorrow at 5pm', 'in 2 hours', 'friday 8:30pm'..."
+                  placeholder="Quick shorthand: 'tomorrow at 5pm', 'in 2 hours', 'tmr 6 pm', 'friday 8:30pm'..."
                   className="w-full pl-9 pr-3 py-2 rounded-lg border border-slate-700/80 bg-slate-900/90 text-sm text-slate-100 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 font-sans"
                 />
               </div>

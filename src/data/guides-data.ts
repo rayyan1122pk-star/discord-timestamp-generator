@@ -48,11 +48,11 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       "discord epoch time format",
     ],
     readingTime: "7 min read",
-    publishedDate: "2026-01-15",
-    modifiedDate: "2026-09-25",
+    publishedDate: "2026-09-24",
+    modifiedDate: "2026-09-26",
     author: {
-      name: "Alex Vance",
-      role: "Discord Bot Architect & Systems Engineer",
+      name: "Rayyan",
+      role: "Lead Maintainer & Tool Developer",
     },
     summary:
       "If you've ever tried running an event across three continents, you know the pain of typing out four different timezone abbreviations. Someone always miscalculates. Discord dynamic timestamps fix that for good: you post one code, and Discord shows the right time on everyone's screen.",
@@ -115,7 +115,7 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
     title: "Discord Timestamp Formats & Styles Cheat Sheet (t, T, d, D, f, F, R)",
     navTitle: "Format Styles",
     description:
-      "Deep dive into all seven official Discord timestamp styles: Short Time, Long Time, Short Date, Long Date, Short Date/Time, Long Date/Time, and Relative Time.",
+      "A quick visual breakdown of all seven official Discord timestamp styles: Short Time, Long Time, Short Date, Long Date, Short Date/Time, Long Date/Time, and Relative Time.",
     primaryKeyword: "discord timestamp formats",
     secondaryKeywords: [
       "discord timestamp styles",
@@ -124,11 +124,11 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       "discord timestamp cheat sheet",
     ],
     readingTime: "5 min read",
-    publishedDate: "2026-01-20",
-    modifiedDate: "2026-09-25",
+    publishedDate: "2026-09-24",
+    modifiedDate: "2026-09-26",
     author: {
-      name: "Marcus Chen",
-      role: "Frontend Engineer & Developer Community Lead",
+      name: "Discord Community Contributor",
+      role: "Server Moderator & Community Lead",
     },
     summary:
       "Discord gives you 7 single-letter flags to control how your time looks. Whether you want a compact hour, a full calendar date, or a live countdown that ticks down automatically, here is what each flag renders on screen.",
@@ -155,7 +155,7 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
         id: "relative-flag-mechanics",
         heading: "How Relative Time (:R) Works Dynamically",
         content:
-          "The `:R` flag is easily the most popular formatting trick in Discord. Instead of an absolute date, it renders a dynamic countdown like 'in 2 hours' or '15 minutes ago'. The best part? Discord recalculates this locally on every user's device without you having to edit the message. Once the target time passes, it seamlessly flips from 'in 5 minutes' to '5 minutes ago'. If someone hovers over the badge on desktop, Discord reveals the full calendar date in a tooltip.",
+          "The `:R` flag is easily the most popular formatting trick in Discord. Instead of an absolute date, it renders a dynamic countdown like 'in 2 hours' or '15 minutes ago'. The best part? Discord recalculates this locally on every user's device without you having to edit the message. Once the target time passes, it automatically flips from 'in 5 minutes' to '5 minutes ago'. If someone hovers over the badge on desktop, Discord reveals the full calendar date in a tooltip.",
       },
       {
         id: "combining-formats",
@@ -196,11 +196,11 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       "posix time discord",
     ],
     readingTime: "6 min read",
-    publishedDate: "2026-02-01",
-    modifiedDate: "2026-09-25",
+    publishedDate: "2026-09-25",
+    modifiedDate: "2026-09-26",
     author: {
-      name: "Elena Rostova",
-      role: "Backend Architect & Distributed Systems Engineer",
+      name: "Rayyan",
+      role: "Lead Maintainer & Tool Developer",
     },
     summary:
       "Why does Discord use a 10-digit number like 1727280000 instead of normal text? Because Unix epoch seconds provide a single, universal point in time that every phone and computer can translate to local clocks without timezone bugs.",
@@ -267,11 +267,11 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       "discord code block syntax highlighting",
     ],
     readingTime: "6 min read",
-    publishedDate: "2026-02-10",
-    modifiedDate: "2026-09-25",
+    publishedDate: "2026-09-25",
+    modifiedDate: "2026-09-26",
     author: {
-      name: "Alex Vance",
-      role: "Discord Bot Architect & Systems Engineer",
+      name: "Discord Community Contributor",
+      role: "Technical Documentation Lead",
     },
     summary:
       "Discord chat supports a modified flavor of Markdown. You can format words, highlight code, hide spoilers, and combine bold text with live dynamic timestamps to build clean, organized server announcements.",
@@ -342,11 +342,11 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       "discord webhook iso 8601",
     ],
     readingTime: "7 min read",
-    publishedDate: "2026-02-15",
-    modifiedDate: "2026-09-25",
+    publishedDate: "2026-09-25",
+    modifiedDate: "2026-09-26",
     author: {
-      name: "Elena Rostova",
-      role: "Backend Architect & Distributed Systems Engineer",
+      name: "Rayyan",
+      role: "Lead Maintainer & Tool Developer",
     },
     summary:
       "Sending dates through Discord webhooks trips up a lot of developers because Discord has two different timestamp systems: dynamic Unix tags in text and ISO-8601 strings in embed footers. Here is how both work.",
@@ -418,11 +418,11 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       "discord bot dynamic time builder",
     ],
     readingTime: "8 min read",
-    publishedDate: "2026-02-25",
-    modifiedDate: "2026-09-25",
+    publishedDate: "2026-09-26",
+    modifiedDate: "2026-09-26",
     author: {
-      name: "Alex Vance",
-      role: "Discord Bot Architect & Systems Engineer",
+      name: "Rayyan",
+      role: "Lead Maintainer & Tool Developer",
     },
     summary:
       "Writing bots in discord.js or discord.py? Stop manually string-concatenating `<t:${time}:R>`. Both SDKs ship with native, type-safe helpers that format dates cleanly and protect against timezone bugs.",

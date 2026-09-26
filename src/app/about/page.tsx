@@ -42,23 +42,26 @@ export default function AboutPage() {
           About Discord Timestamps
         </h1>
         <p className="mt-3 text-base text-slate-300 leading-relaxed">
-          An open, developer-crafted utility designed to eliminate timezone confusion for Discord communities worldwide.
+          A fast, zero-tracking timestamp builder created to end timezone confusion in Discord servers.
         </p>
       </header>
 
       <div className="space-y-8 text-slate-300 text-sm sm:text-base leading-relaxed">
         <section>
-          <h2 className="text-xl font-bold text-white mb-2.5">Our Mission</h2>
+          <h2 className="text-xl font-bold text-white mb-2.5">Why This Tool Exists</h2>
           <p>
-            Discord Timestamps was built to solve a simple yet frustrating problem: coordinate global events
-            without timezone math errors. Whether you are running an esports clan, hosting a community AMA,
-            coordinating open-source sprint reviews, or broadcasting scheduled podcasts, typing static times
-            forces users across the globe to guess or look up conversions.
+            This project started out of sheer annoyance with timezone math. A few friends and I were trying to
+            coordinate a weekly gaming session across Toronto, London, and Lahore. Someone posted &quot;8 PM tonight&quot;.
+            Two people arrived an hour late, another showed up three hours early, and the whole plan fell apart.
           </p>
           <p className="mt-3">
-            Our goal is to provide the fastest, cleanest, and most reliable Discord timestamp formatter on the web,
-            combined with thorough, accessible technical documentation on Discord API formatting, webhooks,
-            and bot development.
+            Discord actually solved this years ago with dynamic timestamp tags (<code className="text-indigo-300 bg-slate-900 px-1.5 py-0.5 rounded">&lt;t:UNIX:STYLE&gt;</code>).
+            When you post a dynamic tag, Discord automatically converts it to each viewer&apos;s local phone or desktop clock.
+            The catch? Nobody wants to open a terminal or run <code className="text-indigo-300 bg-slate-900 px-1.5 py-0.5 rounded">date +%s</code> just to tell their guild when a raid kicks off.
+          </p>
+          <p className="mt-3">
+            The existing web tools I tried were packed with ads, loaded slowly on mobile, or made you click through five
+            different dropdowns. I wanted a tool that felt like a developer utility: instant, clean, zero trackers, and completely free.
           </p>
         </section>
 
@@ -69,8 +72,8 @@ export default function AboutPage() {
             </div>
             <h3 className="font-semibold text-white text-sm">100% Client-Side Privacy</h3>
             <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
-              Every date, time, and timezone calculation runs in your local browser using native JavaScript Intl APIs.
-              We do not log, transmit, or monetize your personal schedules.
+              Every date, time, and timezone calculation happens in your browser via native JavaScript Intl APIs.
+              Your event details and schedules never touch an external server or AI API.
             </p>
           </div>
 
@@ -78,10 +81,10 @@ export default function AboutPage() {
             <div className="h-8 w-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-3">
               <Zap className="h-4 w-4" aria-hidden="true" />
             </div>
-            <h3 className="font-semibold text-white text-sm">Zero-Latency Speed</h3>
+            <h3 className="font-semibold text-white text-sm">Instant &amp; Ad-Free</h3>
             <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
-              No bloated frameworks, tracking scripts, or ad networks slowing down your workflow.
-              Instant conversion, 1-click copy, and live Discord preview.
+              No banner ads, popups, or bloated analytics scripts slowing your browser down.
+              Pick a date, tap copy, and paste it into Discord.
             </p>
           </div>
 
@@ -89,47 +92,49 @@ export default function AboutPage() {
             <div className="h-8 w-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-3">
               <Terminal className="h-4 w-4" aria-hidden="true" />
             </div>
-            <h3 className="font-semibold text-white text-sm">Developer First</h3>
+            <h3 className="font-semibold text-white text-sm">Built for Mod Teams &amp; Devs</h3>
             <p className="text-xs text-slate-400 mt-1.5 leading-relaxed">
-              Built by bot developers and server managers. We provide tested code snippets for discord.js v14,
-              discord.py, webhook JSON schemas, and POSIX epoch mathematics.
+              Includes quick shorthand parsing, Discord Snowflake ID decoders, ANSI color block generators,
+              and code snippets for discord.js and discord.py.
             </p>
           </div>
         </section>
 
         <section className="pt-4 border-t border-slate-800">
-          <h2 className="text-xl font-bold text-white mb-2.5">Editorial &amp; Technical Standards</h2>
+          <h2 className="text-xl font-bold text-white mb-2.5">Creator &amp; Open Source Community</h2>
           <p>
-            All tutorials, format breakdowns, and SDK code examples on this site are written, tested, and
-            benchmarked against Discord&apos;s live API specifications. We update our guides whenever Discord
-            introduces updates to chat rendering, Markdown syntax, or Developer Portal schemas.
+            Discord Timestamps is maintained by <strong className="text-white font-semibold">Rayyan</strong> (<a href="https://github.com/rayyan1122pk-star" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2">@rayyan1122pk-star</a>),
+            with feedback, testing, and contributions from server moderators and bot developers across the Discord community.
+          </p>
+          <p className="mt-3">
+            All guides and format references are verified against Discord&apos;s official developer documentation and tested across Windows, macOS, Linux, iOS, and Android clients.
           </p>
           <ul className="mt-3 space-y-2 text-xs sm:text-sm">
             <li className="flex items-start gap-2">
               <CheckCircle2 className="h-4 w-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-              <span>Tested against Discord desktop (Windows, macOS, Linux) and mobile (iOS, Android).</span>
+              <span>Tested on Discord desktop, browser, and mobile apps.</span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle2 className="h-4 w-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-              <span>Full compliance with WCAG AA accessibility standards, semantic HTML, and keyboard navigation.</span>
+              <span>Full keyboard accessibility, zero layout shift, and clean dark mode styling.</span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle2 className="h-4 w-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-              <span>Independent resource. Not affiliated with, endorsed by, or sponsored by Discord Inc.</span>
+              <span>Independent developer project. Not affiliated with or endorsed by Discord Inc.</span>
             </li>
           </ul>
         </section>
 
         <section className="pt-4 border-t border-slate-800 flex items-center justify-between">
           <div>
-            <h3 className="text-sm font-semibold text-white">Have feedback or questions?</h3>
-            <p className="text-xs text-slate-400 mt-0.5">We welcome bug reports, suggestions, and corrections.</p>
+            <h3 className="text-sm font-semibold text-white">Have feedback or a feature idea?</h3>
+            <p className="text-xs text-slate-400 mt-0.5">Found a bug or want another formatting tool added? Reach out anytime.</p>
           </div>
           <Link
             href="/contact"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-400 hover:text-indigo-300"
           >
-            <span>Contact the Team</span>
+            <span>Get in Touch</span>
             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>
         </section>

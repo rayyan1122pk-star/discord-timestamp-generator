@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Clock, Menu, X, BookOpen, Terminal, Sparkles, Layers, FileCode2, Palette, Hash } from "lucide-react";
+import { Clock, Menu, X, BookOpen, Terminal, Binary, Layers, FileCode2, Palette, Hash } from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,7 +15,7 @@ export function Header() {
     { href: "/discord-timestamp-formats", label: "Formats", icon: Layers },
     { href: "/discord-colored-text", label: "Colored Text", icon: Palette },
     { href: "/discord-snowflake-to-timestamp", label: "Snowflake ID", icon: Hash },
-    { href: "/unix-timestamp", label: "Unix Epoch", icon: Sparkles },
+    { href: "/unix-timestamp", label: "Unix Epoch", icon: Binary },
     { href: "/discord-markdown", label: "Markdown", icon: FileCode2 },
     { href: "/discord-bot-timestamps", label: "Bots", icon: Terminal },
     { href: "/blog", label: "Guides", icon: BookOpen },

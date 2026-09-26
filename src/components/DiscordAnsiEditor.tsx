@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Copy, Check, RotateCcw, Palette, Terminal, Sparkles } from "lucide-react";
+import { Copy, Check, RotateCcw, Palette, Terminal } from "lucide-react";
 import {
   ANSI_FOREGROUND_COLORS,
   ANSI_BACKGROUND_COLORS,
@@ -96,7 +96,7 @@ export function DiscordAnsiEditor() {
       {/* Preset Buttons */}
       <div className="mb-6 flex items-center gap-2 flex-wrap">
         <span className="text-xs text-slate-400 font-medium flex items-center gap-1">
-          <Sparkles className="h-3.5 w-3.5 text-indigo-400" />
+          <Palette className="h-3.5 w-3.5 text-indigo-400" />
           <span>Style Presets:</span>
         </span>
         {presets.map((p) => (

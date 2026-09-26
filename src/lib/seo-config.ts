@@ -36,8 +36,8 @@ export const siteConfig: SiteConfig = {
     discordDocs: "https://discord.com/developers/docs/reference#message-formatting-timestamp-styles",
   },
   author: {
-    name: "Discord Timestamps Engineering Team",
-    role: "Open Source Tool & Developer Utility",
+    name: "Rayyan & Discord Community Contributors",
+    role: "Open Source Creator & Developer",
     url: `${siteUrl}/about`,
   },
 };

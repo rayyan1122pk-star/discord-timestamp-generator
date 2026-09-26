@@ -17,8 +17,8 @@ export const POSTS_PART_1: BlogPost[] = [
     ],
     category: "Guides & Formats",
     readingTime: "18 min read",
-    publishedDate: "2026-02-15",
-    author: "Alex Vance",
+    publishedDate: "2026-09-24",
+    author: "Rayyan",
     excerpt: "Typing static times like '8 PM EST' creates confusion for international server members. Discord dynamic timestamp syntax converts absolute Unix epoch moments into each viewer local device time automatically.",
     content: "Discord dynamic timestamps use the format <t:TIMESTAMP:STYLE>, where TIMESTAMP is a 10-digit Unix epoch integer in seconds and STYLE is an optional single-letter display flag. When you post this syntax into any Discord channel, direct message, or announcement, the Discord client parses the epoch integer and renders the date and time matching the viewer device locale and operating system timezone settings.\n\nBecause the conversion happens on each member client device, a single message displays as 8:00 PM for a user in New York, 1:00 AM for a user in London, and 10:00 AM for a user in Tokyo. This eliminates manual timezone math, eliminates daylight saving time calculation errors, and prevents missed events in global communities.",
     keyTakeaways: [
@@ -218,8 +218,8 @@ export const POSTS_PART_1: BlogPost[] = [
     ],
     category: "Troubleshooting",
     readingTime: "17 min read",
-    publishedDate: "2026-03-15",
-    author: "Alex Vance",
+    publishedDate: "2026-09-24",
+    author: "Rayyan",
     excerpt: "When a Discord timestamp appears as raw unformatted code in chat, it breaks community announcements. Here are the 8 exact causes and how to resolve them in seconds.",
     content: "Seeing raw text like <t:1727280000:R> in Discord chat instead of a dynamic interactive badge indicates a token parsing failure. Discord relies on a strict regular expression parser to locate and convert timestamp tags into localized React components. If a single character, bracket, whitespace character, or digit count deviates from the specification, Discord skips conversion and renders the raw string.\n\nThis troubleshooting guide covers all 8 documented root causes for broken Discord timestamps, explaining the underlying client mechanics and providing exact copy-paste solutions for each scenario.",
     keyTakeaways: [
@@ -382,8 +382,8 @@ export const POSTS_PART_1: BlogPost[] = [
     ],
     category: "Features & Tools",
     readingTime: "15 min read",
-    publishedDate: "2026-03-20",
-    author: "Elena Rostova",
+    publishedDate: "2026-09-25",
+    author: "Rayyan",
     excerpt: "Need a live countdown for your upcoming server tournament or giveaway? Discord built-in relative timestamp flag (:R) updates in real time without bots or paid plugins.",
     content: "The relative timestamp style (:R) is one of Discord most versatile communication features. Unlike traditional countdown bots that spam channels and edit messages every minute, the :R flag relies entirely on client-side rendering. Each Discord client calculates and updates the countdown display locally, showing phrases like 'in 2 hours', 'in 15 minutes', or 'in a few seconds'.\n\nBecause the countdown logic executes inside the viewer Discord application, it generates zero network requests, avoids Discord API rate limits, and transitions from a future countdown to elapsed time once the scheduled moment arrives.",
     keyTakeaways: [
@@ -523,8 +523,8 @@ export const POSTS_PART_1: BlogPost[] = [
     ],
     category: "Community Management",
     readingTime: "16 min read",
-    publishedDate: "2026-03-22",
-    author: "Elena Rostova",
+    publishedDate: "2026-09-25",
+    author: "Discord Community Contributor",
     excerpt: "Managing a global Discord community is rewarding until you try scheduling an event across US, European, and Asian timezones. Here is how to eliminate timezone chaos forever.",
     content: "When community leaders post event announcements like 'Meeting at 8 PM EST', they unintentionally introduce friction for international members. Members must leave Discord, open a search engine, calculate regional offsets, and guess whether daylight saving time has shifted the schedule.\n\nThis confusion leads to low attendance, missed tournament matches, and frustrated community members. By adopting Discord dynamic timestamp architecture and structured communication standards, community managers can post a single message that adapts to every member local clock with zero cognitive overhead.",
     keyTakeaways: [

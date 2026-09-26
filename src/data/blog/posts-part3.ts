@@ -16,8 +16,8 @@ export const POSTS_PART_3: BlogPost[] = [
     ],
     category: "Guides & Formats",
     readingTime: "15 min read",
-    publishedDate: "2026-03-28",
-    author: "Elena Rostova",
+    publishedDate: "2026-09-26",
+    author: "Rayyan",
     excerpt: "Can you bold a Discord timestamp? Can you hide a countdown inside a spoiler tag? Discover how Discord Markdown engine processes timestamp tokens and where styling breaks.",
     content: "Discord rich text chat engine is powered by an extended flavor of Markdown combined with custom token parsers for mentions, emoji, and timestamps. When structuring community announcements, rules, and server guidelines, styling timestamps with bold text, headers, and spoiler tags creates strong visual hierarchy.\n\nHowever, because Discord applies lexical parsing in distinct sequential passes, certain Markdown combinations work cleanly while others completely break token resolution. This guide details the parsing hierarchy, demonstrates which Markdown styles can wrap a timestamp, and explains how to maximize your 2,000-character message budget.",
     keyTakeaways: [
@@ -118,7 +118,7 @@ export const POSTS_PART_3: BlogPost[] = [
   {
     slug: "discord-api-rate-limits-message-editing-countdown-bots",
     title: "Discord API Rate Limits: Why Message Editing Countdown Bots Get Blocked",
-    description: "Deep dive into Discord leaky bucket rate limits, HTTP 429 errors, and why native relative timestamps (:R) are architecturally superior to edit loops.",
+    description: "Understand Discord leaky bucket rate limits, HTTP 429 errors, and why native relative timestamps (:R) beat bot edit loops.",
     primaryKeyword: "discord api rate limit message edit",
     searchVariations: [
       "discord bot countdown rate limit",
@@ -130,10 +130,10 @@ export const POSTS_PART_3: BlogPost[] = [
     ],
     category: "Architecture & Data",
     readingTime: "16 min read",
-    publishedDate: "2026-03-29",
-    author: "Marcus Sterling",
+    publishedDate: "2026-09-26",
+    author: "Discord Community Contributor",
     excerpt: "Building a countdown bot that edits a message every second seems simple until Discord bans your bot token. Here is the mathematical reality of Discord rate limits.",
-    content: "When developers first attempt to create a live countdown timer in Discord, their intuitive approach is often to send a bot message and update it on a fast interval loop (every 1 to 5 seconds) using client.editMessage().\n\nWithin seconds of deployment, the bot crashes with an HTTP 429 Too Many Requests exception, Discord API headers report zero remaining capacity, and continuing to spam edits risks an automated token suspension or Cloudflare IP block.\n\nIn this architectural deep dive, we examine Discord leaky bucket rate-limiting algorithms, analyze gateway WebSocket message fanout costs, and prove why native relative timestamp tags (<t:EPOCH:R>) are mathematically superior for countdowns.",
+    content: "When developers first attempt to create a live countdown timer in Discord, their intuitive approach is often to send a bot message and update it on a fast interval loop (every 1 to 5 seconds) using client.editMessage().\n\nWithin seconds of deployment, the bot crashes with an HTTP 429 Too Many Requests exception, Discord API headers report zero remaining capacity, and continuing to spam edits risks an automated token suspension or Cloudflare IP block.\n\nBelow, we break down Discord leaky bucket rate-limiting algorithms, analyze gateway WebSocket message fanout costs, and look at why native relative timestamp tags (<t:EPOCH:R>) beat edit loops every time.",
     keyTakeaways: [
       "Discord enforces a strict per-route bucket rate limit of 5 message edits per 5 seconds per channel.",
       "Editing a message on a 1-second interval will always exhaust your API rate limit within 5 seconds.",
@@ -232,8 +232,8 @@ export const POSTS_PART_3: BlogPost[] = [
     ],
     category: "Developer Integrations",
     readingTime: "15 min read",
-    publishedDate: "2026-03-30",
-    author: "Alex Vance",
+    publishedDate: "2026-09-26",
+    author: "Rayyan",
     excerpt: "Automate server calendar management by creating Discord Scheduled Events programmatically via the REST API, then broadcast synchronized dynamic countdowns in chat.",
     content: "Discord Guild Scheduled Events feature gives communities a dedicated event hub at the top of their channel sidebar. Members can browse upcoming events, mark themselves as 'Interested', and receive automated desktop and mobile push notifications when the event begins.\n\nWhile creating events manually through the Discord UI is fine for occasional meetings, developer communities and gaming leagues require programmatic automation to sync events from Google Calendar, Challonge brackets, or internal databases.\n\nIn this developer guide, you will learn how to interact with the Guild Scheduled Event REST API, handle ISO 8601 date formatting requirements, and automate companion announcement messages featuring dynamic relative timestamps.",
     keyTakeaways: [
@@ -323,8 +323,8 @@ export const POSTS_PART_3: BlogPost[] = [
     ],
     category: "Troubleshooting",
     readingTime: "16 min read",
-    publishedDate: "2026-03-31",
-    author: "Alex Vance",
+    publishedDate: "2026-09-26",
+    author: "Rayyan",
     excerpt: "When 99 server members see the correct event time but one member sees an hour that is off, the issue is not the timestamp. Here is how to diagnose and fix client clock skew.",
     content: "One of the most perplexing support requests community managers receive sounds like this: 'The announcement says the raid starts at 8:00 PM, but my Discord says 9:00 PM! Is the event delayed?'\n\nWhen a dynamic Discord timestamp displays an inaccurate time for a single individual while rendering accurately for everyone else, the server announcement code is not broken. Because Discord delegates date and time formatting entirely to the viewer device operating system, any local clock drift, improper timezone selection, or disabled network time synchronization directly corrupts the rendered output.\n\nIn this troubleshooting guide, we investigate how Discord interacts with local system clocks, explain Network Time Protocol (NTP) mechanics, and provide step-by-step resolution guides for Windows, macOS, Linux, iOS, and Android.",
     keyTakeaways: [
