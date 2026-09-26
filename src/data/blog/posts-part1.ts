@@ -584,7 +584,7 @@ export const POSTS_PART_1: BlogPost[] = [
         subsections: [
           {
             heading: "Stage 1: The Advance Notice (5 to 7 Days Prior)",
-            content: "Post the comprehensive event announcement with the full date (:F) and relative countdown (:R). Pin this message in your announcement channel. This gives international members adequate time to arrange their work and personal schedules."
+            content: "Post the main event announcement with the full date (:F) and relative countdown (:R). Pin this message in your announcement channel. This gives international members adequate time to arrange their work and personal schedules."
           },
           {
             heading: "Stage 2: The 24-Hour Check-In",

@@ -39,7 +39,7 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
     title: "The Complete Discord Timestamp Guide: Syntax, Styles & Rules",
     navTitle: "Timestamp Guide",
     description:
-      "A comprehensive guide to Discord's dynamic timestamps. Learn how <t:TIMESTAMP:STYLE> syntax automatically adjusts to local timezones, how to construct them, and best practices for server admins.",
+      "The complete handbook for Discord dynamic timestamps. See how <t:TIMESTAMP:STYLE> tags adjust to every viewer's local clock, how to construct them in seconds, and how to avoid the classic 13-digit millisecond trap.",
     primaryKeyword: "discord timestamp guide",
     secondaryKeywords: [
       "how to use discord timestamps",
@@ -55,33 +55,33 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       role: "Discord Bot Architect & Systems Engineer",
     },
     summary:
-      "Discord dynamic timestamps allow server owners, moderators, and bot builders to post a single time code that automatically displays in each viewer's local clock and timezone. This eliminates timezone confusion for international communities.",
+      "If you've ever tried running an event across three continents, you know the pain of typing out four different timezone abbreviations. Someone always miscalculates. Discord dynamic timestamps fix that for good: you post one code, and Discord shows the right time on everyone's screen.",
     sections: [
       {
         id: "what-are-discord-timestamps",
         heading: "What Are Dynamic Discord Timestamps?",
         content:
-          "Prior to Discord introducing timestamp formatting, community managers had to post cumbersome multi-timezone announcements like 'Event starts at 8:00 PM EST / 5:00 PM PST / 1:00 AM UTC'. This led to missed events and manual conversion errors. Dynamic timestamps solve this completely. When you write a timestamp code into a message, Discord's client reads the Unix epoch value and renders the time using the local device clock and language preferences of whoever is looking at the screen.",
+          "Before Discord added dynamic timestamps, server mods had to type out messy messages like 'Event starts at 8:00 PM EST / 5:00 PM PST / 1:00 AM UTC'. Half the server would still show up an hour late because of daylight saving changes or simple math mistakes. Dynamic timestamps kill that problem completely. You write a short code, Discord reads the Unix timestamp inside it, and each member's phone or computer displays the exact time according to their own system clock.",
       },
       {
         id: "the-anatomy-of-syntax",
-        heading: "The Anatomy of Discord Timestamp Syntax",
+        heading: "How the Discord Timestamp Syntax Works",
         content:
-          "Every Discord timestamp follows an exact bracketed formula composed of three parts: the opening tag `<t:`, the 10-digit Unix Epoch timestamp in seconds, an optional style flag preceded by a colon `:`, and the closing bracket `>`. For example, `<t:1727280000:R>` tells Discord to render the date as a relative countdown.",
+          "Every Discord timestamp uses a simple bracketed formula with three parts: the opening `<t:`, a 10-digit Unix timestamp in seconds, an optional style flag after a colon `:`, and the closing `>`. For instance, `<t:1727280000:R>` tells Discord to render a live countdown. That is all there is to it.",
         codeSnippet: {
           language: "markdown",
-          code: "<t:1727280000:R>\n// Breakdown:\n// <t:  -> Opening Discord timestamp tag\n// 1727280000 -> Unix epoch timestamp in SECONDS (not milliseconds)\n// :R   -> Style flag (R = Relative Time)\n// >    -> Closing tag",
+          code: "<t:1727280000:R>\n// Breakdown:\n// <t:        Opening tag\n// 1727280000 10-digit Unix epoch in SECONDS (never milliseconds)\n// :R         Style flag (R = Relative countdown/countup)\n// >          Closing tag",
           caption: "Discord Timestamp Syntax Anatomy",
         },
       },
       {
         id: "seconds-vs-milliseconds-rule",
-        heading: "The Critical Rule: Seconds vs. Milliseconds",
+        heading: "Watch Out: Seconds vs Milliseconds (The 10-Digit Rule)",
         content:
-          "The most common mistake when manually coding Discord timestamps is using JavaScript milliseconds. Standard JavaScript expressions like Date.now() return 13 digits (milliseconds since January 1, 1970). Discord strictly requires a 10-digit timestamp in seconds. If you pass a 13-digit millisecond value, Discord will either render it as plain text or interpret it thousands of years into the future.",
+          "Here is the mistake that trips up almost every developer the first time: JavaScript's `Date.now()` gives you 13 digits (milliseconds). Discord strictly expects 10 digits (seconds). If you copy-paste raw milliseconds into Discord, your timestamp either breaks into plain text or shows a date in the year 56,000. Always divide by 1000 and round down with `Math.floor()`.",
         codeSnippet: {
           language: "javascript",
-          code: "// INCORRECT (13 digits):\nconst badEpoch = Date.now(); // 1727280000123\nconst badTag = `<t:${badEpoch}:R>`; // Will break in Discord!\n\n// CORRECT (10 digits):\nconst goodEpoch = Math.floor(Date.now() / 1000); // 1727280000\nconst goodTag = `<t:${goodEpoch}:R>`; // Works perfectly!",
+          code: "// BROKEN (13 digits):\nconst badEpoch = Date.now(); // 1727280000123\nconst badTag = `<t:${badEpoch}:R>`; // Breaks in chat!\n\n// WORKING (10 digits):\nconst goodEpoch = Math.floor(Date.now() / 1000); // 1727280000\nconst goodTag = `<t:${goodEpoch}:R>`; // Renders properly on all devices",
           caption: "Converting JavaScript Date.now() to 10-digit Unix seconds",
         },
       },
@@ -89,14 +89,14 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
         id: "best-practices-for-server-admins",
         heading: "Best Practices for Server Announcements & Rules",
         content:
-          "When posting raid schedules, game tournaments, or maintenance notices, pair a relative countdown with an absolute date. Combining `<t:EPOCH:F>` with `(<t:EPOCH:R>)` gives members both the exact calendar date on their wall and a real-time countdown showing how many hours remain.",
+          "A clean trick used by experienced community admins is the dual-layer timestamp. Put an absolute calendar date first, followed by a relative countdown in parentheses: `<t:EPOCH:F> (<t:EPOCH:R>)`. That way, your community sees both the exact calendar date on their wall and a real-time countdown showing how many hours are left.",
       },
     ],
     faqs: [
       {
         question: "Can mobile Discord users see dynamic timestamps?",
         answer:
-          "Yes. Discord's iOS and Android apps fully support dynamic timestamps across both dark and light modes. The timestamp pulls directly from the operating system's timezone settings.",
+          "Yes. Discord's iOS and Android apps fully support dynamic timestamps across both dark and light modes. The app pulls the time directly from the phone's system clock.",
       },
       {
         question: "Do timestamps work inside Discord server channel topics and rules?",
@@ -131,18 +131,18 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       role: "Frontend Engineer & Developer Community Lead",
     },
     summary:
-      "Discord provides 7 distinct format flags to control how a timestamp renders on screen. Discover when to use relative countdowns versus absolute dates, with complete visual examples.",
+      "Discord gives you 7 single-letter flags to control how your time looks. Whether you want a compact hour, a full calendar date, or a live countdown that ticks down automatically, here is what each flag renders on screen.",
     sections: [
       {
         id: "the-seven-flags",
         heading: "The 7 Discord Timestamp Flags",
         content:
-          "Discord uses single-letter flags placed after a second colon to determine the visual presentation. If you omit the flag entirely (`<t:1727280000>`), Discord defaults to the `:f` (Short Date/Time) style.",
+          "Discord uses single-letter flags placed after a second colon to pick how your timestamp displays. If you leave off the flag entirely (`<t:1727280000>`), Discord defaults to the `:f` (Short Date/Time) style.",
         table: {
           headers: ["Flag", "Format Name", "Discord Syntax", "Rendered Output (US Locale)", "Best Use Case"],
           rows: [
             ["R", "Relative Time", "<t:1727280000:R>", "in 2 hours / 5 minutes ago", "Countdowns, deadlines, live streams"],
-            ["f", "Short Date/Time", "<t:1727280000:f>", "September 25, 2026 8:00 PM", "General events, community meetings"],
+            ["f", "Short Date/Time", "<t:1727280000:f>", "September 25, 2026 8:00 PM", "General events, community meetings (Default)"],
             ["F", "Long Date/Time", "<t:1727280000:F>", "Friday, September 25, 2026 8:00 PM", "Official tournaments, server rules"],
             ["t", "Short Time", "<t:1727280000:t>", "8:00 PM", "Daily recurring events (standups, raids)"],
             ["T", "Long Time", "<t:1727280000:T>", "8:00:00 PM", "Precise speedrun logs, server reboots"],
@@ -155,16 +155,16 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
         id: "relative-flag-mechanics",
         heading: "How Relative Time (:R) Works Dynamically",
         content:
-          "The `:R` flag is the most powerful format flag in Discord. It is recalculated continuously on the client side without needing the message to be edited. In the future it renders as 'in 2 hours', 'in 15 minutes', or 'in a few seconds'. Once the epoch is reached, it automatically flips to 'a few seconds ago' and '3 hours ago'. When hovered on desktop, a tooltip reveals the exact absolute date and time.",
+          "The `:R` flag is easily the most popular formatting trick in Discord. Instead of an absolute date, it renders a dynamic countdown like 'in 2 hours' or '15 minutes ago'. The best part? Discord recalculates this locally on every user's device without you having to edit the message. Once the target time passes, it seamlessly flips from 'in 5 minutes' to '5 minutes ago'. If someone hovers over the badge on desktop, Discord reveals the full calendar date in a tooltip.",
       },
       {
         id: "combining-formats",
         heading: "Pro Tip: Dual-Layer Formatting",
         content:
-          "Top community admins use dual-layer formatting for key announcements. By placing an absolute long date followed by a relative countdown in parentheses, your community gets maximum clarity regardless of whether they are glancing on mobile or reading rules on desktop.",
+          "If you run announcements for game nights, podcasts, or community raids, use the dual-layer trick. Pair an absolute date with a live countdown: `<t:EPOCH:F> (<t:EPOCH:R>)`. Members reading on a phone get the quick countdown, while desktop users checking their calendar see the exact weekday and time.",
         codeSnippet: {
           language: "markdown",
-          code: "**Tournament Kickoff:** <t:1727280000:F> (<t:1727280000:R>)\n**Server Maintenance:** <t:1727280000:t> (Downtime duration: 30 minutes).",
+          code: "**Tournament Kickoff:** <t:1727280000:F> (<t:1727280000:R>)\n**Server Maintenance:** <t:1727280000:t> (Downtime: about 30 minutes).",
           caption: "Recommended announcement layout combining :F and :R styles",
         },
       },
@@ -173,12 +173,12 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       {
         question: "Does the relative time flag update in real time without refreshing?",
         answer:
-          "Yes. Discord's client engine runs a client-side timer that recalculates the relative text string periodically as time passes.",
+          "Yes. Discord's client runs an internal timer that recalculates the relative string as time passes, no page reload or message edit required.",
       },
       {
         question: "What happens if I type an invalid flag like :X?",
         answer:
-          "If Discord does not recognize the flag character, it falls back to the default `:f` (Short Date/Time) style.",
+          "If Discord does not recognize your flag character, it falls back to the default `:f` (Short Date/Time) style.",
       },
     ],
   },
@@ -187,7 +187,7 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
     title: "Unix Timestamp to Discord: Epoch Conversion & Developer Guide",
     navTitle: "Unix Timestamp",
     description:
-      "Understand the mechanics of Unix Epoch time in Discord. Learn how seconds elapsed since January 1, 1970 UTC power worldwide synchronization without timezone drift.",
+      "See how Unix Epoch time works in Discord. Learn how seconds elapsed since January 1, 1970 UTC keep global communities in sync without messy timezone conversion errors.",
     primaryKeyword: "unix timestamp discord",
     secondaryKeywords: [
       "epoch time discord",
@@ -203,25 +203,25 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       role: "Backend Architect & Distributed Systems Engineer",
     },
     summary:
-      "A deep dive into POSIX Unix epoch time. Learn why Discord relies on integer seconds rather than string dates, how to handle daylight saving adjustments automatically, and how to convert dates across programming languages.",
+      "Why does Discord use a 10-digit number like 1727280000 instead of normal text? Because Unix epoch seconds provide a single, universal point in time that every phone and computer can translate to local clocks without timezone bugs.",
     sections: [
       {
         id: "what-is-unix-epoch",
         heading: "What Is Unix Epoch Time?",
         content:
-          "Unix time (also known as Epoch time or POSIX time) is a universal system for describing a point in time. It measures the total number of seconds that have elapsed since the Unix epoch: 00:00:00 UTC on Thursday, 1 January 1970 (excluding leap seconds). Because Unix time is an absolute integer based on UTC, it is completely immune to daylight saving changes, time zone differences, and local calendar conventions.",
+          "Unix time counts the number of seconds that have passed since midnight UTC on January 1, 1970 (excluding leap seconds). It is an absolute number. Because it references UTC directly, it never cares about daylight saving shifts, timezone borders, or leap years. A specific second in Tokyo is the exact same Unix number in New York.",
       },
       {
         id: "why-discord-uses-unix",
         heading: "Why Discord Uses Unix Epoch Integers",
         content:
-          "If Discord messages used plain strings like 'Friday at 8 PM', every user in London, Tokyo, New York, and Sydney would interpret that time differently. By storing a single 10-digit number like `1727280000`, the Discord client on each device takes that universal point in time and asks the local operating system: 'What date and time does this represent in the user's configured timezone and language?'",
+          "If you send 'Stream starts at 7 PM', that means four different things to four different people in your server. But if you post `<t:1727280000:t>`, you send an absolute moment. The Discord client on each member's device checks their local operating system settings and displays that moment matching their clock.",
       },
       {
         id: "converting-across-languages",
         heading: "How to Generate Unix Timestamps in Code",
         content:
-          "Here is how to calculate a valid 10-digit Discord Unix timestamp across common programming languages:",
+          "Here is how to calculate a valid 10-digit Discord Unix timestamp across common languages:",
         codeSnippet: {
           language: "javascript",
           code: "// JavaScript / TypeScript (Node.js & Browser)\nconst discordEpoch = Math.floor(new Date('2026-09-25T20:00:00Z').getTime() / 1000);\n\n# Python 3\nimport datetime\ndiscord_epoch = int(datetime.datetime(2026, 9, 25, 20, 0, tzinfo=datetime.timezone.utc).timestamp())\n\n// Go\npackage main\nimport \"time\"\nfunc getEpoch() int64 {\n    return time.Date(2026, 9, 25, 20, 0, 0, 0, time.UTC).Unix()\n}\n\n// PHP\n$discord_epoch = strtotime('2026-09-25 20:00:00 UTC');",
@@ -230,13 +230,13 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       },
       {
         id: "the-year-2038-problem",
-        heading: "Will Discord Timestamps Suffer the Year 2038 Problem?",
+        heading: "Will Discord Timestamps Break in Year 2038?",
         content:
-          "On January 19, 2038 at 03:14:07 UTC, standard signed 32-bit Unix integers will reach their maximum limit: 2,147,483,647. One second later (2,147,483,648), legacy 32-bit systems will roll over into negative numbers. Discord is completely immune to this limitation. Discord's client parser uses the pattern `<t:(-?\\d{1,17})(?::([tTdDfFR]))?>` and runs on 64-bit IEEE 754 floating point numbers in JavaScript, supporting safe integer timestamps up to 9,007,199,254,740,991 (the year 285,426).",
+          "On January 19, 2038, signed 32-bit Unix integers will hit their limit (2,147,483,647) and roll over into negative numbers on older systems. Discord is completely safe from this bug. Discord's client runs on modern 64-bit numbers in JavaScript, supporting integer timestamps safely up to the year 285,426.",
         codeSnippet: {
           language: "javascript",
           code: "// Boundary Verification in Node.js / JavaScript:\nconst max32Bit = 2147483647;\nconsole.log(new Date(max32Bit * 1000).toISOString()); // 2038-01-19T03:14:07.000Z\n\nconst post2038 = 2147483648;\nconsole.log(new Date(post2038 * 1000).toISOString()); // 2038-01-19T03:14:08.000Z (safe in Discord!)",
-          caption: "Year 2038 boundary verification demonstrating 64-bit timestamp safety",
+          caption: "Year 2038 boundary check demonstrating 64-bit safety",
         },
       },
     ],
@@ -244,12 +244,12 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       {
         question: "Can I use negative Unix timestamps in Discord for dates before 1970?",
         answer:
-          "Discord officially supports timestamps between 0 (1 January 1970) and positive 64-bit integers. Negative timestamps for historical dates prior to 1970 are not reliably parsed by Discord clients.",
+          "Discord officially supports timestamps between 0 (January 1, 1970) and positive 64-bit integers. Negative timestamps for historical dates prior to 1970 are not reliably parsed by Discord clients.",
       },
       {
         question: "Does daylight saving time (DST) affect the Unix timestamp number?",
         answer:
-          "No. The Unix timestamp number represents an absolute UTC moment. When a region shifts into DST, the integer remains identical, and the viewer's local device adjusts its display offset automatically.",
+          "No. The Unix timestamp number represents an absolute UTC moment. When a region shifts into DST, the integer stays identical, and each viewer's device adjusts its display offset automatically.",
       },
     ],
   },
@@ -258,7 +258,7 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
     title: "Discord Markdown Guide: Text Formatting, Code Blocks & Timestamps",
     navTitle: "Markdown Guide",
     description:
-      "The definitive guide to Discord Markdown. Master bold, italics, strikethrough, spoiler tags, headers, blockquotes, syntax highlighting, and embedding dynamic timestamps.",
+      "Master Discord Markdown formatting: bold headings, colorful code blocks, spoiler redactions, blockquotes, and dynamic timestamp tags that look great on desktop and mobile.",
     primaryKeyword: "discord markdown guide",
     secondaryKeywords: [
       "discord text formatting",
@@ -274,13 +274,13 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       role: "Discord Bot Architect & Systems Engineer",
     },
     summary:
-      "A complete reference for Discord's customized Markdown flavor. Learn how to combine bold headings, colorful code blocks, spoiler redactions, and dynamic timestamp tags to create beautiful announcements.",
+      "Discord chat supports a modified flavor of Markdown. You can format words, highlight code, hide spoilers, and combine bold text with live dynamic timestamps to build clean, organized server announcements.",
     sections: [
       {
         id: "markdown-basics",
         heading: "Core Discord Text Formatting Syntax",
         content:
-          "Discord uses a modified subset of Markdown to style chat messages. These formatting rules can be wrapped around text and paired seamlessly with timestamp tags.",
+          "Discord uses a modified subset of Markdown to style chat messages. You can wrap these around normal text or pair them directly with timestamp tags.",
         table: {
           headers: ["Style", "Markdown Syntax", "Example Code", "Resulting Appearance"],
           rows: [
@@ -301,10 +301,10 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
         id: "embedding-timestamps-in-markdown",
         heading: "Embedding Timestamps Inside Markdown Elements",
         content:
-          "You can place Discord timestamp codes inside bold tags, lists, blockquotes, and headers. However, do NOT put a timestamp code inside backticks (inline code) or code blocks, because backticks instruct Discord to display the raw characters literally without executing the timestamp engine.",
+          "You can wrap Discord timestamps in bold, italics, quotes, or headers. But there is one big trap: do NOT put timestamps inside backticks (inline code ` `) or multi-line code blocks (` ``` `). Backticks tell Discord to treat everything as literal text, which turns off timestamp parsing completely.",
         codeSnippet: {
           language: "markdown",
-          code: "// THIS WILL RENDER DYNAMICALLY:\n# Raid Night: **<t:1727280000:F>**\n> Starting: **<t:1727280000:R>**\n> Please join Voice Channel 1.\n\n// THIS WILL DISPLAY RAW TEXT (DO NOT DO THIS):\n`The event starts at <t:1727280000:R>`",
+          code: "// THIS RENDERS DYNAMICALLY:\n# Raid Night: **<t:1727280000:F>**\n> Starting: **<t:1727280000:R>**\n> Please join Voice Channel 1.\n\n// THIS WILL DISPLAY RAW TEXT (DON'T DO THIS):\n`The event starts at <t:1727280000:R>`",
           caption: "Correct vs Incorrect ways to combine Markdown with Timestamps",
         },
       },
@@ -312,19 +312,19 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
         id: "code-blocks-and-highlighting",
         heading: "Multi-Line Code Blocks with Syntax Highlighting",
         content:
-          "To format code or log outputs, wrap the block with triple backticks (```) followed by the language identifier (e.g., json, js, py, yaml, diff, ansi).",
+          "To format code or server log snippets, wrap the block with triple backticks (```) followed by the language identifier (such as json, js, py, yaml, diff, or ansi).",
       },
     ],
     faqs: [
       {
         question: "Can I color text in Discord messages?",
         answer:
-          "Discord does not have native HTML font color tags, but you can achieve colored text using ANSI escape code blocks (```ansi) with foreground color sequences.",
+          "Discord does not have native color tags like HTML, but you can get colored text using ANSI escape code blocks (```ansi) with standard terminal color sequences.",
       },
       {
         question: "Can I combine bold, italic, and underline together?",
         answer:
-          "Yes. Nest the Markdown characters: `__***bold italic underline***__` renders with all three styles applied simultaneously.",
+          "Yes. Just nest the tags: `__***bold italic underline***__` renders with all three styles active at once.",
       },
     ],
   },
@@ -333,7 +333,7 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
     title: "Discord Webhook Timestamps: Embeds, ISO-8601 & Dynamic Formatting",
     navTitle: "Webhook Timestamps",
     description:
-      "Step-by-step guide for developers using timestamps in Discord incoming webhooks. Master embed descriptions, dynamic fields, and ISO-8601 footer timestamps.",
+      "A developer guide for sending timestamps through Discord webhooks. Master embed descriptions, dynamic fields, and ISO-8601 footer timestamps.",
     primaryKeyword: "discord webhook timestamp",
     secondaryKeywords: [
       "discord embed timestamp format",
@@ -349,13 +349,13 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       role: "Backend Architect & Distributed Systems Engineer",
     },
     summary:
-      "Learn how to programmatically send dynamic timestamps through Discord webhooks via cURL, Python, Node.js, and n8n workflows, while distinguishing between embed body timestamps and embed footer timestamps.",
+      "Sending dates through Discord webhooks trips up a lot of developers because Discord has two different timestamp systems: dynamic Unix tags in text and ISO-8601 strings in embed footers. Here is how both work.",
     sections: [
       {
         id: "two-types-of-webhook-timestamps",
-        heading: "The Two Types of Webhook Timestamps: Dynamic vs. Footer",
+        heading: "The Two Types of Webhook Timestamps: Dynamic vs Footer",
         content:
-          "When sending webhook embeds to Discord, there are two completely different ways to present dates. Understanding the difference is vital for backend automation:\n\n1. **Dynamic Unix Tags (`<t:EPOCH:STYLE>`):** Used inside message `content`, embed `description`, and embed `fields.value`. These render dynamically in the user's timezone.\n2. **Embed Footer ISO-8601 Timestamp (`timestamp` property):** A top-level string property on the embed object that requires an ISO-8601 date string (e.g., `2026-09-25T20:00:00.000Z`). This renders in small grey text at the very bottom right of the embed card.",
+          "When sending embeds to Discord, keep this rule in mind: dynamic tags (`<t:EPOCH:STYLE>`) go inside descriptions and field values. Embed footers, on the other hand, strictly require an ISO-8601 string (like `2026-09-25T20:00:00.000Z`). If you accidentally put a `<t:...>` tag inside the embed footer timestamp field, the Discord API throws an immediate HTTP 400 Bad Request.",
       },
       {
         id: "webhook-json-payload",
@@ -372,7 +372,7 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
         id: "sending-with-curl-or-fetch",
         heading: "Sending Webhooks in Node.js (fetch)",
         content:
-          "Here is how to automate this in modern JavaScript or TypeScript without requiring external heavy libraries:",
+          "Here is how to automate this in modern JavaScript or TypeScript without installing heavy external packages:",
         codeSnippet: {
           language: "javascript",
           code: "const webhookUrl = process.env.DISCORD_WEBHOOK_URL;\nconst eventDate = new Date('2026-09-25T20:00:00Z');\nconst epochSeconds = Math.floor(eventDate.getTime() / 1000);\n\nawait fetch(webhookUrl, {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify({\n    embeds: [{\n      title: 'Incident Resolved',\n      description: `All services restored as of <t:${epochSeconds}:R> (<t:${epochSeconds}:t>).`,\n      color: 0x57F287,\n      timestamp: eventDate.toISOString()\n    }]\n  })\n});",
@@ -383,7 +383,7 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
         id: "curl-and-github-actions-automation",
         heading: "Automating Announcements with cURL and GitHub Actions",
         content:
-          "For automated CI/CD alerts or scheduled event notices, you can calculate the Unix epoch in Bash and send the webhook using cURL within a GitHub Actions workflow:",
+          "For automated CI/CD alerts or scheduled event notices, you can calculate the Unix epoch in Bash and send the webhook using cURL in GitHub Actions:",
         codeSnippet: {
           language: "yaml",
           code: "name: Discord Event Alert\non:\n  schedule:\n    - cron: '0 12 * * 1' # Every Monday at 12:00 UTC\njobs:\n  notify:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Send Scheduled Discord Webhook\n        env:\n          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}\n        run: |\n          # Calculate epoch for event in 2 hours\n          TARGET_EPOCH=$(($(date +%s) + 7200))\n          \n          curl -H \"Content-Type: application/json\" \\\n            -X POST \\\n            -d '{\"content\": \"Weekly Community Standby starts <t:'\"$TARGET_EPOCH\"':R> (<t:'\"$TARGET_EPOCH\"':F>)!\"}' \\\n            \"$WEBHOOK_URL\"",
@@ -425,13 +425,13 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       role: "Discord Bot Architect & Systems Engineer",
     },
     summary:
-      "Complete code patterns and best practices for generating clean, type-safe timestamps in Discord bots using discord.js v14 and discord.py v2. Avoid string concatenation bugs and utilize built-in SDK helpers.",
+      "Writing bots in discord.js or discord.py? Stop manually string-concatenating `<t:${time}:R>`. Both SDKs ship with native, type-safe helpers that format dates cleanly and protect against timezone bugs.",
     sections: [
       {
         id: "discord-js-implementation",
         heading: "Implementing Timestamps in discord.js (v14+)",
         content:
-          "In modern discord.js, you should never write manual string template literals like `<t:${time}:R>`. Discord.js exports dedicated, type-safe helpers: the `time()` function and the `TimestampStyles` enum from `@discordjs/formatters` or `discord.js` directly.",
+          "In modern discord.js v14, you do not need to stitch strings together. Discord.js provides the `time()` helper and the `TimestampStyles` enum directly. They give you full TypeScript autocomplete and ensure you never pass an invalid flag.",
         codeSnippet: {
           language: "typescript",
           code: "import { EmbedBuilder, time, TimestampStyles } from 'discord.js';\n\nconst targetDate = new Date('2026-09-25T20:00:00Z');\n\n// Create formatted timestamp strings\nconst relativeTime = time(targetDate, TimestampStyles.RelativeTime); // <t:1727280000:R>\nconst longDateTime = time(targetDate, TimestampStyles.LongDateTime); // <t:1727280000:F>\n\nconst embed = new EmbedBuilder()\n  .setTitle('Community Game Night')\n  .setDescription(`Join us ${relativeTime} on ${longDateTime} for our server tournament!`)\n  .setColor(0x5865F2);",
@@ -442,7 +442,7 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
         id: "discord-py-implementation",
         heading: "Implementing Timestamps in discord.py (v2+)",
         content:
-          "In Python's `discord.py` library, you can use the built-in `discord.utils.format_dt()` function, which accepts standard Python `datetime` objects and style flags.",
+          "In Python's `discord.py` library, you can use the built-in `discord.utils.format_dt()` function, which takes standard Python `datetime` objects and style flags.",
         codeSnippet: {
           language: "python",
           code: "import discord\nfrom discord.ext import commands\nfrom datetime import datetime, timezone\n\nbot = commands.Bot(command_prefix='!', intents=discord.Intents.default())\n\n@bot.command()\nasync def countdown(ctx):\n    # Create a timezone-aware UTC datetime\n    event_time = datetime(2026, 9, 25, 20, 0, 0, tzinfo=timezone.utc)\n    \n    # Format with discord.utils.format_dt\n    relative_str = discord.utils.format_dt(event_time, style='R')\n    full_str = discord.utils.format_dt(event_time, style='F')\n    \n    await ctx.send(f'The event will take place {relative_str} ({full_str})!')",
@@ -451,9 +451,9 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       },
       {
         id: "bot-timezone-conversion-pitfalls",
-        heading: "Common Pitfall: Server Time vs. User Time",
+        heading: "Common Pitfall: Server Time vs User Time",
         content:
-          "Bot developers frequently get confused when accepting user input in slash commands (e.g. `/remindme 8pm`). If your bot runs on a server in Germany (UTC+1) and the user is in California (UTC-8), parsing '8pm' using standard local time will result in an offset error of 9 hours. Always require users to provide their timezone or accept UTC/relative offsets (e.g. `in 2 hours`).",
+          "Here is a classic bug in reminder bots: a user in California types `/remindme 8pm`. Your bot host is in Frankfurt (UTC+1). If your code simply parses '8pm' using local system time, your reminder fires 9 hours early or late. Always capture the user's timezone offset or store everything in UTC.",
       },
     ],
     faqs: [
@@ -465,7 +465,7 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
       {
         question: "What is the difference between TimestampStyles.RelativeTime and 'R' in discord.js?",
         answer:
-          "They are functionally identical. `TimestampStyles.RelativeTime` simply resolves to the string character `'R'`, providing TypeScript autocomplete and preventing typos.",
+          "They are functionally identical. `TimestampStyles.RelativeTime` simply resolves to the string character `'R'`, giving you autocomplete and typo protection.",
       },
     ],
   },
