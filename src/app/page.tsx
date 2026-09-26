@@ -303,6 +303,62 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Common Mistakes & Troubleshooting Section */}
+      <section className="mt-16 pt-12 border-t border-slate-800/80">
+        <h2 className="text-2xl font-bold tracking-tight text-white mb-2">
+          Common Discord Timestamp Mistakes &amp; Fixes
+        </h2>
+        <p className="text-sm text-slate-400 mb-8">
+          Avoid these four frequent errors when sharing timestamps in channels, bots, or webhooks.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="border border-slate-800/80 rounded-xl p-5 bg-[#0d1017]">
+            <div className="font-mono text-xs font-semibold text-rose-400 mb-2">Mistake 01: Milliseconds Bug</div>
+            <h3 className="font-semibold text-white text-base mb-1.5">Using 13-Digit JavaScript Timestamps</h3>
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-3">
+              Standard JavaScript <code className="text-slate-300 font-mono">Date.now()</code> returns milliseconds (13 digits). Discord strictly requires whole seconds (10 digits). Passing milliseconds pushes dates to the year 50,000+ or renders broken code.
+            </p>
+            <div className="rounded bg-slate-900/80 p-2.5 font-mono text-xs text-slate-300 border border-slate-800">
+              <span className="text-emerald-400 font-semibold">Fix:</span> Math.floor(Date.now() / 1000)
+            </div>
+          </div>
+
+          <div className="border border-slate-800/80 rounded-xl p-5 bg-[#0d1017]">
+            <div className="font-mono text-xs font-semibold text-rose-400 mb-2">Mistake 02: Markdown Code Block Wrapping</div>
+            <h3 className="font-semibold text-white text-base mb-1.5">Wrapping Timestamps in Backticks</h3>
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-3">
+              Typing <code className="text-slate-300 font-mono">`&lt;t:TIMESTAMP:R&gt;`</code> tells Discord to render an inline code span. Inside code blocks, all entity parsing is disabled, preventing the localized badge from appearing.
+            </p>
+            <div className="rounded bg-slate-900/80 p-2.5 font-mono text-xs text-slate-300 border border-slate-800">
+              <span className="text-emerald-400 font-semibold">Fix:</span> Paste without backticks. Bold (<code className="text-indigo-300 font-mono">**&lt;t:...&gt;**</code>) works!
+            </div>
+          </div>
+
+          <div className="border border-slate-800/80 rounded-xl p-5 bg-[#0d1017]">
+            <div className="font-mono text-xs font-semibold text-rose-400 mb-2">Mistake 03: Webhook Payload Rejection</div>
+            <h3 className="font-semibold text-white text-base mb-1.5">Putting &lt;t:...&gt; Inside Embed Footers</h3>
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-3">
+              Discord webhook embed footers require an ISO-8601 string (e.g. <code className="text-slate-300 font-mono">2026-09-25T20:00:00Z</code>). Putting dynamic tags into the footer causes an immediate <code className="text-rose-400 font-mono">HTTP 400 Bad Request</code>.
+            </p>
+            <div className="rounded bg-slate-900/80 p-2.5 font-mono text-xs text-slate-300 border border-slate-800">
+              <span className="text-emerald-400 font-semibold">Fix:</span> Use &lt;t:...&gt; in description; use ISO-8601 in embed.timestamp.
+            </div>
+          </div>
+
+          <div className="border border-slate-800/80 rounded-xl p-5 bg-[#0d1017]">
+            <div className="font-mono text-xs font-semibold text-rose-400 mb-2">Mistake 04: Client Clock Desynchronization</div>
+            <h3 className="font-semibold text-white text-base mb-1.5">Assuming Discord Overrides Device Time</h3>
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-3">
+              Discord renders timestamps using the viewer&apos;s local operating system clock. If a member&apos;s phone clock is 10 minutes slow, all event timestamps will appear 10 minutes late on their screen.
+            </p>
+            <div className="rounded bg-slate-900/80 p-2.5 font-mono text-xs text-slate-300 border border-slate-800">
+              <span className="text-emerald-400 font-semibold">Fix:</span> Sync device clock with automatic network time (NTP).
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Developer Guides Directory */}
       <section className="mt-16 pt-12 border-t border-slate-800/80">
         <h2 className="text-2xl font-bold tracking-tight text-white mb-2">

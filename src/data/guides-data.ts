@@ -232,7 +232,12 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
         id: "the-year-2038-problem",
         heading: "Will Discord Timestamps Suffer the Year 2038 Problem?",
         content:
-          "On 19 January 2038, systems using signed 32-bit integers to store Unix epoch time will overflow. Discord's client and modern 64-bit backend architectures parse timestamps as 64-bit integers, ensuring Discord timestamps will function safely for billions of years.",
+          "On January 19, 2038 at 03:14:07 UTC, standard signed 32-bit Unix integers will reach their maximum limit: 2,147,483,647. One second later (2,147,483,648), legacy 32-bit systems will roll over into negative numbers. Discord is completely immune to this limitation. Discord's client parser uses the pattern `<t:(-?\\d{1,17})(?::([tTdDfFR]))?>` and runs on 64-bit IEEE 754 floating point numbers in JavaScript, supporting safe integer timestamps up to 9,007,199,254,740,991 (the year 285,426).",
+        codeSnippet: {
+          language: "javascript",
+          code: "// Boundary Verification in Node.js / JavaScript:\nconst max32Bit = 2147483647;\nconsole.log(new Date(max32Bit * 1000).toISOString()); // 2038-01-19T03:14:07.000Z\n\nconst post2038 = 2147483648;\nconsole.log(new Date(post2038 * 1000).toISOString()); // 2038-01-19T03:14:08.000Z (safe in Discord!)",
+          caption: "Year 2038 boundary verification demonstrating 64-bit timestamp safety",
+        },
       },
     ],
     faqs: [
@@ -372,6 +377,17 @@ export const COMPREHENSIVE_GUIDES: Record<string, GuideItem> = {
           language: "javascript",
           code: "const webhookUrl = process.env.DISCORD_WEBHOOK_URL;\nconst eventDate = new Date('2026-09-25T20:00:00Z');\nconst epochSeconds = Math.floor(eventDate.getTime() / 1000);\n\nawait fetch(webhookUrl, {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify({\n    embeds: [{\n      title: 'Incident Resolved',\n      description: `All services restored as of <t:${epochSeconds}:R> (<t:${epochSeconds}:t>).`,\n      color: 0x57F287,\n      timestamp: eventDate.toISOString()\n    }]\n  })\n});",
           caption: "Lightweight native fetch implementation for Discord webhooks",
+        },
+      },
+      {
+        id: "curl-and-github-actions-automation",
+        heading: "Automating Announcements with cURL and GitHub Actions",
+        content:
+          "For automated CI/CD alerts or scheduled event notices, you can calculate the Unix epoch in Bash and send the webhook using cURL within a GitHub Actions workflow:",
+        codeSnippet: {
+          language: "yaml",
+          code: "name: Discord Event Alert\non:\n  schedule:\n    - cron: '0 12 * * 1' # Every Monday at 12:00 UTC\njobs:\n  notify:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Send Scheduled Discord Webhook\n        env:\n          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}\n        run: |\n          # Calculate epoch for event in 2 hours\n          TARGET_EPOCH=$(($(date +%s) + 7200))\n          \n          curl -H \"Content-Type: application/json\" \\\n            -X POST \\\n            -d '{\"content\": \"Weekly Community Standby starts <t:'\"$TARGET_EPOCH\"':R> (<t:'\"$TARGET_EPOCH\"':F>)!\"}' \\\n            \"$WEBHOOK_URL\"",
+          caption: "Production-ready GitHub Actions cron job using cURL and Unix seconds",
         },
       },
     ],
