@@ -15,21 +15,30 @@ export interface SiteConfig {
   };
 }
 
+const getSiteUrl = (): string => {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/+$/, "");
+  }
+  return "https://discord-timestamp-generator-swart.vercel.app";
+};
+
+const siteUrl = getSiteUrl();
+
 export const siteConfig: SiteConfig = {
   name: "Discord Timestamp Generator & Dynamic Time Formatter",
   shortName: "Discord Timestamps",
   description:
-    "Generate dynamic Discord timestamps that automatically adjust to every user's local timezone. Convert dates to Unix epoch syntax with live Discord chat preview, instant 1-click copy, and custom presets.",
-  url: "https://discordtimestamps.dev",
-  ogImage: "https://discordtimestamps.dev/og-image.png",
+    "Generate dynamic Discord timestamps that automatically adjust to local timezones. Convert dates to Unix epoch with live chat preview and 1-click copy.",
+  url: siteUrl,
+  ogImage: `${siteUrl}/og-image.png`,
   links: {
-    github: "https://github.com/discord-timestamp-generator",
+    github: "https://github.com/rayyan1122pk-star/discord-timestamp-generator",
     discordDocs: "https://discord.com/developers/docs/reference#message-formatting-timestamp-styles",
   },
   author: {
     name: "Discord Timestamps Engineering Team",
     role: "Open Source Tool & Developer Utility",
-    url: "https://discordtimestamps.dev/about",
+    url: `${siteUrl}/about`,
   },
 };
 
@@ -44,7 +53,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
   home: {
     title: "Discord Timestamp Generator: Dynamic Timezone Formatter & Preview",
     description:
-      "Easily generate dynamic Discord timestamps (<t:TIMESTAMP:STYLE>) that auto-adjust to each user's local timezone. Features live chat preview, relative countdowns, and 1-click copy.",
+      "Generate dynamic Discord timestamps (<t:TIMESTAMP:STYLE>) that adapt to each user's local timezone. Features live chat preview, countdowns, and 1-click copy.",
     canonical: siteConfig.url,
     keywords: [
       "discord timestamp generator",

@@ -1,0 +1,14 @@
+/* TEAM */
+Developer: Discord Timestamps Engineering Team
+Site: https://discord-timestamp-generator-swart.vercel.app
+
+/* THANKS */
+Discord API Documentation & Open Source Developer Community
+
+/* TECHNOLOGY COLOPHON */
+Standards: HTML5, CSS3, ES2024, TypeScript
+Components: React 19, Next.js 16 (Turbopack)
+Styling: Tailwind CSS v4
+Fonts: Geist Sans, Geist Mono
+Hosting: Vercel
+Privacy: 100% Client-Side Local Calculations

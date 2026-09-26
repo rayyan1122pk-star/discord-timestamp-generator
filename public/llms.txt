@@ -1,6 +1,6 @@
 # Discord Timestamp Generator
 
-> Discord Timestamp Generator (https://discordtimestamps.dev) is an open-source, client-side web utility and developer documentation hub for creating dynamic Discord timestamps (<t:TIMESTAMP:STYLE>), converting Unix epoch times, and formatting Discord markdown messages.
+> Discord Timestamp Generator (https://discord-timestamp-generator-swart.vercel.app) is an open-source, client-side web utility and developer documentation hub for creating dynamic Discord timestamps (<t:TIMESTAMP:STYLE>), converting Unix epoch times, and formatting Discord markdown messages.
 
 ## Core Utility & Functionality
 - **Syntax:** `<t:1700000000:R>` where `1700000000` is the Unix epoch timestamp in seconds, and `R` is the format flag.
@@ -17,31 +17,31 @@
 - `R`: Relative Time countdown/countup (e.g., in 2 hours, 5 minutes ago)
 
 ## Core Documentation Pages
-- [Homepage / Live Generator](https://discordtimestamps.dev): Interactive generator with datepicker, timezone selector, presets, live chat simulator, and 1-click copy.
-- [Discord Timestamp Guide](https://discordtimestamps.dev/discord-timestamp-guide): Comprehensive tutorial on how Discord dynamic timestamps work, syntax breakdown, and troubleshooting.
-- [Timestamp Formats & Styles](https://discordtimestamps.dev/discord-timestamp-formats): Cheat sheet and comparison of all 7 Discord timestamp style flags.
-- [Unix Timestamp Guide](https://discordtimestamps.dev/unix-timestamp): Unix epoch guide, seconds vs. milliseconds explanation, and timezone offsets.
-- [Discord Markdown Guide](https://discordtimestamps.dev/discord-markdown): Formatting guide for bold, italic, spoilers, headers, code blocks, and dynamic time integration.
-- [Discord Webhook Timestamps](https://discordtimestamps.dev/discord-webhook-timestamps): Guide for embedding dynamic timestamps in webhooks and bot JSON embeds.
-- [Discord Bot Timestamps](https://discordtimestamps.dev/discord-bot-timestamps): Code snippets and libraries for Discord.js, Discord.py, and REST API automation.
-- [Blog / Technical Guides](https://discordtimestamps.dev/blog): Developer articles, moderation tutorials, and scheduled event walkthroughs.
+- [Homepage / Live Generator](https://discord-timestamp-generator-swart.vercel.app): Interactive generator with datepicker, timezone selector, presets, live chat simulator, and 1-click copy.
+- [Discord Timestamp Guide](https://discord-timestamp-generator-swart.vercel.app/discord-timestamp-guide): Comprehensive tutorial on how Discord dynamic timestamps work, syntax breakdown, and troubleshooting.
+- [Timestamp Formats & Styles](https://discord-timestamp-generator-swart.vercel.app/discord-timestamp-formats): Cheat sheet and comparison of all 7 Discord timestamp style flags.
+- [Unix Timestamp Guide](https://discord-timestamp-generator-swart.vercel.app/unix-timestamp): Unix epoch guide, seconds vs. milliseconds explanation, and timezone offsets.
+- [Discord Markdown Guide](https://discord-timestamp-generator-swart.vercel.app/discord-markdown): Formatting guide for bold, italic, spoilers, headers, code blocks, and dynamic time integration.
+- [Discord Webhook Timestamps](https://discord-timestamp-generator-swart.vercel.app/discord-webhook-timestamps): Guide for embedding dynamic timestamps in webhooks and bot JSON embeds.
+- [Discord Bot Timestamps](https://discord-timestamp-generator-swart.vercel.app/discord-bot-timestamps): Code snippets and libraries for Discord.js, Discord.py, and REST API automation.
+- [Blog / Technical Guides](https://discord-timestamp-generator-swart.vercel.app/blog): Developer articles, moderation tutorials, and scheduled event walkthroughs.
 
 ## In-Depth Developer & Community Tutorials
-- [How to Format Discord Timestamps in Bots](https://discordtimestamps.dev/blog/how-to-format-discord-timestamps-in-bots): Discord.js v14 and Discord.py implementation guide.
-- [Relative Countdown Timestamps in Discord](https://discordtimestamps.dev/blog/relative-countdown-timestamps-in-discord): Guide to using the `:R` flag for tournament starts, deadlines, and raids.
-- [Fix Discord Timestamp 1000x Millisecond Bug](https://discordtimestamps.dev/blog/discord-timestamp-seconds-vs-milliseconds-bug): How to diagnose and resolve the common 13-digit JavaScript Date millisecond error.
-- [Automating Community Event Announcements with Webhooks](https://discordtimestamps.dev/blog/automating-discord-event-announcements-with-webhooks): Multi-timezone server scheduling with GitHub Actions and cURL.
-- [Discord Markdown and Embedded Timestamps Cheat Sheet](https://discordtimestamps.dev/blog/discord-markdown-text-formatting-timestamps-cheat-sheet): Formatting rules for headers, tables, quotes, and timestamps.
-- [Converting UTC Dates to Discord Unix Timestamps](https://discordtimestamps.dev/blog/converting-utc-dates-to-discord-unix-timestamps): Step-by-step conversion across Python, JavaScript, Bash, and SQL.
-- [Discord Timestamp Generator vs Manual Epoch Calculation](https://discordtimestamps.dev/blog/discord-timestamp-generator-vs-manual-epoch-calculation): Accuracy comparison and workflow analysis for community managers.
-- [Server Event Scheduling and Recurring Timestamps](https://discordtimestamps.dev/blog/discord-server-event-scheduling-recurring-timestamps): Solutions for daylight saving transitions and recurring community meetups.
-- [Discord Embed Timestamps vs Dynamic In-Text Timestamps](https://discordtimestamps.dev/blog/discord-embed-timestamp-vs-in-text-timestamps): Difference between top-level embed footer timestamps (ISO-8601) and in-body dynamic tags.
-- [Troubleshooting Discord Timestamps Not Displaying Correctly](https://discordtimestamps.dev/blog/troubleshooting-discord-timestamps-not-displaying-correctly): Fixes for raw text leaks, mobile cache glitches, and syntax typos.
-- [Role-Based Access and Event Reminder Timestamps](https://discordtimestamps.dev/blog/role-based-event-reminders-discord-timestamps): Strategies for notifying international guild members without timezone confusion.
-- [Complete History and Architecture of Discord Timestamps](https://discordtimestamps.dev/blog/history-and-architecture-of-discord-timestamps): Why Discord introduced dynamic timestamps in 2021 and how client-side rendering operates.
+- [How to Create Discord Timestamps: The Complete Practical Guide](https://discord-timestamp-generator-swart.vercel.app/blog/how-to-create-discord-timestamps-complete-guide): Step-by-step tutorial on generating and sharing timestamps across Discord communities.
+- [Discord Timestamp Not Working? Complete Troubleshooting Guide](https://discord-timestamp-generator-swart.vercel.app/blog/discord-timestamp-not-working-troubleshooting-guide): Diagnosing raw text leaks, backtick syntax typos, and mobile formatting glitches.
+- [Discord Countdown Timer in Chat: How to Use Relative Timestamps](https://discord-timestamp-generator-swart.vercel.app/blog/discord-countdown-timer-chat-relative-time-guide): Master dynamic `:R` countdowns for server tournaments, raids, and product launches.
+- [How to Schedule Events Across Global Discord Servers Without Timezone Confusion](https://discord-timestamp-generator-swart.vercel.app/blog/how-to-schedule-events-across-global-discord-servers): Multi-region scheduling strategies for gaming guilds and distributed remote teams.
+- [Building an Automated Discord Notification System with n8n and Dynamic Timestamps](https://discord-timestamp-generator-swart.vercel.app/blog/building-an-automated-discord-notification-system-with-n8n): Workflow automation with n8n, webhooks, and dynamic Unix epoch formatting.
+- [How to Send Discord Timestamps on Mobile (iPhone and Android)](https://discord-timestamp-generator-swart.vercel.app/blog/how-to-send-discord-timestamps-on-mobile-iphone-android): Copying, pasting, and mobile browser tips for iOS and Android Discord users.
+- [Discord Bot Dynamic Timestamps: discord.js and discord.py Developer Guide](https://discord-timestamp-generator-swart.vercel.app/blog/discord-bot-dynamic-timestamp-developer-guide): Complete code snippets for discord.js v14 time() builders and Python format_dt helpers.
+- [Unix Timestamps vs ISO 8601: When to Use Each in Discord Bots and Embeds](https://discord-timestamp-generator-swart.vercel.app/blog/unix-timestamp-vs-iso-8601-discord-bots): Comparing dynamic in-text tags with top-level ISO-8601 embed footer timestamps.
+- [Discord Markdown and Dynamic Timestamps: Formatting Messages Like a Pro](https://discord-timestamp-generator-swart.vercel.app/blog/discord-markdown-formatting-timestamps-guide): Combining bold, headers, blockquotes, code blocks, and timestamps in announcements.
+- [Discord API Rate Limits and Message Editing: Why Live Countdown Bots Break](https://discord-timestamp-generator-swart.vercel.app/blog/discord-api-rate-limits-message-editing-countdown-bots): Why editing messages every second triggers HTTP 429 rate limits and how `:R` solves it.
+- [Discord Scheduled Events API: Automating Server Events with Dynamic Timestamps](https://discord-timestamp-generator-swart.vercel.app/blog/discord-scheduled-events-api-automations): Creating guild scheduled events programmatically with webhook reminders.
+- [Diagnosing Discord Timezone Display Issues: Device Clock Skew, Caching, and Format Bugs](https://discord-timestamp-generator-swart.vercel.app/blog/diagnosing-discord-timezone-clock-skew-issues): Troubleshooting operating system clock skew, NTP desync, and mobile app cache issues.
 
 ## Trust & Operational Information
-- [About Us](https://discordtimestamps.dev/about): Mission, technical architecture, and open-source principles.
-- [Contact Support](https://discordtimestamps.dev/contact): Feedback, bug reports, and feature requests.
-- [Privacy Policy](https://discordtimestamps.dev/privacy): Explicit documentation of 100% client-side privacy.
-- [Terms of Service](https://discordtimestamps.dev/terms): Usage conditions and open web guidelines.
+- [About Us](https://discord-timestamp-generator-swart.vercel.app/about): Mission, technical architecture, and open-source principles.
+- [Contact Support](https://discord-timestamp-generator-swart.vercel.app/contact): Feedback, bug reports, and feature requests.
+- [Privacy Policy](https://discord-timestamp-generator-swart.vercel.app/privacy): Explicit documentation of 100% client-side privacy.
+- [Terms of Service](https://discord-timestamp-generator-swart.vercel.app/terms): Usage conditions and open web guidelines.

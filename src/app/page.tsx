@@ -4,8 +4,39 @@ import { ArrowRight } from "lucide-react";
 import { TimestampGenerator } from "@/components/TimestampGenerator";
 import { FaqAccordion, FaqItem } from "@/components/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
-import { siteConfig } from "@/lib/seo-config";
+import type { Metadata } from "next";
+import { siteConfig, routeMetadataMap } from "@/lib/seo-config";
 import { BLOG_POSTS } from "@/data/guides-data";
+
+export const metadata: Metadata = {
+  title: routeMetadataMap.home.title,
+  description: routeMetadataMap.home.description,
+  alternates: {
+    canonical: siteConfig.url,
+  },
+  openGraph: {
+    title: routeMetadataMap.home.title,
+    description: routeMetadataMap.home.description,
+    url: siteConfig.url,
+    siteName: siteConfig.shortName,
+    images: [
+      {
+        url: `${siteConfig.url}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "Discord Timestamp Generator & Preview Interface",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: routeMetadataMap.home.title,
+    description: routeMetadataMap.home.description,
+    images: [`${siteConfig.url}/og-image.png`],
+  },
+};
 
 const HOME_FAQS: FaqItem[] = [
   {
@@ -122,13 +153,18 @@ export default function HomePage() {
       </section>
 
       {/* The Core Interactive Product Tool */}
-      <TimestampGenerator />
+      <section className="space-y-4">
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-2">
+          Create a Discord Timestamp
+        </h2>
+        <TimestampGenerator />
+      </section>
 
       {/* Editorial Explanatory Section */}
       <section className="mt-20 pt-12 border-t border-slate-800/80">
         <div className="max-w-3xl">
           <h2 className="text-2xl font-bold tracking-tight text-white mb-4">
-            How Discord Dynamic Timestamps Work
+            How Discord Timestamps Work
           </h2>
           <div className="space-y-4 text-base text-slate-300 leading-relaxed">
             <p>
@@ -147,6 +183,21 @@ export default function HomePage() {
             </p>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
+            <div className="border border-slate-800/80 rounded-xl p-5 bg-[#0d1017]">
+              <h3 className="font-semibold text-white text-base mb-2">Unix Timestamps</h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                A Unix timestamp represents seconds passed since January 1, 1970 UTC. Discord requires 10-digit second values, not 13-digit millisecond values.
+              </p>
+            </div>
+            <div className="border border-slate-800/80 rounded-xl p-5 bg-[#0d1017]">
+              <h3 className="font-semibold text-white text-base mb-2">Discord Timestamp Syntax</h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                The syntax follows <code className="font-mono text-indigo-300">&lt;t:TIMESTAMP:STYLE&gt;</code>. The style flag specifies whether Discord renders date, time, or a relative countdown.
+              </p>
+            </div>
+          </div>
+
           <div className="mt-6 flex flex-wrap gap-5 text-sm">
             <Link
               href="/discord-timestamp-guide"
@@ -162,6 +213,54 @@ export default function HomePage() {
               <span>Explore format flags (t, T, d, D, f, F, R)</span>
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Discord Timestamp Formats Section */}
+      <section className="mt-16 pt-12 border-t border-slate-800/80">
+        <h2 className="text-2xl font-bold tracking-tight text-white mb-2">
+          Discord Timestamp Formats
+        </h2>
+        <p className="text-sm text-slate-400 mb-6">
+          Discord supports 7 distinct formatting styles using a single-letter flag at the end of the syntax.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="border border-slate-800/80 rounded-xl p-4 bg-[#0d1017]">
+            <span className="font-mono text-xs font-semibold text-indigo-400">:t</span>
+            <h3 className="font-semibold text-white text-sm mt-1 mb-1">Short Time</h3>
+            <p className="text-xs text-slate-400">Displays hour and minute (e.g., 9:41 PM).</p>
+          </div>
+          <div className="border border-slate-800/80 rounded-xl p-4 bg-[#0d1017]">
+            <span className="font-mono text-xs font-semibold text-indigo-400">:T</span>
+            <h3 className="font-semibold text-white text-sm mt-1 mb-1">Long Time</h3>
+            <p className="text-xs text-slate-400">Displays hour, minute, and seconds (e.g., 9:41:30 PM).</p>
+          </div>
+          <div className="border border-slate-800/80 rounded-xl p-4 bg-[#0d1017]">
+            <span className="font-mono text-xs font-semibold text-indigo-400">:d</span>
+            <h3 className="font-semibold text-white text-sm mt-1 mb-1">Short Date</h3>
+            <p className="text-xs text-slate-400">Displays day, month, and year (e.g., 11/14/2026).</p>
+          </div>
+          <div className="border border-slate-800/80 rounded-xl p-4 bg-[#0d1017]">
+            <span className="font-mono text-xs font-semibold text-indigo-400">:D</span>
+            <h3 className="font-semibold text-white text-sm mt-1 mb-1">Long Date</h3>
+            <p className="text-xs text-slate-400">Displays full written month name and year (e.g., November 14, 2026).</p>
+          </div>
+          <div className="border border-slate-800/80 rounded-xl p-4 bg-[#0d1017]">
+            <span className="font-mono text-xs font-semibold text-indigo-400">:f</span>
+            <h3 className="font-semibold text-white text-sm mt-1 mb-1">Short Date/Time</h3>
+            <p className="text-xs text-slate-400">Default style if flag is omitted. Displays date and time.</p>
+          </div>
+          <div className="border border-slate-800/80 rounded-xl p-4 bg-[#0d1017]">
+            <span className="font-mono text-xs font-semibold text-indigo-400">:F</span>
+            <h3 className="font-semibold text-white text-sm mt-1 mb-1">Long Date/Time</h3>
+            <p className="text-xs text-slate-400">Full day of week, written month, year, and time.</p>
+          </div>
+          <div className="border border-slate-800/80 rounded-xl p-4 bg-[#0d1017] sm:col-span-2 lg:col-span-1">
+            <span className="font-mono text-xs font-semibold text-indigo-400">:R</span>
+            <h3 className="font-semibold text-white text-sm mt-1 mb-1">Relative Time</h3>
+            <p className="text-xs text-slate-400">Live countdown or countup (e.g., in 2 hours, 10 minutes ago).</p>
           </div>
         </div>
       </section>
