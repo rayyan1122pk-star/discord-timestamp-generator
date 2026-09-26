@@ -60,6 +60,16 @@ export function Footer() {
                   Discord Markdown Formatter
                 </Link>
               </li>
+              <li>
+                <Link href="/discord-colored-text" className="hover:text-white transition-colors">
+                  Discord Colored Text (ANSI)
+                </Link>
+              </li>
+              <li>
+                <Link href="/discord-snowflake-to-timestamp" className="hover:text-white transition-colors">
+                  Snowflake ID Decoder
+                </Link>
+              </li>
             </ul>
           </div>
 
