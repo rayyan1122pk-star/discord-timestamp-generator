@@ -42,6 +42,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  verification: {
+    google: "google7f180bfb9a396f2f",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
