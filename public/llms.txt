@@ -1,0 +1,47 @@
+# Discord Timestamp Generator
+
+> Discord Timestamp Generator (https://discordtimestamps.dev) is an open-source, client-side web utility and developer documentation hub for creating dynamic Discord timestamps (<t:TIMESTAMP:STYLE>), converting Unix epoch times, and formatting Discord markdown messages.
+
+## Core Utility & Functionality
+- **Syntax:** `<t:1700000000:R>` where `1700000000` is the Unix epoch timestamp in seconds, and `R` is the format flag.
+- **Client-Side Guarantee:** 100% of timestamp calculations run locally in the browser JavaScript runtime. No dates, times, or personal data are sent to any external server.
+- **Timezone Adjustment:** Timestamps dynamically render in the recipient's local timezone and device clock across Discord desktop, web, iOS, and Android clients.
+
+## All 7 Discord Timestamp Formats
+- `t`: Short Time (e.g., 9:41 PM)
+- `T`: Long Time (e.g., 9:41:30 PM)
+- `d`: Short Date (e.g., 11/14/2023)
+- `D`: Long Date (e.g., November 14, 2023)
+- `f`: Short Date/Time (default style if omitted, e.g., November 14, 2023 9:41 PM)
+- `F`: Long Date/Time with Day of Week (e.g., Tuesday, November 14, 2023 9:41 PM)
+- `R`: Relative Time countdown/countup (e.g., in 2 hours, 5 minutes ago)
+
+## Core Documentation Pages
+- [Homepage / Live Generator](https://discordtimestamps.dev): Interactive generator with datepicker, timezone selector, presets, live chat simulator, and 1-click copy.
+- [Discord Timestamp Guide](https://discordtimestamps.dev/discord-timestamp-guide): Comprehensive tutorial on how Discord dynamic timestamps work, syntax breakdown, and troubleshooting.
+- [Timestamp Formats & Styles](https://discordtimestamps.dev/discord-timestamp-formats): Cheat sheet and comparison of all 7 Discord timestamp style flags.
+- [Unix Timestamp Guide](https://discordtimestamps.dev/unix-timestamp): Unix epoch guide, seconds vs. milliseconds explanation, and timezone offsets.
+- [Discord Markdown Guide](https://discordtimestamps.dev/discord-markdown): Formatting guide for bold, italic, spoilers, headers, code blocks, and dynamic time integration.
+- [Discord Webhook Timestamps](https://discordtimestamps.dev/discord-webhook-timestamps): Guide for embedding dynamic timestamps in webhooks and bot JSON embeds.
+- [Discord Bot Timestamps](https://discordtimestamps.dev/discord-bot-timestamps): Code snippets and libraries for Discord.js, Discord.py, and REST API automation.
+- [Blog / Technical Guides](https://discordtimestamps.dev/blog): Developer articles, moderation tutorials, and scheduled event walkthroughs.
+
+## In-Depth Developer & Community Tutorials
+- [How to Format Discord Timestamps in Bots](https://discordtimestamps.dev/blog/how-to-format-discord-timestamps-in-bots): Discord.js v14 and Discord.py implementation guide.
+- [Relative Countdown Timestamps in Discord](https://discordtimestamps.dev/blog/relative-countdown-timestamps-in-discord): Guide to using the `:R` flag for tournament starts, deadlines, and raids.
+- [Fix Discord Timestamp 1000x Millisecond Bug](https://discordtimestamps.dev/blog/discord-timestamp-seconds-vs-milliseconds-bug): How to diagnose and resolve the common 13-digit JavaScript Date millisecond error.
+- [Automating Community Event Announcements with Webhooks](https://discordtimestamps.dev/blog/automating-discord-event-announcements-with-webhooks): Multi-timezone server scheduling with GitHub Actions and cURL.
+- [Discord Markdown and Embedded Timestamps Cheat Sheet](https://discordtimestamps.dev/blog/discord-markdown-text-formatting-timestamps-cheat-sheet): Formatting rules for headers, tables, quotes, and timestamps.
+- [Converting UTC Dates to Discord Unix Timestamps](https://discordtimestamps.dev/blog/converting-utc-dates-to-discord-unix-timestamps): Step-by-step conversion across Python, JavaScript, Bash, and SQL.
+- [Discord Timestamp Generator vs Manual Epoch Calculation](https://discordtimestamps.dev/blog/discord-timestamp-generator-vs-manual-epoch-calculation): Accuracy comparison and workflow analysis for community managers.
+- [Server Event Scheduling and Recurring Timestamps](https://discordtimestamps.dev/blog/discord-server-event-scheduling-recurring-timestamps): Solutions for daylight saving transitions and recurring community meetups.
+- [Discord Embed Timestamps vs Dynamic In-Text Timestamps](https://discordtimestamps.dev/blog/discord-embed-timestamp-vs-in-text-timestamps): Difference between top-level embed footer timestamps (ISO-8601) and in-body dynamic tags.
+- [Troubleshooting Discord Timestamps Not Displaying Correctly](https://discordtimestamps.dev/blog/troubleshooting-discord-timestamps-not-displaying-correctly): Fixes for raw text leaks, mobile cache glitches, and syntax typos.
+- [Role-Based Access and Event Reminder Timestamps](https://discordtimestamps.dev/blog/role-based-event-reminders-discord-timestamps): Strategies for notifying international guild members without timezone confusion.
+- [Complete History and Architecture of Discord Timestamps](https://discordtimestamps.dev/blog/history-and-architecture-of-discord-timestamps): Why Discord introduced dynamic timestamps in 2021 and how client-side rendering operates.
+
+## Trust & Operational Information
+- [About Us](https://discordtimestamps.dev/about): Mission, technical architecture, and open-source principles.
+- [Contact Support](https://discordtimestamps.dev/contact): Feedback, bug reports, and feature requests.
+- [Privacy Policy](https://discordtimestamps.dev/privacy): Explicit documentation of 100% client-side privacy.
+- [Terms of Service](https://discordtimestamps.dev/terms): Usage conditions and open web guidelines.
