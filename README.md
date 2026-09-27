@@ -23,15 +23,29 @@ Disctimestamps provides an instant, ad-free web app with live Discord chat previ
 
 ---
 
-## Features
+## Features & Developer Tools
 
 - **Live Discord Preview:** High-fidelity Discord dark mode chat component showing real-time formatting and hover tooltips.
-- **All 7 Discord Flags:** One-click copy for Relative Time (`:R`), Short Time (`:t`), Long Time (`:T`), Short Date (`:d`), Long Date (`:D`), Short Date/Time (`:f`), and Long Date/Time (`:F`).
-- **Quick Shorthand Parser:** Type phrases like "tomorrow at 5pm", "in 2 hours", or "tmr 6 pm" for instant date calculation.
-- **100% Client-Side Privacy:** All date and time math runs locally in your browser using native JavaScript Intl APIs. Zero tracking, zero analytics bloat, zero server logs.
-- **Reverse Timestamp Decoder:** Paste existing `<t:...>` tokens or raw Unix epochs to inspect their local and UTC times.
-- **Discord Snowflake ID Converter:** Extract creation dates and timestamps from Discord user, channel, and message IDs.
+- **Discord Timestamp Generator:** One-click copy for all 7 Discord timestamp flags (`:R`, `:t`, `:T`, `:d`, `:D`, `:f`, `:F`).
+- **Discord Embed Generator & Webhook Visualizer:** Interactive embed builder with real-time dark mode chat simulation, custom colors, fields, and multi-format code exports (Webhook JSON, discord.js v14, discord.py).
+- **Discord Glitch & Zalgo Text Maker:** Corrupted font maker with intensity sliders, directional toggles, and Discord 32-character nickname limit validation.
+- **Discord Snowflake ID Converter:** Extract exact creation dates and timestamps from Discord user, channel, and message IDs.
 - **Discord ANSI Colored Text Generator:** Format colored code blocks for Discord announcements using native ANSI escape sequences.
+- **100% Client-Side Privacy:** All date and time math runs locally in your browser using native JavaScript Intl APIs. Zero tracking, zero analytics bloat, zero server logs.
+
+---
+
+## Embeddable Badges for Your Bot or Server README
+
+Support the project or link directly from your bot repository:
+
+```markdown
+[![Discord Timestamps](https://img.shields.io/badge/Discord-Timestamps-5865F2?style=flat&logo=discord&logoColor=white)](https://www.disctimestamps.site)
+```
+
+```markdown
+[![Discord Embed Maker](https://img.shields.io/badge/Discord-Embed_Maker-57F287?style=flat&logo=discord&logoColor=white)](https://www.disctimestamps.site/discord-embed-generator)
+```
 
 ---
 
