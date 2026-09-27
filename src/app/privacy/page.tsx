@@ -60,11 +60,16 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-white mb-2">3. Cookies &amp; Tracking</h2>
+          <h2 className="text-xl font-bold text-white mb-2">3. Cookies, Analytics &amp; Advertising</h2>
           <p>
-            We do not use tracking cookies, behavioral tracking pixels, or cross-site profiling scripts.
-            Any session preferences (such as your auto-detected browser timezone) remain strictly inside
-            your browser&apos;s memory.
+            The core timestamp calculator and Snowflake converter execute 100% client-side without storing personal data.
+            To support free operations, this site may partner with third-party advertising networks, including Google AdSense.
+            Third-party vendors, including Google, use cookies to serve ads based on a user&apos;s prior visits to this website or other websites.
+          </p>
+          <p className="mt-2 text-xs sm:text-sm text-slate-400">
+            Google&apos;s use of advertising cookies enables it and its partners to serve ads to users based on their visit to our sites
+            and/or other sites on the Internet. Users may opt out of personalized advertising by visiting Google Ads Settings (www.google.com/settings/ads)
+            or opt out of third-party vendor use of cookies at www.aboutads.info.
           </p>
         </section>
 
