@@ -140,6 +140,20 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
       "timestampstyles discord.js",
     ],
   },
+  embedGenerator: {
+    title: "Discord Embed Generator: Visual Webhook & Bot Embed Builder [Live Preview]",
+    description:
+      "Build custom Discord webhook embeds with real-time dark mode preview. Supports custom colors, inline fields, images, timestamps, discord.js v14 and JSON export.",
+    canonical: `${siteConfig.url}/discord-embed-generator`,
+    keywords: [
+      "discord embed generator",
+      "discord embed builder",
+      "discord webhook embed",
+      "discord webhook visualizer",
+      "discordjs embed builder",
+      "discord embed maker online",
+    ],
+  },
   blog: {
     title: "Discord Timestamps Blog & Developer Tutorials",
     description:

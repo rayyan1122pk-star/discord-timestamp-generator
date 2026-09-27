@@ -46,6 +46,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/discord-embed-generator" className="hover:text-white transition-colors">
+                  Discord Embed Generator
+                </Link>
+              </li>
+              <li>
                 <Link href="/discord-timestamp-formats" className="hover:text-white transition-colors">
                   Formats & Styles Cheat Sheet
                 </Link>
