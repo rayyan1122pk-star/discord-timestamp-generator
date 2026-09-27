@@ -51,7 +51,7 @@ export interface RouteMetadata {
 
 export const routeMetadataMap: Record<string, RouteMetadata> = {
   home: {
-    title: "Discord Timestamp Generator: Dynamic Timezone Formatter & Preview",
+    title: "Discord Timestamp Generator [Auto Timezone & 1-Click Copy]",
     description:
       "Generate dynamic Discord timestamps (<t:TIMESTAMP:STYLE>) that adapt to each user's local timezone. Features live chat preview, countdowns, and 1-click copy.",
     canonical: siteConfig.url,
@@ -67,7 +67,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   guide: {
-    title: "The Complete Discord Timestamp Guide (2026): Syntax, Styles & Rules",
+    title: "Discord Timestamp Guide (2026): Syntax, Styles & Rules",
     description:
       "Learn how Discord dynamic timestamps work, why they automatically adapt to international timezones, and master the full <t:epoch:style> syntax for messages, channels, and rules.",
     canonical: `${siteConfig.url}/discord-timestamp-guide`,
@@ -80,7 +80,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   formats: {
-    title: "Discord Timestamp Formats & Styles Cheat Sheet (t, T, d, D, f, F, R)",
+    title: "Discord Timestamp Formats & Styles [<t:time:R> Cheat Sheet]",
     description:
       "Compare all 7 Discord timestamp style flags (Short Time, Long Time, Short Date, Long Date, Short Date/Time, Long Date/Time, and Relative Countdown) with side-by-side examples.",
     canonical: `${siteConfig.url}/discord-timestamp-formats`,
@@ -93,7 +93,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   unix: {
-    title: "Unix Timestamp to Discord Converter & Epoch Guide",
+    title: "Unix Timestamp to Discord Converter [Epoch to <t:time:F>]",
     description:
       "Understand Unix epoch time (seconds since Jan 1, 1970) in Discord. Learn how to convert timestamps, avoid the 1000x millisecond bug, and calculate UTC offsets.",
     canonical: `${siteConfig.url}/unix-timestamp`,
@@ -105,7 +105,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   markdown: {
-    title: "Discord Markdown Guide: Text Formatting, Code Blocks & Timestamps",
+    title: "Discord Markdown Cheat Sheet [Spoilers, Colors & Code Blocks]",
     description:
       "Master Discord text formatting: bold, italic, underline, strikethrough, spoiler tags, headers, quotes, blockquotes, syntax highlighting, and dynamic timestamp embedding.",
     canonical: `${siteConfig.url}/discord-markdown`,
@@ -117,7 +117,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   webhooks: {
-    title: "Discord Webhook Timestamps: Embeds, ISO-8601 & Dynamic Formatting",
+    title: "Discord Webhook Timestamps [Embeds & JSON Payloads]",
     description:
       "How to format dynamic timestamps in Discord webhooks and bot embeds. Learn the difference between <t:epoch:style> in embed descriptions vs ISO-8601 in embed footers.",
     canonical: `${siteConfig.url}/discord-webhook-timestamps`,
@@ -129,7 +129,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   bots: {
-    title: "Discord Bot Timestamps in JavaScript (discord.js) & Python (discord.py)",
+    title: "Discord Bot Timestamps: discord.js v14 & discord.py Guide",
     description:
       "Code examples for generating dynamic timestamps in Discord bots. Master discord.js time() utility, TimestampStyles, and Python datetime epoch conversions.",
     canonical: `${siteConfig.url}/discord-bot-timestamps`,
@@ -141,7 +141,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   embedGenerator: {
-    title: "Discord Embed Generator: Visual Webhook & Bot Embed Builder [Live Preview]",
+    title: "Discord Embed Generator [Live Visual Webhook Builder]",
     description:
       "Build custom Discord webhook embeds with real-time dark mode preview. Supports custom colors, inline fields, images, timestamps, discord.js v14 and JSON export.",
     canonical: `${siteConfig.url}/discord-embed-generator`,
@@ -152,6 +152,20 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
       "discord webhook visualizer",
       "discordjs embed builder",
       "discord embed maker online",
+    ],
+  },
+  glitchText: {
+    title: "Discord Glitch Text Generator [Zalgo & Corrupted Font Maker]",
+    description:
+      "Generate glitched, corrupted, and cursed Zalgo text for Discord usernames, channels, and messages. Features intensity sliders, direction controls, and live chat preview.",
+    canonical: `${siteConfig.url}/discord-glitch-text`,
+    keywords: [
+      "discord glitch text",
+      "discord zalgo text",
+      "discord corrupted text",
+      "discord cursed font generator",
+      "discord weird text maker",
+      "discord glitch font",
     ],
   },
   blog: {

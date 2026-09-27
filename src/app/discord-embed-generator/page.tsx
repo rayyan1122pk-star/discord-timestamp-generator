@@ -9,12 +9,12 @@ import { siteConfig } from "@/lib/seo-config";
 import { Sparkles, Terminal, Code2, Shield, Info, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Discord Embed Generator: Visual Webhook & Bot Embed Builder [Live Preview]",
+  title: "Discord Embed Generator [Live Visual Webhook Builder]",
   description:
     "Build custom Discord webhook embeds with real-time dark mode preview. Supports custom colors, inline fields, images, timestamps, discord.js v14 and JSON export.",
   alternates: { canonical: `${siteConfig.url}/discord-embed-generator` },
   openGraph: {
-    title: "Discord Embed Generator: Live Webhook & Bot Builder",
+    title: "Discord Embed Generator [Live Visual Webhook Builder]",
     description:
       "Design rich Discord embeds with instant live chat simulation. 1-click export for Discord Webhook JSON, discord.js v14, and discord.py. 100% free and client-side.",
     url: `${siteConfig.url}/discord-embed-generator`,
