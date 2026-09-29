@@ -23,6 +23,9 @@
 - [Discord Invisible Name & Blank Character](https://disctimestamps.site/discord-invisible-name): 1-click copy utility for Discord invisible name character (Hangul Filler U+3164) and zero-width spaces for empty nicknames and blank chat messages.
 - [Discord Colored Text (ANSI)](https://disctimestamps.site/discord-colored-text): Visual ANSI escape sequence formatter for Discord codeblocks with 8 text colors and background highlights.
 - [Discord Snowflake Decoder](https://disctimestamps.site/discord-snowflake-to-timestamp): 64-bit Snowflake ID decoder to extract creation dates and timestamps from User, Message, and Server IDs.
+- [Discord Font Generator](https://disctimestamps.site/discord-font-generator): Transform text into aesthetic Small Caps, Gothic, Cursive, and Monospace Unicode fonts for nicknames, bios, and channel names.
+- [Discord Character Counter](https://disctimestamps.site/discord-character-counter): Real-time message (2000 char), Nitro (4000 char), bio (190 char), and embed limits validator.
+- [Discord Mention & Emoji Formatter](https://disctimestamps.site/discord-mention-generator): Generate raw mention tags for users (<@ID>), roles (<@&ID>), channels (<#ID>), custom emojis (<:name:ID>), and slash commands.
 - [Discord Timestamp Guide](https://disctimestamps.site/discord-timestamp-guide): Comprehensive tutorial on how Discord dynamic timestamps work, syntax breakdown, and troubleshooting.
 - [Timestamp Formats & Styles](https://disctimestamps.site/discord-timestamp-formats): Cheat sheet and comparison of all 7 Discord timestamp style flags.
 - [Unix Timestamp Guide](https://disctimestamps.site/unix-timestamp): Unix epoch guide, seconds vs. milliseconds explanation, and timezone offsets.

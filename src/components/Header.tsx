@@ -19,6 +19,8 @@ import {
   Ghost,
   ChevronDown,
   PanelLeft,
+  Type,
+  AtSign,
 } from "lucide-react";
 import { SidebarDrawer } from "@/components/SidebarDrawer";
 
@@ -39,6 +41,24 @@ export function Header() {
 
   // Additional tools grouped cleanly inside the dropdown
   const otherTools = [
+    {
+      href: "/discord-font-generator",
+      label: "Font Generator",
+      desc: "Aesthetic Unicode fonts for names and bios",
+      icon: Type,
+    },
+    {
+      href: "/discord-character-counter",
+      label: "Character Counter",
+      desc: "Message, Nitro, and bio length limits",
+      icon: Hash,
+    },
+    {
+      href: "/discord-mention-generator",
+      label: "Mentions & Emoji",
+      desc: "User, role, channel, and custom emoji tags",
+      icon: AtSign,
+    },
     {
       href: "/discord-invisible-name",
       label: "Invisible Name",
@@ -76,6 +96,7 @@ export function Header() {
       icon: Terminal,
     },
   ];
+
 
   // Close dropdown on outside click
   useEffect(() => {

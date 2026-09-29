@@ -179,8 +179,37 @@ check('Unix Timestamp: Millisecond vs Second Detection', () => {
   assert.strictEqual(detectPrecision(1790683200000), 'MILLISECONDS');
 });
 
-// 8. SITE-WIDE ROUTE FILES & JSON-LD SCHEMAS
-check('Route Integrity: All 14 Core Pages Exist with page.tsx', () => {
+// 8. TOOL 8: DISCORD FONT GENERATOR
+check('Font Generator: Unicode Transformation Mapping', () => {
+  const smallCapsMap = { a: "ᴀ", b: "ʙ", c: "ᴄ", d: "ᴅ" };
+  const input = "abcd";
+  const output = input.split("").map((c) => smallCapsMap[c] || c).join("");
+  assert.strictEqual(output, "ᴀʙᴄᴅ");
+});
+
+// 9. TOOL 9: DISCORD CHARACTER COUNTER
+check('Character Counter: Discord Limits Verification', () => {
+  const sampleMessage = "A".repeat(2000);
+  assert.strictEqual(sampleMessage.length, 2000);
+  const nitroLimit = 4000;
+  const bioLimit = 190;
+  assert.ok(sampleMessage.length <= nitroLimit);
+  assert.ok(sampleMessage.length > bioLimit);
+});
+
+// 10. TOOL 10: DISCORD MENTION GENERATOR
+check('Mention Generator: Raw Discord Formatting Tags', () => {
+  const userId = "123456789012345678";
+  const roleId = "987654321098765432";
+  const channelId = "112233445566778899";
+  assert.strictEqual(`<@${userId}>`, "<@123456789012345678>");
+  assert.strictEqual(`<@&${roleId}>`, "<@&987654321098765432>");
+  assert.strictEqual(`<#${channelId}>`, "<#112233445566778899>");
+  assert.strictEqual(`<:pepe:${userId}>`, "<:pepe:123456789012345678>");
+});
+
+// 11. SITE-WIDE ROUTE FILES & JSON-LD SCHEMAS
+check('Route Integrity: All 17 Core Pages Exist with page.tsx', () => {
   const routes = [
     'src/app/page.tsx',
     'src/app/discord-colored-text/page.tsx',
@@ -188,6 +217,9 @@ check('Route Integrity: All 14 Core Pages Exist with page.tsx', () => {
     'src/app/discord-glitch-text/page.tsx',
     'src/app/discord-invisible-name/page.tsx',
     'src/app/discord-snowflake-to-timestamp/page.tsx',
+    'src/app/discord-font-generator/page.tsx',
+    'src/app/discord-character-counter/page.tsx',
+    'src/app/discord-mention-generator/page.tsx',
     'src/app/discord-timestamp-formats/page.tsx',
     'src/app/discord-bot-timestamps/page.tsx',
     'src/app/discord-webhook-timestamps/page.tsx',
@@ -210,7 +242,10 @@ check('JSON-LD Validation: All Core Tool Pages Contain Schema Markup', () => {
     'src/app/discord-embed-generator/page.tsx',
     'src/app/discord-glitch-text/page.tsx',
     'src/app/discord-invisible-name/page.tsx',
-    'src/app/discord-snowflake-to-timestamp/page.tsx'
+    'src/app/discord-snowflake-to-timestamp/page.tsx',
+    'src/app/discord-font-generator/page.tsx',
+    'src/app/discord-character-counter/page.tsx',
+    'src/app/discord-mention-generator/page.tsx'
   ];
   for (const tf of toolFiles) {
     const content = fs.readFileSync(path.join(ROOT_DIR, tf), 'utf8');

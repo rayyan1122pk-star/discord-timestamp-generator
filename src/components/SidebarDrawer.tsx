@@ -21,6 +21,8 @@ import {
   X,
   Sparkles,
   Terminal,
+  Type,
+  AtSign,
 } from "lucide-react";
 
 interface SidebarDrawerProps {
@@ -39,11 +41,14 @@ interface ToolItem {
 const TOOLS: ToolItem[] = [
   // MESSAGES
   { name: "Timestamp Generator", href: "/", icon: Clock, category: "MESSAGES" },
-  { name: "Format Cheatsheet", href: "/discord-timestamp-formats", icon: Hash, category: "MESSAGES" },
-  { name: "ANSI Color Text", href: "/discord-colored-text", icon: Palette, category: "MESSAGES" },
-  { name: "Invisible Name & Bio", href: "/discord-invisible-name", icon: EyeOff, category: "MESSAGES" },
-  { name: "Glitch / Zalgo Text", href: "/discord-glitch-text", icon: Sparkles, category: "MESSAGES" },
   { name: "Markdown Formatter", href: "/discord-markdown", icon: FileText, category: "MESSAGES" },
+  { name: "ANSI Color Text", href: "/discord-colored-text", icon: Palette, category: "MESSAGES" },
+  { name: "Font Generator", href: "/discord-font-generator", icon: Type, category: "MESSAGES" },
+  { name: "Character Counter", href: "/discord-character-counter", icon: Hash, category: "MESSAGES" },
+  { name: "Invisible Text", href: "/discord-invisible-name", icon: EyeOff, category: "MESSAGES" },
+  { name: "Mentions & Emoji", href: "/discord-mention-generator", icon: AtSign, category: "MESSAGES" },
+  { name: "Glitch / Zalgo Text", href: "/discord-glitch-text", icon: Sparkles, category: "MESSAGES" },
+  { name: "Format Cheatsheet", href: "/discord-timestamp-formats", icon: Hash, category: "MESSAGES" },
 
   // EMBEDS
   { name: "Embed Builder", href: "/discord-embed-generator", icon: LayoutTemplate, category: "EMBEDS" },
@@ -55,6 +60,7 @@ const TOOLS: ToolItem[] = [
   { name: "Bot Syntax Helper", href: "/discord-bot-timestamps", icon: Terminal, category: "DEVELOPER" },
   { name: "Technical Guides", href: "/blog", icon: BookOpen, category: "DEVELOPER" },
 ];
+
 
 export function SidebarDrawer({ open, onClose }: SidebarDrawerProps) {
   const [searchQuery, setSearchQuery] = useState("");
