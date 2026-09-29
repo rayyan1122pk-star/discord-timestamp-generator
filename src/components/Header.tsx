@@ -1,28 +1,93 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Clock, Menu, X, BookOpen, Terminal, Binary, Layers, FileCode2, Palette, Hash, LayoutTemplate, Skull, Ghost } from "lucide-react";
+import {
+  Clock,
+  Menu,
+  X,
+  BookOpen,
+  Terminal,
+  Binary,
+  Layers,
+  FileCode2,
+  Palette,
+  Hash,
+  LayoutTemplate,
+  Skull,
+  Ghost,
+  ChevronDown,
+} from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  const navLinks = [
+  // 5 Main features visible on the top navbar
+  const primaryLinks = [
     { href: "/", label: "Generator", icon: Clock },
-    { href: "/discord-invisible-name", label: "Invisible Name", icon: Ghost },
-    { href: "/discord-embed-generator", label: "Embed Maker", icon: LayoutTemplate },
-    { href: "/discord-glitch-text", label: "Glitch Text", icon: Skull },
-    { href: "/discord-colored-text", label: "Colored Text", icon: Palette },
-    { href: "/discord-snowflake-to-timestamp", label: "Snowflake ID", icon: Hash },
     { href: "/discord-timestamp-formats", label: "Formats", icon: Layers },
-    { href: "/unix-timestamp", label: "Unix Epoch", icon: Binary },
-    { href: "/discord-markdown", label: "Markdown", icon: FileCode2 },
-    { href: "/discord-bot-timestamps", label: "Bots", icon: Terminal },
+    { href: "/discord-embed-generator", label: "Embed Maker", icon: LayoutTemplate },
+    { href: "/discord-colored-text", label: "Colored Text", icon: Palette },
     { href: "/blog", label: "Guides", icon: BookOpen },
   ];
+
+  // Additional tools grouped cleanly inside the dropdown
+  const otherTools = [
+    {
+      href: "/discord-invisible-name",
+      label: "Invisible Name",
+      desc: "Blank usernames and bio characters",
+      icon: Ghost,
+    },
+    {
+      href: "/discord-glitch-text",
+      label: "Glitch Text",
+      desc: "Zalgo diacritics generator",
+      icon: Skull,
+    },
+    {
+      href: "/discord-snowflake-to-timestamp",
+      label: "Snowflake Decoder",
+      desc: "Convert Discord IDs to creation dates",
+      icon: Hash,
+    },
+    {
+      href: "/unix-timestamp",
+      label: "Unix Epoch Tool",
+      desc: "10 vs 13 digit epoch conversions",
+      icon: Binary,
+    },
+    {
+      href: "/discord-markdown",
+      label: "Markdown Cheatsheet",
+      desc: "Formatting syntax and codeblocks",
+      icon: FileCode2,
+    },
+    {
+      href: "/discord-bot-timestamps",
+      label: "Bot Integration",
+      desc: "Discord.js and Python syntax helpers",
+      icon: Terminal,
+    },
+  ];
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const isOtherActive = otherTools.some((t) => t.href === pathname);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-[#0b0e14]/90 backdrop-blur-md">
@@ -46,9 +111,9 @@ export function Header() {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Primary Navigation: 5 Main Features + Dropdown */}
         <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-1">
-          {navLinks.map((link) => {
+          {primaryLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
@@ -64,6 +129,67 @@ export function Header() {
               </Link>
             );
           })}
+
+          {/* More Tools Dropdown Button */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              type="button"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className={`inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+                isOtherActive || dropdownOpen
+                  ? "bg-slate-800 text-indigo-300 font-semibold"
+                  : "text-slate-300 hover:text-white hover:bg-slate-800/50"
+              }`}
+              aria-expanded={dropdownOpen}
+              aria-haspopup="true"
+            >
+              <span>More Tools</span>
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                  dropdownOpen ? "rotate-180 text-indigo-400" : "text-slate-400"
+                }`}
+              />
+            </button>
+
+            {/* Dropdown Menu Panel */}
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-72 rounded-xl border border-slate-800 bg-[#0e121a] p-2 shadow-2xl shadow-black/80 backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-150">
+                <div className="px-2 py-1.5 mb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400 border-b border-slate-800/80">
+                  Additional Discord Utilities
+                </div>
+                <div className="space-y-0.5">
+                  {otherTools.map((tool) => {
+                    const Icon = tool.icon;
+                    const isActive = pathname === tool.href;
+                    return (
+                      <Link
+                        key={tool.href}
+                        href={tool.href}
+                        onClick={() => setDropdownOpen(false)}
+                        className={`flex items-start gap-2.5 p-2 rounded-lg transition-colors ${
+                          isActive
+                            ? "bg-indigo-950/40 text-indigo-300 border border-indigo-500/20"
+                            : "text-slate-200 hover:bg-slate-800/60 hover:text-white"
+                        }`}
+                      >
+                        <div className="p-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300 mt-0.5 flex-shrink-0">
+                          <Icon className="h-3.5 w-3.5" />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-xs font-medium leading-none mb-1 text-slate-100">
+                            {tool.label}
+                          </div>
+                          <div className="text-[11px] text-slate-400 leading-tight truncate">
+                            {tool.desc}
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Quick CTA or Mobile Hamburger */}
@@ -93,26 +219,61 @@ export function Header() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-slate-800 bg-[#0e121a] px-4 py-4 space-y-1">
-          {navLinks.map((link) => {
-            const Icon = link.icon;
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
-                  isActive
-                    ? "bg-[#5865f2]/15 text-indigo-400 font-semibold"
-                    : "text-slate-300 hover:bg-slate-800/60 hover:text-white"
-                }`}
-              >
-                <Icon className="h-4 w-4" aria-hidden="true" />
-                <span>{link.label}</span>
-              </Link>
-            );
-          })}
+        <div className="lg:hidden border-b border-slate-800 bg-[#0e121a] px-4 py-4 space-y-3">
+          <div>
+            <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 px-3 mb-1">
+              Main Tools
+            </div>
+            <div className="space-y-1">
+              {primaryLinks.map((link) => {
+                const Icon = link.icon;
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
+                      isActive
+                        ? "bg-[#5865f2]/15 text-indigo-400 font-semibold"
+                        : "text-slate-300 hover:bg-slate-800/60 hover:text-white"
+                    }`}
+                  >
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                    <span>{link.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-slate-800/80">
+            <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 px-3 mb-1">
+              Other Utilities
+            </div>
+            <div className="space-y-1">
+              {otherTools.map((tool) => {
+                const Icon = tool.icon;
+                const isActive = pathname === tool.href;
+                return (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
+                      isActive
+                        ? "bg-[#5865f2]/15 text-indigo-400 font-semibold"
+                        : "text-slate-300 hover:bg-slate-800/60 hover:text-white"
+                    }`}
+                  >
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                    <span>{tool.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 px-3">
             <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
               About
