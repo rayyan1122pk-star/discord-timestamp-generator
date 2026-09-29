@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import {
   Clock,
   Menu,
-  X,
   BookOpen,
   Terminal,
   Binary,
@@ -19,10 +18,12 @@ import {
   Skull,
   Ghost,
   ChevronDown,
+  PanelLeft,
 } from "lucide-react";
+import { SidebarDrawer } from "@/components/SidebarDrawer";
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -90,203 +91,145 @@ export function Header() {
   const isOtherActive = otherTools.some((t) => t.href === pathname);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-800/80 bg-[#0b0e14]/90 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 font-bold text-white tracking-tight text-base sm:text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1"
-        >
-          <Image
-            src="/logo.png"
-            alt="Discord Timestamps Logo"
-            width={34}
-            height={34}
-            className="h-8 w-8 object-contain"
-            priority
-          />
-          <span className="flex items-baseline gap-1.5">
-            <span>Discord</span>
-            <span className="text-indigo-400 font-normal">Timestamps</span>
-          </span>
-        </Link>
-
-        {/* Desktop Primary Navigation: 5 Main Features + Dropdown */}
-        <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-1">
-          {primaryLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
-                  isActive
-                    ? "bg-slate-800 text-white font-semibold"
-                    : "text-slate-300 hover:text-white hover:bg-slate-800/50"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-
-          {/* More Tools Dropdown Button */}
-          <div className="relative" ref={dropdownRef}>
+    <>
+      <header className="sticky top-0 z-40 w-full border-b border-slate-800/80 bg-[#0b0e14]/90 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+          {/* Left Side: Sidebar Toggle & Brand Logo */}
+          <div className="flex items-center gap-2.5">
             <button
               type="button"
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className={`inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
-                isOtherActive || dropdownOpen
-                  ? "bg-slate-800 text-indigo-300 font-semibold"
-                  : "text-slate-300 hover:text-white hover:bg-slate-800/50"
-              }`}
-              aria-expanded={dropdownOpen}
-              aria-haspopup="true"
+              onClick={() => setSidebarOpen(true)}
+              aria-label="Open Discord Tools Sidebar"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-slate-800 bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 shadow-sm"
+              title="Open Discord utilities sidebar"
             >
-              <span>More Tools</span>
-              <ChevronDown
-                className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                  dropdownOpen ? "rotate-180 text-indigo-400" : "text-slate-400"
-                }`}
-              />
+              <PanelLeft className="h-4 w-4 text-indigo-400" />
+              <span className="hidden sm:inline">Tools</span>
             </button>
 
-            {/* Dropdown Menu Panel */}
-            {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-72 rounded-xl border border-slate-800 bg-[#0e121a] p-2 shadow-2xl shadow-black/80 backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-150">
-                <div className="px-2 py-1.5 mb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400 border-b border-slate-800/80">
-                  Additional Discord Utilities
-                </div>
-                <div className="space-y-0.5">
-                  {otherTools.map((tool) => {
-                    const Icon = tool.icon;
-                    const isActive = pathname === tool.href;
-                    return (
-                      <Link
-                        key={tool.href}
-                        href={tool.href}
-                        onClick={() => setDropdownOpen(false)}
-                        className={`flex items-start gap-2.5 p-2 rounded-lg transition-colors ${
-                          isActive
-                            ? "bg-indigo-950/40 text-indigo-300 border border-indigo-500/20"
-                            : "text-slate-200 hover:bg-slate-800/60 hover:text-white"
-                        }`}
-                      >
-                        <div className="p-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300 mt-0.5 flex-shrink-0">
-                          <Icon className="h-3.5 w-3.5" />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="text-xs font-medium leading-none mb-1 text-slate-100">
-                            {tool.label}
-                          </div>
-                          <div className="text-[11px] text-slate-400 leading-tight truncate">
-                            {tool.desc}
-                          </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 font-bold text-white tracking-tight text-base sm:text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1"
+            >
+              <Image
+                src="/logo.png"
+                alt="Discord Timestamps Logo"
+                width={34}
+                height={34}
+                className="h-8 w-8 object-contain"
+                priority
+              />
+              <span className="flex items-baseline gap-1.5">
+                <span>Discord</span>
+                <span className="text-indigo-400 font-normal">Timestamps</span>
+              </span>
+            </Link>
           </div>
-        </nav>
 
-        {/* Quick CTA or Mobile Hamburger */}
-        <div className="flex items-center gap-2.5">
-          <Link
-            href="/"
-            className="hidden sm:inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-semibold text-white bg-[#5865F2] hover:bg-[#4752c4] rounded-lg shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
-          >
-            Create Timestamp
-          </Link>
+          {/* Desktop Primary Navigation: 5 Main Features + Dropdown */}
+          <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-1">
+            {primaryLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+                    isActive
+                      ? "bg-slate-800 text-white font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800/50"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
 
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-expanded={mobileMenuOpen}
-            aria-label="Toggle navigation menu"
-            className="lg:hidden p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-          >
-            {mobileMenuOpen ? (
-              <X className="h-5 w-5" aria-hidden="true" />
-            ) : (
+            {/* More Tools Dropdown Button */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                type="button"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className={`inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 ${
+                  isOtherActive || dropdownOpen
+                    ? "bg-slate-800 text-indigo-300 font-semibold"
+                    : "text-slate-300 hover:text-white hover:bg-slate-800/50"
+                }`}
+                aria-expanded={dropdownOpen}
+                aria-haspopup="true"
+              >
+                <span>More Tools</span>
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                    dropdownOpen ? "rotate-180 text-indigo-400" : "text-slate-400"
+                  }`}
+                />
+              </button>
+
+              {/* Dropdown Menu Panel */}
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-72 rounded-xl border border-slate-800 bg-[#0e121a] p-2 shadow-2xl shadow-black/80 backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="px-2 py-1.5 mb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400 border-b border-slate-800/80">
+                    Additional Discord Utilities
+                  </div>
+                  <div className="space-y-0.5">
+                    {otherTools.map((tool) => {
+                      const Icon = tool.icon;
+                      const isActive = pathname === tool.href;
+                      return (
+                        <Link
+                          key={tool.href}
+                          href={tool.href}
+                          onClick={() => setDropdownOpen(false)}
+                          className={`flex items-start gap-2.5 p-2 rounded-lg transition-colors ${
+                            isActive
+                              ? "bg-indigo-950/40 text-indigo-300 border border-indigo-500/20"
+                              : "text-slate-200 hover:bg-slate-800/60 hover:text-white"
+                          }`}
+                        >
+                          <div className="p-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300 mt-0.5 flex-shrink-0">
+                            <Icon className="h-3.5 w-3.5" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-xs font-medium leading-none mb-1 text-slate-100">
+                              {tool.label}
+                            </div>
+                            <div className="text-[11px] text-slate-400 leading-tight truncate">
+                              {tool.desc}
+                            </div>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          </nav>
+
+          {/* Quick CTA & Mobile Hamburger (both open sidebar on mobile) */}
+          <div className="flex items-center gap-2.5">
+            <Link
+              href="/"
+              className="hidden sm:inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-semibold text-white bg-[#5865F2] hover:bg-[#4752c4] rounded-lg shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            >
+              Create Timestamp
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => setSidebarOpen(true)}
+              aria-label="Open navigation menu"
+              className="lg:hidden p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            >
               <Menu className="h-5 w-5" aria-hidden="true" />
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-slate-800 bg-[#0e121a] px-4 py-4 space-y-3">
-          <div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 px-3 mb-1">
-              Main Tools
-            </div>
-            <div className="space-y-1">
-              {primaryLinks.map((link) => {
-                const Icon = link.icon;
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
-                      isActive
-                        ? "bg-[#5865f2]/15 text-indigo-400 font-semibold"
-                        : "text-slate-300 hover:bg-slate-800/60 hover:text-white"
-                    }`}
-                  >
-                    <Icon className="h-4 w-4" aria-hidden="true" />
-                    <span>{link.label}</span>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="pt-2 border-t border-slate-800/80">
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 px-3 mb-1">
-              Other Utilities
-            </div>
-            <div className="space-y-1">
-              {otherTools.map((tool) => {
-                const Icon = tool.icon;
-                const isActive = pathname === tool.href;
-                return (
-                  <Link
-                    key={tool.href}
-                    href={tool.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center gap-2.5 px-3 py-2 text-sm rounded-lg transition-colors ${
-                      isActive
-                        ? "bg-[#5865f2]/15 text-indigo-400 font-semibold"
-                        : "text-slate-300 hover:bg-slate-800/60 hover:text-white"
-                    }`}
-                  >
-                    <Icon className="h-4 w-4" aria-hidden="true" />
-                    <span>{tool.label}</span>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 px-3">
-            <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
-              About
-            </Link>
-            <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
-              Contact
-            </Link>
-            <Link href="/privacy" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">
-              Privacy
-            </Link>
+            </button>
           </div>
         </div>
-      )}
-    </header>
+      </header>
+
+      {/* Slide-Out Side Navigation Drawer */}
+      <SidebarDrawer open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+    </>
   );
 }
