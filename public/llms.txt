@@ -44,6 +44,10 @@
 - [Discord API Rate Limits and Message Editing: Why Live Countdown Bots Break](https://disctimestamps.site/blog/discord-api-rate-limits-message-editing-countdown-bots): Why editing messages every second triggers HTTP 429 rate limits and how `:R` solves it.
 - [Discord Scheduled Events API: Automating Server Events with Dynamic Timestamps](https://disctimestamps.site/blog/discord-scheduled-events-api-automations): Creating guild scheduled events programmatically with webhook reminders.
 - [Diagnosing Discord Timezone Display Issues: Device Clock Skew, Caching, and Format Bugs](https://disctimestamps.site/blog/diagnosing-discord-timezone-clock-skew-issues): Troubleshooting operating system clock skew, NTP desync, and mobile app cache issues.
+- [How to Get an Invisible Name on Discord: Desktop, Mobile & Server Nicknames](https://disctimestamps.site/blog/how-to-get-invisible-name-discord-guide): Step-by-step guide to using Unicode Hangul Filler (U+3164) for empty display names and server nicknames.
+- [How to Create Discord Webhook Embeds: JSON Payloads, discord.js & Python Guide](https://disctimestamps.site/blog/how-to-create-discord-webhook-embeds-guide): In-depth tutorial on embed properties, hex to integer color conversions, and automation.
+- [How to Make Glitch Text on Discord: The Science of Zalgo Diacritics](https://disctimestamps.site/blog/how-to-make-glitch-zalgo-text-discord): The mechanics of combining Unicode diacritics and staying within the 32-character limit.
+- [How to Write in Color in Discord: The Complete ANSI Syntax Guide](https://disctimestamps.site/blog/how-to-write-colored-text-discord-ansi-guide): Formatting messages with all 8 ANSI colors, background highlights, and bold styles.
 
 ## Trust & Operational Information
 - [About Us](https://disctimestamps.site/about): Mission, technical architecture, and open-source principles.

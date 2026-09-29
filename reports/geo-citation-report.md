@@ -1,6 +1,6 @@
 # Generative Engine Optimization (GEO) Citation Audit Report
 
-Generated: 2026-09-29T17:34:35.698Z
+Generated: 2026-09-29T17:35:54.111Z
 
 ### Citation Health Summary
 - Total Queries Checked: 4
