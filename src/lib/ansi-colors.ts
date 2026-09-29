@@ -65,3 +65,25 @@ export function generateDiscordAnsiBlock(spans: FormattedSpan[]): string {
 
   return `\`\`\`ansi\n${content}\n\`\`\``;
 }
+
+export function parseDiscordAnsiString(raw: string): {
+  text: string;
+  fg: string;
+  bg: string;
+  bold: boolean;
+  underline: boolean;
+} | null {
+  if (!raw) return null;
+  const match = raw.match(/(?:\\u001b|\u001b|\x1b)?\[([0-9;]+)m([\s\S]*?)(?:(?:\\u001b|\u001b|\x1b)?\[0m|$)/);
+  if (!match) return null;
+
+  const codes = match[1].split(";");
+  const bold = codes.includes("1");
+  const underline = codes.includes("4");
+  const fg = codes.find((c) => parseInt(c, 10) >= 30 && parseInt(c, 10) <= 37) || "0";
+  const bg = codes.find((c) => parseInt(c, 10) >= 40 && parseInt(c, 10) <= 47) || "";
+  const text = match[2].replace(/(?:\\u001b|\u001b|\x1b)?\[[0-9;]+m/g, "").trim();
+
+  return { text, fg, bg, bold, underline };
+}
+

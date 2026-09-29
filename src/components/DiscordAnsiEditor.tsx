@@ -6,6 +6,7 @@ import {
   ANSI_FOREGROUND_COLORS,
   ANSI_BACKGROUND_COLORS,
   generateDiscordAnsiBlock,
+  parseDiscordAnsiString,
   FormattedSpan,
 } from "@/lib/ansi-colors";
 
@@ -16,6 +17,8 @@ export function DiscordAnsiEditor() {
   const [isBold, setIsBold] = useState<boolean>(true);
   const [isUnderline, setIsUnderline] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
+  const [imported, setImported] = useState<boolean>(false);
+
 
   // Pre-built popular color presets
   const presets = [
@@ -64,8 +67,26 @@ export function DiscordAnsiEditor() {
     return bg ? bg.hex : "transparent";
   };
 
+  const handleInputChange = (val: string) => {
+    if (val.includes("[") && val.includes("m")) {
+      const parsed = parseDiscordAnsiString(val);
+      if (parsed) {
+        setInputText(parsed.text);
+        if (parsed.fg) setSelectedFg(parsed.fg);
+        if (parsed.bg) setSelectedBg(parsed.bg);
+        setIsBold(parsed.bold);
+        setIsUnderline(parsed.underline);
+        setImported(true);
+        setTimeout(() => setImported(false), 3500);
+        return;
+      }
+    }
+    setInputText(val);
+  };
+
   return (
     <div className="rounded-2xl border border-slate-800 bg-[#0e121a] p-5 sm:p-7 md:p-8 shadow-2xl backdrop-blur-sm">
+
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-800/80 gap-3">
         <div>
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
@@ -114,15 +135,22 @@ export function DiscordAnsiEditor() {
       {/* Editor Controls */}
       <div className="space-y-4">
         <div>
-          <label className="block text-xs font-medium uppercase tracking-wider text-slate-300 mb-2">
-            Enter Message Text
-          </label>
+          <div className="flex items-center justify-between mb-2">
+            <label className="block text-xs font-medium uppercase tracking-wider text-slate-300">
+              Enter Message Text
+            </label>
+            {imported && (
+              <span className="text-[11px] text-emerald-400 font-mono bg-emerald-950/60 border border-emerald-500/30 px-2 py-0.5 rounded">
+                ANSI codes detected and applied!
+              </span>
+            )}
+          </div>
           <textarea
             rows={3}
             value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
+            onChange={(e) => handleInputChange(e.target.value)}
             className="w-full rounded-lg border border-slate-700/80 bg-slate-900/90 p-3.5 text-sm text-slate-100 placeholder-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 font-mono transition-colors"
-            placeholder="Type your message..."
+            placeholder="Type your message or paste an ANSI code snippet..."
           />
         </div>
 
