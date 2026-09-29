@@ -1,0 +1,164 @@
+[
+  {
+    "path": "/blog",
+    "status": "BLOCKED",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "FAIL",
+      "mobile_desktop_instructions": "FAIL"
+    },
+    "blockers": [
+      "Missing 1-click copy button or code snippet export",
+      "Missing explicit mobile & desktop instructions"
+    ]
+  },
+  {
+    "path": "/blog/[slug]",
+    "status": "BLOCKED",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "FAIL"
+    },
+    "blockers": [
+      "Missing explicit mobile & desktop instructions"
+    ]
+  },
+  {
+    "path": "/discord-bot-timestamps",
+    "status": "BLOCKED",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "FAIL"
+    },
+    "blockers": [
+      "Missing explicit mobile & desktop instructions"
+    ]
+  },
+  {
+    "path": "/discord-colored-text",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
+  },
+  {
+    "path": "/discord-embed-generator",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
+  },
+  {
+    "path": "/discord-glitch-text",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
+  },
+  {
+    "path": "/discord-markdown",
+    "status": "BLOCKED",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "FAIL"
+    },
+    "blockers": [
+      "Missing explicit mobile & desktop instructions"
+    ]
+  },
+  {
+    "path": "/discord-snowflake-to-timestamp",
+    "status": "BLOCKED",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "FAIL"
+    },
+    "blockers": [
+      "Missing explicit mobile & desktop instructions"
+    ]
+  },
+  {
+    "path": "/discord-timestamp-formats",
+    "status": "BLOCKED",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "FAIL"
+    },
+    "blockers": [
+      "Missing explicit mobile & desktop instructions"
+    ]
+  },
+  {
+    "path": "/discord-timestamp-guide",
+    "status": "BLOCKED",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "FAIL"
+    },
+    "blockers": [
+      "Missing explicit mobile & desktop instructions"
+    ]
+  },
+  {
+    "path": "/discord-webhook-timestamps",
+    "status": "BLOCKED",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "FAIL"
+    },
+    "blockers": [
+      "Missing explicit mobile & desktop instructions"
+    ]
+  },
+  {
+    "path": "/",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
+  },
+  {
+    "path": "/unix-timestamp",
+    "status": "BLOCKED",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "FAIL"
+    },
+    "blockers": [
+      "Missing explicit mobile & desktop instructions"
+    ]
+  }
+]

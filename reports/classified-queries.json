@@ -1,0 +1,145 @@
+[
+  {
+    "query": "discord timestamp generator",
+    "intent": "TOOL_USAGE",
+    "matched_page": "/",
+    "matched_tool": "Discord Timestamp Generator",
+    "status": "COVERED",
+    "confidence": 1,
+    "impressions": 48,
+    "clicks": 4,
+    "position": 14.2
+  },
+  {
+    "query": "discord colored text generator",
+    "intent": "TOOL_USAGE",
+    "matched_page": "/discord-colored-text",
+    "matched_tool": "Discord Colored Text Generator",
+    "status": "COVERED",
+    "confidence": 1,
+    "impressions": 35,
+    "clicks": 2,
+    "position": 18.5
+  },
+  {
+    "query": "how to make red text in discord",
+    "intent": "TOOL_USAGE",
+    "matched_page": "/discord-colored-text",
+    "matched_tool": "Discord Colored Text Generator",
+    "status": "COVERED",
+    "confidence": 0.5333333333333333,
+    "impressions": 22,
+    "clicks": 1,
+    "position": 16.1
+  },
+  {
+    "query": "discord webhook message generator with embeds",
+    "intent": "TOOL_USAGE",
+    "matched_page": "/discord-webhook-timestamps",
+    "matched_tool": "Discord Webhook Timestamps Builder",
+    "status": "COVERED",
+    "confidence": 1,
+    "impressions": 19,
+    "clicks": 0,
+    "position": 24.3
+  },
+  {
+    "query": "discord embed builder live preview",
+    "intent": "TOOL_USAGE",
+    "matched_page": "/discord-embed-generator",
+    "matched_tool": "Discord Embed Generator",
+    "status": "COVERED",
+    "confidence": 1,
+    "impressions": 27,
+    "clicks": 1,
+    "position": 21
+  },
+  {
+    "query": "discord zalgo text glitch generator",
+    "intent": "TOOL_USAGE",
+    "matched_page": "/discord-glitch-text",
+    "matched_tool": "Discord Glitch Text Generator",
+    "status": "COVERED",
+    "confidence": 0.7333333333333333,
+    "impressions": 15,
+    "clicks": 0,
+    "position": 27.8
+  },
+  {
+    "query": "discord relative timestamp syntax",
+    "intent": "INFORMATIONAL",
+    "matched_page": "/discord-timestamp-formats",
+    "matched_tool": "Discord Timestamp Formats Reference",
+    "status": "COVERED",
+    "confidence": 1,
+    "impressions": 31,
+    "clicks": 1,
+    "position": 12.4
+  },
+  {
+    "query": "discord unix timestamp code for bot",
+    "intent": "INFORMATIONAL",
+    "matched_page": "/discord-bot-timestamps",
+    "matched_tool": "Discord Bot Timestamps Guide",
+    "status": "COVERED",
+    "confidence": 1,
+    "impressions": 18,
+    "clicks": 0,
+    "position": 22.9
+  },
+  {
+    "query": "discord snowflake id to account creation date",
+    "intent": "INFORMATIONAL",
+    "matched_page": "/discord-snowflake-to-timestamp",
+    "matched_tool": "Discord Snowflake to Timestamp",
+    "status": "COVERED",
+    "confidence": 1,
+    "impressions": 14,
+    "clicks": 0,
+    "position": 19.4
+  },
+  {
+    "query": "discord soundboard mp3 downloader",
+    "intent": "INFORMATIONAL",
+    "matched_page": null,
+    "matched_tool": null,
+    "status": "NOT_COVERED",
+    "confidence": 0.95,
+    "impressions": 42,
+    "clicks": 0,
+    "position": 38
+  },
+  {
+    "query": "discord role icon maker transparent",
+    "intent": "TOOL_USAGE",
+    "matched_page": null,
+    "matched_tool": null,
+    "status": "NOT_COVERED",
+    "confidence": 0.95,
+    "impressions": 39,
+    "clicks": 0,
+    "position": 41.5
+  },
+  {
+    "query": "discord bot token generator free",
+    "intent": "TOOL_USAGE",
+    "matched_page": null,
+    "matched_tool": null,
+    "status": "NOT_COVERED",
+    "confidence": 0.95,
+    "impressions": 12,
+    "clicks": 0,
+    "position": 55
+  },
+  {
+    "query": "discord invisible name copy paste",
+    "intent": "TOOL_USAGE",
+    "matched_page": null,
+    "matched_tool": null,
+    "status": "NOT_COVERED",
+    "confidence": 0.95,
+    "impressions": 58,
+    "clicks": 0,
+    "position": 29.1
+  }
+]

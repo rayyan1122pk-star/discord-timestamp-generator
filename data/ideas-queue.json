@@ -1,0 +1,34 @@
+[
+  {
+    "query": "discord soundboard mp3 downloader",
+    "intent": "INFORMATIONAL",
+    "impressions": 42,
+    "opportunity_score": 83,
+    "suggested_action": "Build dedicated tool or page section",
+    "date_added": "2026-09-29"
+  },
+  {
+    "query": "discord role icon maker transparent",
+    "intent": "TOOL_USAGE",
+    "impressions": 39,
+    "opportunity_score": 109,
+    "suggested_action": "Build dedicated tool or page section",
+    "date_added": "2026-09-29"
+  },
+  {
+    "query": "discord bot token generator free",
+    "intent": "TOOL_USAGE",
+    "impressions": 12,
+    "opportunity_score": 68,
+    "suggested_action": "Build dedicated tool or page section",
+    "date_added": "2026-09-29"
+  },
+  {
+    "query": "discord invisible name copy paste",
+    "intent": "TOOL_USAGE",
+    "impressions": 58,
+    "opportunity_score": 137,
+    "suggested_action": "Build dedicated tool or page section",
+    "date_added": "2026-09-29"
+  }
+]

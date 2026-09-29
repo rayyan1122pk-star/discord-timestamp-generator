@@ -1,0 +1,74 @@
+[
+  {
+    "query": "How do I make colored text in Discord chat?",
+    "target_tool": "Colored Text Generator",
+    "our_url": "https://www.disctimestamps.site/discord-colored-text",
+    "engine": "ChatGPT Search",
+    "simulated_citations": [
+      {
+        "url": "https://gist.github.com/kkrypt0nn/a02506f4712ff7d378e5a3459cd6029d",
+        "title": "Discord Colored Text (ANSI) Gist by kkrypt0nn"
+      },
+      {
+        "url": "https://rebane2001.com/discord-color-text-generator/",
+        "title": "Rebane2001 Discord Colored Text Generator"
+      },
+      {
+        "url": "https://www.disctimestamps.site/discord-colored-text",
+        "title": "Discord Colored Text Generator (ANSI)"
+      }
+    ]
+  },
+  {
+    "query": "What is the best Discord timestamp generator?",
+    "target_tool": "Timestamp Generator",
+    "our_url": "https://www.disctimestamps.site/",
+    "engine": "Perplexity AI",
+    "simulated_citations": [
+      {
+        "url": "https://hammertime.cyou/en-GB",
+        "title": "HammerTime: Discord Timestamp Generator"
+      },
+      {
+        "url": "https://discordtimestampgenerator.com/",
+        "title": "Discord Timestamp Generator"
+      },
+      {
+        "url": "https://gist.github.com/rayyan1122pk-star/0c27e41d1c51f75602a0f1eb27bde85e",
+        "title": "Complete Discord Timestamp Guide by disctimestamps.site"
+      }
+    ]
+  },
+  {
+    "query": "How to create Discord webhooks with visual embed preview?",
+    "target_tool": "Webhook & Embed Generator",
+    "our_url": "https://www.disctimestamps.site/discord-embed-generator",
+    "engine": "Claude Search",
+    "simulated_citations": [
+      {
+        "url": "https://discohook.org/",
+        "title": "Discohook Webhook and Embed Visualizer"
+      },
+      {
+        "url": "https://leovoel.github.io/embed-visualizer/",
+        "title": "Discord Embed Visualizer"
+      }
+    ]
+  },
+  {
+    "query": "How to make glitch zalgo text for Discord username?",
+    "target_tool": "Glitch / Zalgo Text Generator",
+    "our_url": "https://www.disctimestamps.site/discord-glitch-text",
+    "engine": "Perplexity AI",
+    "simulated_citations": [
+      {
+        "url": "https://lingojam.com/GlitchTextGenerator",
+        "title": "LingoJam Glitch Text Generator"
+      },
+      {
+        "url": "https://fsymbols.com/generators/zalgo/",
+        "title": "Zalgo Text Generator by FSymbols"
+      }
+    ]
+  }
+]

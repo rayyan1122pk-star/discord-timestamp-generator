@@ -1,0 +1,59 @@
+[
+  {
+    "query": "How do I make colored text in Discord chat?",
+    "engine": "ChatGPT Search",
+    "target_tool": "Colored Text Generator",
+    "target_url": "https://www.disctimestamps.site/discord-colored-text",
+    "is_cited": "YES",
+    "total_citations": 3,
+    "competitor_domains": [
+      "gist.github.com",
+      "rebane2001.com"
+    ],
+    "gap_action": "Maintain current structured data and backlinks.",
+    "priority": "LOW"
+  },
+  {
+    "query": "What is the best Discord timestamp generator?",
+    "engine": "Perplexity AI",
+    "target_tool": "Timestamp Generator",
+    "target_url": "https://www.disctimestamps.site/",
+    "is_cited": "NO",
+    "total_citations": 3,
+    "competitor_domains": [
+      "hammertime.cyou",
+      "discordtimestampgenerator.com",
+      "gist.github.com"
+    ],
+    "gap_action": "Increase GitHub Gist / awesome-discord directory citations to boost citation rank.",
+    "priority": "HIGH"
+  },
+  {
+    "query": "How to create Discord webhooks with visual embed preview?",
+    "engine": "Claude Search",
+    "target_tool": "Webhook & Embed Generator",
+    "target_url": "https://www.disctimestamps.site/discord-embed-generator",
+    "is_cited": "NO",
+    "total_citations": 2,
+    "competitor_domains": [
+      "discohook.org",
+      "leovoel.github.io"
+    ],
+    "gap_action": "Add discord.js and discord.py export code snippets directly below interactive embed.",
+    "priority": "HIGH"
+  },
+  {
+    "query": "How to make glitch zalgo text for Discord username?",
+    "engine": "Perplexity AI",
+    "target_tool": "Glitch / Zalgo Text Generator",
+    "target_url": "https://www.disctimestamps.site/discord-glitch-text",
+    "is_cited": "NO",
+    "total_citations": 2,
+    "competitor_domains": [
+      "lingojam.com",
+      "fsymbols.com"
+    ],
+    "gap_action": "Add 1-click preset intensity buttons and Discord 32-character limit reminder.",
+    "priority": "HIGH"
+  }
+]
