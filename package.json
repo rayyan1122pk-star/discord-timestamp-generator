@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node scripts/seo-regression.js",
+    "test:features": "node scripts/test-all-features.mjs",
     "seo:eval": "node scripts/seo-eval-pipeline.mjs",
     "seo:classify": "node scripts/classify-queries.mjs",
     "seo:geo": "node scripts/geo-citation-tracker.mjs",
