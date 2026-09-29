@@ -168,6 +168,20 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
       "discord glitch font",
     ],
   },
+  invisibleName: {
+    title: "Discord Invisible Name & Blank Character [1-Click Copy]",
+    description:
+      "Copy the invisible name character (Hangul Filler \\u3164) and blank message for Discord. Works on desktop, web, iOS, and Android clients without getting blocked.",
+    canonical: `${siteConfig.url}/discord-invisible-name`,
+    keywords: [
+      "discord invisible name",
+      "discord blank name",
+      "discord empty character copy paste",
+      "discord invisible text",
+      "discord hangul filler copy paste",
+      "discord invisible nickname",
+    ],
+  },
   blog: {
     title: "Discord Timestamps Blog & Developer Tutorials",
     description:

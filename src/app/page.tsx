@@ -60,6 +60,11 @@ const HOME_FAQS: FaqItem[] = [
       "This happens if you accidentally wrapped the code in backticks (`<t:...>`), added spaces inside the brackets, forgot the closing bracket, or passed a 13-digit millisecond value from JavaScript instead of a 10-digit second value.",
   },
   {
+    question: "How do I generate a Discord timestamp for my timezone?",
+    answer:
+      "Select your date and time in the interactive picker above, pick your preferred format (such as Relative Time for live countdowns), and click the Copy button. Paste the generated code directly into any Discord message to display the exact time in every member's local clock automatically.",
+  },
+  {
     question: "Is this Discord timestamp tool completely private?",
     answer:
       "Yes. 100% of calculations happen locally inside your web browser using native JavaScript Intl APIs. No dates, times, or personal data are ever transmitted to or stored on our servers.",

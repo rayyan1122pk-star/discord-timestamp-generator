@@ -84,8 +84,14 @@ export default function DiscordBotTimestampsPage() {
       </header>
 
       {/* Natural Lead Paragraph */}
-      <div className="text-lg text-slate-300 font-normal leading-relaxed mb-10 text-pretty">
+      <div className="text-lg text-slate-300 font-normal leading-relaxed mb-6 text-pretty">
         {guide.summary}
+      </div>
+
+      {/* Platform Compatibility Callout */}
+      <div className="mb-10 p-4 rounded-xl border border-slate-800 bg-[#0e121a] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-300">
+        <span className="font-semibold text-indigo-400">Desktop & Mobile Bot Outputs:</span>
+        <span className="text-slate-400">Bot timestamp tags render in each user local timezone across desktop, browser, and mobile Discord apps.</span>
       </div>
 
       {/* Guide Content Sections */}

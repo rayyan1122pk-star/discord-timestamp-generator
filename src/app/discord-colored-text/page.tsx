@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CodeBlock } from "@/components/CodeBlock";
 import { DiscordAnsiEditor } from "@/components/DiscordAnsiEditor";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
@@ -105,6 +106,24 @@ export default function DiscordColoredTextPage() {
           <p className="mt-3 text-sm sm:text-base text-slate-400 leading-relaxed">
             Create eye-catching announcements, alert banners, and formatted code blocks using Discord ANSI color syntax. Real-time preview with 1-click copy.
           </p>
+        </section>
+
+        {/* Quick Answer: How to Make Red Text in Discord */}
+        <section className="mb-8 rounded-xl border border-rose-500/20 bg-rose-950/10 p-5">
+          <div className="mb-3">
+            <h2 className="text-base font-semibold text-rose-300 flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+              Quick Copy: How to Make Red Text in Discord
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 mt-1">
+              Wrap your text in an ANSI codeblock with code <code className="text-rose-300 font-mono">\u001b[31m</code>. Click copy and paste into Discord:
+            </p>
+          </div>
+          <CodeBlock
+            code={"```ansi\n\u001b[31m[ERROR] Server announcement in red text\u001b[0m\n```"}
+            language="ansi"
+            caption="1-Click Copy: Discord Red Text Codeblock"
+          />
         </section>
 
         {/* Interactive Tool Widget */}

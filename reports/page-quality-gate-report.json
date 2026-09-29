@@ -1,43 +1,36 @@
 [
   {
     "path": "/blog",
-    "status": "BLOCKED",
+    "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
       "json_ld_schema": "PASS",
-      "one_click_copy": "FAIL",
-      "mobile_desktop_instructions": "FAIL"
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
     },
-    "blockers": [
-      "Missing 1-click copy button or code snippet export",
-      "Missing explicit mobile & desktop instructions"
-    ]
+    "blockers": []
   },
   {
     "path": "/blog/[slug]",
-    "status": "BLOCKED",
+    "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
       "json_ld_schema": "PASS",
       "one_click_copy": "PASS",
-      "mobile_desktop_instructions": "FAIL"
+      "mobile_desktop_instructions": "PASS"
     },
-    "blockers": [
-      "Missing explicit mobile & desktop instructions"
-    ]
+    "blockers": []
   },
   {
     "path": "/discord-bot-timestamps",
-    "status": "BLOCKED",
+    "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
       "json_ld_schema": "PASS",
       "one_click_copy": "PASS",
-      "mobile_desktop_instructions": "FAIL"
+      "mobile_desktop_instructions": "PASS"
     },
-    "blockers": [
-      "Missing explicit mobile & desktop instructions"
-    ]
+    "blockers": []
   },
   {
     "path": "/discord-colored-text",
@@ -73,69 +66,70 @@
     "blockers": []
   },
   {
-    "path": "/discord-markdown",
-    "status": "BLOCKED",
+    "path": "/discord-invisible-name",
+    "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
       "json_ld_schema": "PASS",
       "one_click_copy": "PASS",
-      "mobile_desktop_instructions": "FAIL"
+      "mobile_desktop_instructions": "PASS"
     },
-    "blockers": [
-      "Missing explicit mobile & desktop instructions"
-    ]
+    "blockers": []
+  },
+  {
+    "path": "/discord-markdown",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
   },
   {
     "path": "/discord-snowflake-to-timestamp",
-    "status": "BLOCKED",
+    "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
       "json_ld_schema": "PASS",
       "one_click_copy": "PASS",
-      "mobile_desktop_instructions": "FAIL"
+      "mobile_desktop_instructions": "PASS"
     },
-    "blockers": [
-      "Missing explicit mobile & desktop instructions"
-    ]
+    "blockers": []
   },
   {
     "path": "/discord-timestamp-formats",
-    "status": "BLOCKED",
+    "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
       "json_ld_schema": "PASS",
       "one_click_copy": "PASS",
-      "mobile_desktop_instructions": "FAIL"
+      "mobile_desktop_instructions": "PASS"
     },
-    "blockers": [
-      "Missing explicit mobile & desktop instructions"
-    ]
+    "blockers": []
   },
   {
     "path": "/discord-timestamp-guide",
-    "status": "BLOCKED",
+    "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
       "json_ld_schema": "PASS",
       "one_click_copy": "PASS",
-      "mobile_desktop_instructions": "FAIL"
+      "mobile_desktop_instructions": "PASS"
     },
-    "blockers": [
-      "Missing explicit mobile & desktop instructions"
-    ]
+    "blockers": []
   },
   {
     "path": "/discord-webhook-timestamps",
-    "status": "BLOCKED",
+    "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
       "json_ld_schema": "PASS",
       "one_click_copy": "PASS",
-      "mobile_desktop_instructions": "FAIL"
+      "mobile_desktop_instructions": "PASS"
     },
-    "blockers": [
-      "Missing explicit mobile & desktop instructions"
-    ]
+    "blockers": []
   },
   {
     "path": "/",
@@ -150,15 +144,13 @@
   },
   {
     "path": "/unix-timestamp",
-    "status": "BLOCKED",
+    "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
       "json_ld_schema": "PASS",
       "one_click_copy": "PASS",
-      "mobile_desktop_instructions": "FAIL"
+      "mobile_desktop_instructions": "PASS"
     },
-    "blockers": [
-      "Missing explicit mobile & desktop instructions"
-    ]
+    "blockers": []
   }
 ]

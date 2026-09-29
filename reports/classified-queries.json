@@ -134,10 +134,10 @@
   {
     "query": "discord invisible name copy paste",
     "intent": "TOOL_USAGE",
-    "matched_page": null,
-    "matched_tool": null,
-    "status": "NOT_COVERED",
-    "confidence": 0.95,
+    "matched_page": "/discord-invisible-name",
+    "matched_tool": "Discord Invisible Name Generator",
+    "status": "COVERED",
+    "confidence": 0.9333333333333333,
     "impressions": 58,
     "clicks": 0,
     "position": 29.1

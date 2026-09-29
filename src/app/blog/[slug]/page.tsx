@@ -150,6 +150,12 @@ export default async function BlogPostPage({ params }: Props) {
         </section>
       )}
 
+      {/* Device Compatibility Note */}
+      <div className="mb-10 p-4 rounded-xl border border-slate-800 bg-[#0e121a] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-300">
+        <span className="font-semibold text-indigo-400">Desktop & Mobile App Support:</span>
+        <span className="text-slate-400">Tested and verified for Discord desktop, web browser, and mobile apps (iOS & Android).</span>
+      </div>
+
       {/* Lead Excerpt and Introduction */}
       <div className="text-slate-300 text-sm sm:text-base leading-relaxed space-y-5 mb-10">
         <p className="font-medium text-slate-200 text-base leading-relaxed border-l-2 border-indigo-500 pl-4 py-0.5 bg-indigo-500/5 rounded-r">

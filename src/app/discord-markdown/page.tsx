@@ -84,8 +84,14 @@ export default function DiscordMarkdownPage() {
       </header>
 
       {/* Natural Lead Paragraph */}
-      <div className="text-lg text-slate-300 font-normal leading-relaxed mb-10 text-pretty">
+      <div className="text-lg text-slate-300 font-normal leading-relaxed mb-6 text-pretty">
         {guide.summary}
+      </div>
+
+      {/* Platform Compatibility Callout */}
+      <div className="mb-10 p-4 rounded-xl border border-slate-800 bg-[#0e121a] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-300">
+        <span className="font-semibold text-indigo-400">Desktop & Mobile Formatting:</span>
+        <span className="text-slate-400">Discord markdown tags render seamlessly across Windows, Mac, Linux, iOS, and Android mobile apps.</span>
       </div>
 
       {/* Guide Content Sections */}

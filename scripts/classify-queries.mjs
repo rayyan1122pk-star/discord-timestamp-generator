@@ -34,6 +34,11 @@ const SITE_ROUTING_MAP = [
     keywords: ['glitch', 'zalgo', 'corrupted', 'scary text', 'crazy text', 'diacritics']
   },
   {
+    path: '/discord-invisible-name',
+    tool: 'Discord Invisible Name Generator',
+    keywords: ['invisible name', 'blank name', 'empty character', 'invisible character', 'hangul filler', 'blank message']
+  },
+  {
     path: '/discord-snowflake-to-timestamp',
     tool: 'Discord Snowflake to Timestamp',
     keywords: ['snowflake', 'account age', 'server id creation date', 'user id to date', 'snowflake id']

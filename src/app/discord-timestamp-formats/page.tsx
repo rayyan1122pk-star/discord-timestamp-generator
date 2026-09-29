@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CodeBlock } from "@/components/CodeBlock";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { FormatSyntaxTable } from "@/components/FormatSyntaxTable";
 import { JsonLd } from "@/components/JsonLd";
 import { routeMetadataMap, siteConfig } from "@/lib/seo-config";
 import { COMPREHENSIVE_GUIDES } from "@/data/guides-data";
@@ -84,8 +85,14 @@ export default function TimestampFormatsPage() {
       </header>
 
       {/* Natural Lead Paragraph */}
-      <div className="text-lg text-slate-300 font-normal leading-relaxed mb-10 text-pretty">
+      <div className="text-lg text-slate-300 font-normal leading-relaxed mb-6 text-pretty">
         {guide.summary}
+      </div>
+
+      {/* Platform Compatibility Callout */}
+      <div className="mb-10 p-4 rounded-xl border border-slate-800 bg-[#0e121a] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-300">
+        <span className="font-semibold text-indigo-400">Desktop & Mobile Compatibility:</span>
+        <span className="text-slate-400">Discord timestamps render dynamically on Windows, Mac, Linux, iOS, and Android mobile apps.</span>
       </div>
 
       {/* Guide Content Sections */}
@@ -100,7 +107,9 @@ export default function TimestampFormatsPage() {
               {section.content}
             </div>
 
-            {section.table && (
+            {section.id === "the-seven-flags" ? (
+              <FormatSyntaxTable />
+            ) : section.table && (
               <div className="my-8 overflow-x-auto rounded-lg border border-slate-800/80">
                 <table className="w-full text-left text-sm">
                   <thead className="bg-[#0e121a] border-b border-slate-800 text-slate-400 font-mono text-xs">

@@ -1,6 +1,6 @@
 # Targeted SEO Rewrite Queue (Striking Distance Optimization)
 
-Generated: 2026-09-29T17:16:41.858Z
+Generated: 2026-09-29T17:34:35.867Z
 
 ### Executive Summary
 - Queries in Striking Distance (Pos 11-30): **9**

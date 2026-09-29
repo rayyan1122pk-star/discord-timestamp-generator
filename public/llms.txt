@@ -20,6 +20,7 @@
 - [Homepage / Live Generator](https://disctimestamps.site): Interactive generator with datepicker, timezone selector, presets, live chat simulator, and 1-click copy.
 - [Discord Embed Generator](https://disctimestamps.site/discord-embed-generator): Visual Discord embed maker and webhook builder with real-time dark mode chat simulation, custom colors, inline fields, and 1-click code export (Webhook JSON, discord.js v14, discord.py).
 - [Discord Glitch & Zalgo Text](https://disctimestamps.site/discord-glitch-text): Client-side Unicode combining diacritics generator with intensity slider, directional toggles, and Discord 32-character nickname limit validator.
+- [Discord Invisible Name & Blank Character](https://disctimestamps.site/discord-invisible-name): 1-click copy utility for Discord invisible name character (Hangul Filler U+3164) and zero-width spaces for empty nicknames and blank chat messages.
 - [Discord Colored Text (ANSI)](https://disctimestamps.site/discord-colored-text): Visual ANSI escape sequence formatter for Discord codeblocks with 8 text colors and background highlights.
 - [Discord Snowflake Decoder](https://disctimestamps.site/discord-snowflake-to-timestamp): 64-bit Snowflake ID decoder to extract creation dates and timestamps from User, Message, and Server IDs.
 - [Discord Timestamp Guide](https://disctimestamps.site/discord-timestamp-guide): Comprehensive tutorial on how Discord dynamic timestamps work, syntax breakdown, and troubleshooting.

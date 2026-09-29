@@ -56,6 +56,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/discord-invisible-name" className="hover:text-white transition-colors">
+                  Discord Invisible Name
+                </Link>
+              </li>
+              <li>
                 <Link href="/discord-timestamp-formats" className="hover:text-white transition-colors">
                   Formats & Styles Cheat Sheet
                 </Link>

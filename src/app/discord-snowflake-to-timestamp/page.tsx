@@ -107,6 +107,12 @@ export default function DiscordSnowflakePage() {
           </p>
         </section>
 
+        {/* Platform Compatibility Callout */}
+        <div className="mb-8 p-4 rounded-xl border border-slate-800 bg-[#0e121a] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-300">
+          <span className="font-semibold text-indigo-400">Desktop & Mobile ID Copying:</span>
+          <span className="text-slate-400">Enable Developer Mode in User Settings on Discord desktop or mobile app to right-click or long-press and copy any ID.</span>
+        </div>
+
         {/* Interactive Tool Widget */}
         <DiscordSnowflakeTool />
 

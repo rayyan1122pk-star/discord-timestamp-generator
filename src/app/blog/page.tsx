@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpen, User } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CodeBlock } from "@/components/CodeBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { routeMetadataMap, siteConfig } from "@/lib/seo-config";
 import { BLOG_POSTS } from "@/data/guides-data";
@@ -62,6 +63,17 @@ export default function BlogIndexPage() {
           workflows, and timezone synchronization.
         </p>
       </header>
+
+      {/* Quick Interactive Copy Banner */}
+      <div className="mb-10 p-5 rounded-2xl border border-slate-800 bg-[#0e121a] flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h2 className="text-sm font-semibold text-white">Need a quick relative timestamp for Discord chat?</h2>
+          <p className="text-xs text-slate-400 mt-1">Copy this default tag and paste into Discord desktop browser or mobile apps:</p>
+        </div>
+        <div className="w-full md:w-auto">
+          <CodeBlock code="<t:1727280000:R>" language="syntax" caption="1-Click Copy" />
+        </div>
+      </div>
 
       {/* Blog Posts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
