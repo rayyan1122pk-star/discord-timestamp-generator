@@ -8,12 +8,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Discord Mention & Emoji Generator [User, Role & Channel Tags]",
+  title: "Discord Mention Generator: User, Role & Channel",
   description:
     "Generate Discord mention syntax for users, roles, channels, custom emojis, and slash commands using Snowflake IDs. 100% free with 1-click copy.",
   alternates: { canonical: `${siteConfig.url}/discord-mention-generator` },
   openGraph: {
-    title: "Discord Mention & Emoji Generator [User, Role & Channel Tags]",
+    title: "Discord Mention Generator: User, Role & Channel",
     description:
       "Format Discord mention codes (<@ID>, <@&ID>, <#ID>, <:name:ID>) for bot announcements, webhooks, and channel navigation.",
     url: `${siteConfig.url}/discord-mention-generator`,

@@ -51,7 +51,7 @@ export interface RouteMetadata {
 
 export const routeMetadataMap: Record<string, RouteMetadata> = {
   home: {
-    title: "Discord Timestamp Generator [Auto Timezone & 1-Click Copy]",
+    title: "Discord Timestamp Generator: Dynamic Time Formatter",
     description:
       "Generate dynamic Discord timestamps (<t:TIMESTAMP:STYLE>) that adapt to each user's local timezone. Features live chat preview, countdowns, and 1-click copy.",
     canonical: siteConfig.url,
@@ -67,7 +67,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   guide: {
-    title: "Discord Timestamp Guide (2026): Syntax, Styles & Rules",
+    title: "Discord Timestamp Guide: Syntax, Styles & Rules",
     description:
       "Learn how Discord dynamic timestamps work, why they automatically adapt to international timezones, and master the full <t:epoch:style> syntax for messages, channels, and rules.",
     canonical: `${siteConfig.url}/discord-timestamp-guide`,
@@ -80,7 +80,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   formats: {
-    title: "Discord Timestamp Formats & Styles [<t:time:R> Cheat Sheet]",
+    title: "Discord Timestamp Formats: Style Flags & Cheat Sheet",
     description:
       "Compare all 7 Discord timestamp style flags (Short Time, Long Time, Short Date, Long Date, Short Date/Time, Long Date/Time, and Relative Countdown) with side-by-side examples.",
     canonical: `${siteConfig.url}/discord-timestamp-formats`,
@@ -93,7 +93,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   unix: {
-    title: "Unix Timestamp to Discord Converter [Epoch to <t:time:F>]",
+    title: "Unix Timestamp to Discord Converter: Epoch Math",
     description:
       "Understand Unix epoch time (seconds since Jan 1, 1970) in Discord. Learn how to convert timestamps, avoid the 1000x millisecond bug, and calculate UTC offsets.",
     canonical: `${siteConfig.url}/unix-timestamp`,
@@ -105,7 +105,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   markdown: {
-    title: "Discord Markdown Cheat Sheet [Spoilers, Colors & Code Blocks]",
+    title: "Discord Markdown Cheat Sheet: Text Formatting",
     description:
       "Master Discord text formatting: bold, italic, underline, strikethrough, spoiler tags, headers, quotes, blockquotes, syntax highlighting, and dynamic timestamp embedding.",
     canonical: `${siteConfig.url}/discord-markdown`,
@@ -117,7 +117,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   webhooks: {
-    title: "Discord Webhook Timestamps [Embeds & JSON Payloads]",
+    title: "Discord Webhook Timestamps: Embed JSON Guide",
     description:
       "How to format dynamic timestamps in Discord webhooks and bot embeds. Learn the difference between <t:epoch:style> in embed descriptions vs ISO-8601 in embed footers.",
     canonical: `${siteConfig.url}/discord-webhook-timestamps`,
@@ -129,7 +129,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   bots: {
-    title: "Discord Bot Timestamps: discord.js v14 & discord.py Guide",
+    title: "Discord Bot Timestamps: discord.js & Python Guide",
     description:
       "Code examples for generating dynamic timestamps in Discord bots. Master discord.js time() utility, TimestampStyles, and Python datetime epoch conversions.",
     canonical: `${siteConfig.url}/discord-bot-timestamps`,
@@ -141,7 +141,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   embedGenerator: {
-    title: "Discord Embed Generator [Live Visual Webhook Builder]",
+    title: "Discord Embed Generator: Visual Webhook Builder",
     description:
       "Build custom Discord webhook embeds with real-time dark mode preview. Supports custom colors, inline fields, images, timestamps, discord.js v14 and JSON export.",
     canonical: `${siteConfig.url}/discord-embed-generator`,
@@ -155,7 +155,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   glitchText: {
-    title: "Discord Glitch Text Generator [Zalgo & Corrupted Font Maker]",
+    title: "Discord Glitch Text Generator: Zalgo Cursed Text",
     description:
       "Generate glitched, corrupted, and cursed Zalgo text for Discord usernames, channels, and messages. Features intensity sliders, direction controls, and live chat preview.",
     canonical: `${siteConfig.url}/discord-glitch-text`,
@@ -169,7 +169,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   invisibleName: {
-    title: "Discord Invisible Name & Blank Character [1-Click Copy]",
+    title: "Discord Invisible Name & Blank Bio Generator",
     description:
       "Copy the invisible name character (Hangul Filler \\u3164) and blank message for Discord. Works on desktop, web, iOS, and Android clients without getting blocked.",
     canonical: `${siteConfig.url}/discord-invisible-name`,
@@ -183,7 +183,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   blog: {
-    title: "Discord Timestamps Blog & Developer Tutorials",
+    title: "Discord Developer Blog & Timestamps Tutorials",
     description:
       "In-depth guides, case studies, and tutorials on Discord API formatting, server moderation scheduling, webhook automations, and developer best practices.",
     canonical: `${siteConfig.url}/blog`,
@@ -195,14 +195,14 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     ],
   },
   about: {
-    title: "About Discord Timestamps: Philosophy, Privacy & Architecture",
+    title: "About Discord Timestamps: Open Source Utility",
     description:
       "Learn about Discord Timestamps: a high-performance, client-side developer utility built with zero tracking, instant processing, and accessibility.",
     canonical: `${siteConfig.url}/about`,
     keywords: ["about discord timestamp generator", "discord timestamps project mission"],
   },
   contact: {
-    title: "Contact Us & Developer Support: Discord Timestamps",
+    title: "Contact Discord Timestamps Support & Feedback",
     description:
       "Get in touch with the engineering team. Report bugs, suggest new timestamp tools or features, and provide feedback.",
     canonical: `${siteConfig.url}/contact`,
@@ -216,7 +216,7 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
     keywords: ["discord timestamps privacy policy", "client side privacy tool"],
   },
   terms: {
-    title: "Terms of Service: Discord Timestamps",
+    title: "Terms of Service: Discord Timestamps Utility",
     description:
       "Terms of service for using Discord Timestamps, an open utility and informational resource.",
     canonical: `${siteConfig.url}/terms`,

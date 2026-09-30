@@ -9,12 +9,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Discord Colored Text Generator [ANSI Codes & Live Preview]",
+  title: "Discord Colored Text Generator: ANSI Codeblocks",
   description:
     "Generate colored text in Discord using ANSI codeblocks. Features visual color picker, background highlights, bold, underline, live chat preview, and 1-click copy.",
   alternates: { canonical: `${siteConfig.url}/discord-colored-text` },
   openGraph: {
-    title: "Discord Colored Text Generator [ANSI Codes & Live Preview]",
+    title: "Discord Colored Text Generator: ANSI Codeblocks",
     description:
       "Create vibrant colored text messages in Discord with ANSI formatting. 100% free, client-side, and works across desktop and web Discord clients.",
     url: `${siteConfig.url}/discord-colored-text`,

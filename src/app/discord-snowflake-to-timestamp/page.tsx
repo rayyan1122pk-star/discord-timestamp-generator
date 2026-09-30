@@ -8,12 +8,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Discord Snowflake to Timestamp [Account & Server Age Finder]",
+  title: "Discord Snowflake to Timestamp: ID Age Decoder",
   description:
     "Decode any Discord Snowflake ID (User ID, Server ID, Channel ID, Message ID) into its exact creation date and Unix timestamp. Free, instant, and 100% client-side.",
   alternates: { canonical: `${siteConfig.url}/discord-snowflake-to-timestamp` },
   openGraph: {
-    title: "Discord Snowflake to Timestamp [Account & Server Age Finder]",
+    title: "Discord Snowflake to Timestamp: ID Age Decoder",
     description:
       "Find the exact creation date of any Discord user account, server, role, or message from its 64-bit Snowflake ID.",
     url: `${siteConfig.url}/discord-snowflake-to-timestamp`,

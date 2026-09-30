@@ -8,12 +8,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Discord Font Generator [Copy & Paste Aesthetic Fonts]",
+  title: "Discord Font Generator: Aesthetic Unicode Fonts",
   description:
     "Generate cool, aesthetic Discord fonts for usernames, nicknames, server channels, and bios. 100% free with instant 1-click copy and live chat preview.",
   alternates: { canonical: `${siteConfig.url}/discord-font-generator` },
   openGraph: {
-    title: "Discord Font Generator [Copy & Paste Aesthetic Fonts]",
+    title: "Discord Font Generator: Aesthetic Unicode Fonts",
     description:
       "Transform plain text into Small Caps, Bold, Gothic, Cursive, and Monospace Discord fonts. Works across desktop and mobile chat.",
     url: `${siteConfig.url}/discord-font-generator`,

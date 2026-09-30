@@ -3,7 +3,7 @@ import { BlogPost } from "../guides-data";
 export const POSTS_PART_3: BlogPost[] = [
   {
     slug: "discord-markdown-formatting-timestamps-guide",
-    title: "Discord Markdown & Timestamp Formatting: Complete Styling and Nesting Guide",
+    title: "Discord Markdown & Timestamps: Text Formatting Guide",
     description: "Learn how Discord Markdown interacts with dynamic timestamps. Style timestamps with bold, italics, headers, spoilers, and blockquotes without breaking syntax.",
     primaryKeyword: "discord markdown timestamp",
     searchVariations: [
@@ -117,7 +117,7 @@ export const POSTS_PART_3: BlogPost[] = [
   },
   {
     slug: "discord-api-rate-limits-message-editing-countdown-bots",
-    title: "Discord API Rate Limits: Why Message Editing Countdown Bots Get Blocked",
+    title: "Discord API Rate Limits: Why Live Countdown Bots Break",
     description: "Understand Discord leaky bucket rate limits, HTTP 429 errors, and why native relative timestamps (:R) beat bot edit loops.",
     primaryKeyword: "discord api rate limit message edit",
     searchVariations: [
@@ -219,7 +219,7 @@ export const POSTS_PART_3: BlogPost[] = [
   },
   {
     slug: "discord-scheduled-events-api-automations",
-    title: "Automating Discord Scheduled Events via API: Developer Guide with Dynamic Timestamps",
+    title: "Automating Discord Scheduled Events via REST API",
     description: "Learn how to programmatically create and manage Discord Scheduled Events using the REST API, discord.js, and automated chat timestamp announcements.",
     primaryKeyword: "discord scheduled events api",
     searchVariations: [
@@ -310,7 +310,7 @@ export const POSTS_PART_3: BlogPost[] = [
   },
   {
     slug: "diagnosing-discord-timezone-clock-skew-issues",
-    title: "Why Discord Timestamps Show the Wrong Time: Diagnosing Clock Skew and NTP Sync",
+    title: "Why Discord Timestamps Show Wrong Time: Fix Clock Skew",
     description: "Troubleshoot why a Discord timestamp displays the wrong time for specific users. Fix client clock skew, operating system NTP sync, and timezone offset bugs.",
     primaryKeyword: "discord timestamp wrong time",
     searchVariations: [

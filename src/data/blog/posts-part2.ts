@@ -3,7 +3,7 @@ import { BlogPost } from "../guides-data";
 export const POSTS_PART_2: BlogPost[] = [
   {
     slug: "building-an-automated-discord-notification-system-with-n8n",
-    title: "Building an Automated Discord Notification System with n8n and Dynamic Timestamps",
+    title: "Automated Discord Notifications with n8n and Timestamps",
     description: "Step-by-step developer tutorial on creating automated Discord notifications using n8n workflows, webhook payloads, and localized Unix timestamps.",
     primaryKeyword: "discord webhook timestamp format",
     searchVariations: [
@@ -118,7 +118,7 @@ export const POSTS_PART_2: BlogPost[] = [
   },
   {
     slug: "how-to-send-discord-timestamps-on-mobile-iphone-android",
-    title: "How to Send Discord Timestamps on Mobile (iPhone & Android): The Complete Guide",
+    title: "How to Send Discord Timestamps on iPhone and Android",
     description: "Master generating and sending Discord timestamps on iOS and Android. Set up keyboard shortcuts, clipboard pinning, and bypass mobile keyboard friction.",
     primaryKeyword: "discord timestamp mobile",
     searchVariations: [
@@ -224,7 +224,7 @@ export const POSTS_PART_2: BlogPost[] = [
   },
   {
     slug: "discord-bot-dynamic-timestamp-developer-guide",
-    title: "Building Discord Bots with Dynamic Timestamps: discord.js v14 and discord.py Guide",
+    title: "Discord Bot Dynamic Timestamps: discord.js & Python",
     description: "Production guide for bot developers. Implement dynamic timestamps in discord.js v14 and discord.py, design rich embeds, and avoid rate limit edit loops.",
     primaryKeyword: "discord bot timestamp code",
     searchVariations: [
@@ -331,7 +331,7 @@ export const POSTS_PART_2: BlogPost[] = [
   },
   {
     slug: "unix-timestamp-vs-iso-8601-discord-bots",
-    title: "Unix Timestamp vs ISO 8601 for Discord Bots: Database Architecture Guide",
+    title: "Unix Timestamp vs ISO 8601 for Discord Bots",
     description: "Compare Unix epoch integers and ISO 8601 strings for Discord bot databases. Benchmark PostgreSQL TIMESTAMPTZ, MySQL, and MongoDB for performance.",
     primaryKeyword: "unix timestamp vs iso 8601 discord",
     searchVariations: [

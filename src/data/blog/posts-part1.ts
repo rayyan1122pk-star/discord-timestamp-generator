@@ -3,7 +3,7 @@ import { BlogPost } from "../guides-data";
 export const POSTS_PART_1: BlogPost[] = [
   {
     slug: "how-to-create-discord-timestamps-complete-guide",
-    title: "How to Create Discord Timestamps: The Complete Dynamic Time Guide",
+    title: "How to Create Discord Timestamps: Dynamic Time Guide",
     description: "Learn how to generate and format dynamic Discord timestamps (<t:epoch:style>) in messages, rules, and announcements that automatically adapt to every user local clock.",
     primaryKeyword: "how to make discord timestamp",
     searchVariations: [
@@ -205,7 +205,7 @@ export const POSTS_PART_1: BlogPost[] = [
   },
   {
     slug: "discord-timestamp-not-working-troubleshooting-guide",
-    title: "Why Is My Discord Timestamp Not Working? 8 Common Mistakes and Fixes",
+    title: "Why Discord Timestamp Is Not Working: 8 Quick Fixes",
     description: "Fix broken Discord timestamps that display as raw code like <t:1727280000>. Diagnose 13-digit millisecond bugs, backtick escapes, and syntax formatting errors.",
     primaryKeyword: "discord timestamp not working",
     searchVariations: [
@@ -369,7 +369,7 @@ export const POSTS_PART_1: BlogPost[] = [
   },
   {
     slug: "discord-countdown-timer-chat-relative-time-guide",
-    title: "How to Create a Discord Countdown Timer in Chat Using the Relative Time Flag",
+    title: "Discord Countdown Timer in Chat: Relative Time Guide",
     description: "Build a dynamic live countdown timer directly in Discord chat without bots. Master the :R relative timestamp flag for giveaways, raids, and events.",
     primaryKeyword: "discord countdown timer",
     searchVariations: [
@@ -510,7 +510,7 @@ export const POSTS_PART_1: BlogPost[] = [
   },
   {
     slug: "how-to-schedule-events-across-global-discord-servers",
-    title: "How to Schedule Events Across Global Discord Servers: Overcoming Timezone Chaos",
+    title: "How to Schedule Discord Server Events Across Timezones",
     description: "Learn how to coordinate international Discord events, raids, and community meetings without timezone confusion, DST errors, or attendance friction.",
     primaryKeyword: "schedule events discord timezone",
     searchVariations: [

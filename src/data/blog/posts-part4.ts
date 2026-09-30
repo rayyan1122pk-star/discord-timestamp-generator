@@ -3,7 +3,7 @@ import { BlogPost } from "../guides-data";
 export const POSTS_PART_4: BlogPost[] = [
   {
     slug: "how-to-get-invisible-name-discord-guide",
-    title: "How to Get an Invisible Name on Discord: Desktop, Mobile & Server Nicknames",
+    title: "How to Get an Invisible Name on Discord (Blank Bio)",
     description: "Learn how to set a blank invisible display name or server nickname on Discord using Unicode Hangul Filler (U+3164) without getting blocked by character validation filters.",
     primaryKeyword: "how to get an invisible name on discord",
     searchVariations: [
@@ -91,7 +91,7 @@ export const POSTS_PART_4: BlogPost[] = [
   },
   {
     slug: "how-to-create-discord-webhook-embeds-guide",
-    title: "How to Create Discord Webhook Embeds: JSON Payloads, discord.js & Python Guide",
+    title: "How to Create Discord Webhook Embeds: JSON & Python",
     description: "Master Discord webhook embeds with this complete visual guide. Learn embed JSON formatting, color integer conversion, field layouts, and automation with curl, discord.js, and Python.",
     primaryKeyword: "how to make discord webhook embed",
     searchVariations: [
@@ -169,7 +169,7 @@ export const POSTS_PART_4: BlogPost[] = [
   },
   {
     slug: "how-to-make-glitch-zalgo-text-discord",
-    title: "How to Make Glitch Text on Discord: The Science of Zalgo Diacritics",
+    title: "How to Make Glitch Text on Discord: Zalgo Diacritics",
     description: "Discover how Zalgo glitch text works on Discord. Learn how combining Unicode diacritics corrupts typography, how to stay within the 32-character nickname limit, and how to use our generator.",
     primaryKeyword: "how to make glitch text discord",
     searchVariations: [
@@ -231,7 +231,7 @@ export const POSTS_PART_4: BlogPost[] = [
   },
   {
     slug: "how-to-write-colored-text-discord-ansi-guide",
-    title: "How to Write in Color in Discord: The Complete ANSI Syntax Guide",
+    title: "How to Write Colored Text in Discord: ANSI Syntax",
     description: "Learn how to write colored text in Discord messages using ANSI escape sequences. Master all 8 colors, background highlights, bold formatting, and 1-click copy tricks.",
     primaryKeyword: "how to write colored text in discord",
     searchVariations: [

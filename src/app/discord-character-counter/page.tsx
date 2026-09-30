@@ -8,12 +8,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Discord Character Counter [Message, Nitro, Bio & Embed Limits]",
+  title: "Discord Character Counter: Message & Bio Limits",
   description:
     "Check character count for Discord messages, Nitro chats, profile bios, server nicknames, and embed fields. Live limit checks with instant feedback.",
   alternates: { canonical: `${siteConfig.url}/discord-character-counter` },
   openGraph: {
-    title: "Discord Character Counter [Message, Nitro, Bio & Embed Limits]",
+    title: "Discord Character Counter: Message & Bio Limits",
     description:
       "Verify Discord character limits in real time. Avoid 'Your message is too long' errors for messages, bios, nicknames, and webhook embeds.",
     url: `${siteConfig.url}/discord-character-counter`,
