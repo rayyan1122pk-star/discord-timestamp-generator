@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Copy, Check, RotateCcw, Palette, Terminal } from "lucide-react";
+import { playCopySound, playPresetSound } from "@/lib/sound-effects";
 import {
   ANSI_FOREGROUND_COLORS,
   ANSI_BACKGROUND_COLORS,
@@ -42,6 +43,7 @@ export function DiscordAnsiEditor() {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(outputCode);
+      playCopySound();
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -50,6 +52,7 @@ export function DiscordAnsiEditor() {
   };
 
   const applyPreset = (preset: typeof presets[0]) => {
+    playPresetSound();
     setInputText(preset.text);
     setSelectedFg(preset.fg);
     setSelectedBg(preset.bg);

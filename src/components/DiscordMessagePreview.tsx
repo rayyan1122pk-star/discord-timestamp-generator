@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Info } from "lucide-react";
+import { Info, Copy, Check, MessageSquare, Sparkles } from "lucide-react";
 import { DiscordFormatStyle, renderDiscordFormatPreview } from "@/lib/time-utils";
+import { playCopySound } from "@/lib/sound-effects";
 
 interface DiscordMessagePreviewProps {
   epochSeconds: number;
@@ -11,6 +12,33 @@ interface DiscordMessagePreviewProps {
   userTimezone: string;
 }
 
+const MESSAGE_TEMPLATES = [
+  {
+    id: "event",
+    label: "Event Announcement",
+    prefix: "Community Event Reminder! The tournament kickoff is scheduled for ",
+    suffix: ". Make sure to join the voice channel 10 minutes early!",
+  },
+  {
+    id: "maintenance",
+    label: "Server Maintenance",
+    prefix: "Scheduled Maintenance Notice: Our server network will undergo downtime starting at ",
+    suffix: ". Expected duration is approximately 45 minutes.",
+  },
+  {
+    id: "stream",
+    label: "Stream / Raid Sync",
+    prefix: "Going live on Twitch! Special giveaway stream begins at ",
+    suffix: ", react with 🔥 to get pinged when we start!",
+  },
+  {
+    id: "custom",
+    label: "Custom Message",
+    prefix: "Announcement: Important community sync begins at ",
+    suffix: ", see everyone there!",
+  },
+];
+
 export function DiscordMessagePreview({
   epochSeconds,
   style,
@@ -18,24 +46,132 @@ export function DiscordMessagePreview({
   userTimezone,
 }: DiscordMessagePreviewProps) {
   const [showTooltip, setShowTooltip] = useState(false);
+  const [selectedTemplate, setSelectedTemplate] = useState("event");
+  const [prefixText, setPrefixText] = useState(MESSAGE_TEMPLATES[0].prefix);
+  const [suffixText, setSuffixText] = useState(MESSAGE_TEMPLATES[0].suffix);
+  const [copiedFullMessage, setCopiedFullMessage] = useState(false);
+  const [isEditingMessage, setIsEditingMessage] = useState(false);
 
   const formattedOutput = renderDiscordFormatPreview(epochSeconds, style, "en-US", userTimezone);
   const absoluteTooltip = renderDiscordFormatPreview(epochSeconds, "F", "en-US", userTimezone);
 
+  const handleTemplateChange = (templateId: string) => {
+    const template = MESSAGE_TEMPLATES.find((t) => t.id === templateId);
+    if (template) {
+      setSelectedTemplate(templateId);
+      setPrefixText(template.prefix);
+      setSuffixText(template.suffix);
+    }
+  };
+
+  const handleCopyFullMessage = async () => {
+    const fullText = `${prefixText}${syntax}${suffixText}`;
+    try {
+      await navigator.clipboard.writeText(fullText);
+      playCopySound();
+      setCopiedFullMessage(true);
+      setTimeout(() => setCopiedFullMessage(false), 2200);
+    } catch {
+      // Fallback
+    }
+  };
+
   return (
     <div className="rounded-xl border border-slate-800 bg-[#1e1f22] p-4 sm:p-5 text-[#dbdee1] shadow-lg">
-      <div className="flex items-center justify-between mb-3 pb-2.5 border-b border-[#2b2d31]">
-        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
-          <span className="inline-block h-2 w-2 rounded-full bg-[#5865f2]" />
-          <span>Live Discord Chat Preview</span>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 mb-3 border-b border-[#2b2d31] gap-2">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-300">
+          <span className="inline-block h-2 w-2 rounded-full bg-[#5865f2] animate-pulse" />
+          <span>Interactive Discord Chat Simulator</span>
         </div>
-        <div className="flex items-center gap-1.5 text-xs text-slate-400">
-          <Info className="h-3.5 w-3.5" aria-hidden="true" />
-          <span className="hidden sm:inline">Renders dynamically on user client</span>
+
+        {/* Template Selector & Full Message Copy Button */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex items-center rounded-lg bg-[#111214] border border-[#2b2d31] p-0.5 text-[11px]">
+            {MESSAGE_TEMPLATES.slice(0, 3).map((tpl) => (
+              <button
+                key={tpl.id}
+                type="button"
+                onClick={() => handleTemplateChange(tpl.id)}
+                className={`px-2 py-0.5 rounded-md transition-colors ${
+                  selectedTemplate === tpl.id
+                    ? "bg-[#5865f2] text-white font-medium shadow-sm"
+                    : "text-[#949ba4] hover:text-[#f2f3f5]"
+                }`}
+              >
+                {tpl.label}
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedTemplate("custom");
+                setIsEditingMessage(!isEditingMessage);
+              }}
+              className={`px-2 py-0.5 rounded-md transition-colors ${
+                selectedTemplate === "custom" || isEditingMessage
+                  ? "bg-slate-700 text-white font-medium"
+                  : "text-[#949ba4] hover:text-[#f2f3f5]"
+              }`}
+            >
+              {isEditingMessage ? "Done Editing" : "Edit Text"}
+            </button>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleCopyFullMessage}
+            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition-all shadow-sm active:scale-[0.98] ${
+              copiedFullMessage
+                ? "bg-emerald-600 text-white"
+                : "bg-[#2b2d31] hover:bg-[#35373c] text-[#f2f3f5] border border-[#3b3e45]"
+            }`}
+            title="Copy entire formatted announcement message to clipboard"
+          >
+            {copiedFullMessage ? (
+              <>
+                <Check className="h-3.5 w-3.5 text-emerald-200" />
+                <span>Message Copied!</span>
+              </>
+            ) : (
+              <>
+                <Copy className="h-3.5 w-3.5 text-indigo-400" />
+                <span className="hidden sm:inline">Copy Full Message</span>
+                <span className="sm:hidden">Copy All</span>
+              </>
+            )}
+          </button>
         </div>
       </div>
 
-      {/* Simulated Discord Message */}
+      {/* Optional Custom Text Editor Bar */}
+      {isEditingMessage && (
+        <div className="mb-3.5 p-3 rounded-lg border border-[#35373c] bg-[#111214] text-xs space-y-2 animate-in fade-in duration-150">
+          <div>
+            <label className="block text-[11px] font-mono text-[#949ba4] mb-1">
+              Text Before Timestamp:
+            </label>
+            <input
+              type="text"
+              value={prefixText}
+              onChange={(e) => setPrefixText(e.target.value)}
+              className="w-full rounded bg-[#1e1f22] border border-[#2b2d31] px-2.5 py-1 text-slate-200 focus:outline-none focus:border-[#5865f2]"
+            />
+          </div>
+          <div>
+            <label className="block text-[11px] font-mono text-[#949ba4] mb-1">
+              Text After Timestamp:
+            </label>
+            <input
+              type="text"
+              value={suffixText}
+              onChange={(e) => setSuffixText(e.target.value)}
+              className="w-full rounded bg-[#1e1f22] border border-[#2b2d31] px-2.5 py-1 text-slate-200 focus:outline-none focus:border-[#5865f2]"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Simulated Discord Message Body */}
       <div className="flex items-start gap-3 sm:gap-4 py-2 px-1">
         {/* Discord Avatar */}
         <div className="relative flex-shrink-0">
@@ -64,9 +200,9 @@ export function DiscordMessagePreview({
           </div>
 
           <div className="mt-1.5 text-sm text-[#dbdee1] leading-relaxed break-words">
-            Community Event Reminder! The tournament kickoff is scheduled for{" "}
+            <span>{prefixText}</span>
             {/* The Timestamp Pill with Tooltip */}
-            <span className="relative inline-block my-0.5">
+            <span className="relative inline-block my-0.5 mx-1">
               <span
                 onMouseEnter={() => setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
@@ -90,7 +226,7 @@ export function DiscordMessagePreview({
                 </div>
               )}
             </span>
-            . Make sure to be in the voice channel on time!
+            <span>{suffixText}</span>
           </div>
         </div>
       </div>

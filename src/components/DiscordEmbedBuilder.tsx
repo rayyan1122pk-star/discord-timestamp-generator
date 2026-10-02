@@ -16,6 +16,7 @@ import {
   Clock,
   Send,
 } from "lucide-react";
+import { playCopySound } from "@/lib/sound-effects";
 
 export interface EmbedField {
   id: string;
@@ -372,6 +373,7 @@ export function DiscordEmbedBuilder() {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(getExportCode());
+      playCopySound();
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {

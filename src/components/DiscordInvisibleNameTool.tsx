@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Check, Copy, UserCheck, ShieldAlert, Sparkles, Smartphone, Monitor } from "lucide-react";
+import { playCopySound } from "@/lib/sound-effects";
 
 export function DiscordInvisibleNameTool() {
   const HANGUL_FILLER = "\u3164"; // The special character that Discord accepts
@@ -13,6 +14,7 @@ export function DiscordInvisibleNameTool() {
   const handleCopy = async (text: string, type: string) => {
     try {
       await navigator.clipboard.writeText(text);
+      playCopySound();
       setCopiedType(type);
       setTimeout(() => setCopiedType(null), 2000);
     } catch {

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Copy, Check, Type, RotateCcw, Terminal } from "lucide-react";
 import { FONT_STYLES } from "@/lib/font-generator";
+import { playCopySound } from "@/lib/sound-effects";
 
 export function DiscordFontGenerator() {
   const [text, setText] = useState("Welcome to the community!");
@@ -11,6 +12,7 @@ export function DiscordFontGenerator() {
   const handleCopy = async (transformed: string, id: string) => {
     try {
       await navigator.clipboard.writeText(transformed);
+      playCopySound();
       setCopiedId(id);
       setTimeout(() => setCopiedId(null), 2000);
     } catch {

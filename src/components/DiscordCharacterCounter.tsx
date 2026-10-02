@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Copy, Check, Hash, RotateCcw, AlertTriangle, ShieldCheck } from "lucide-react";
+import { playCopySound } from "@/lib/sound-effects";
 
 interface LimitDef {
   id: string;
@@ -32,6 +33,7 @@ export function DiscordCharacterCounter() {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
+      playCopySound();
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {

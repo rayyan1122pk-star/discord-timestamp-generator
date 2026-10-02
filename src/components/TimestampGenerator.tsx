@@ -13,7 +13,10 @@ import {
   Hash,
   ArrowRight,
   Info,
+  Sparkles,
+  Zap,
 } from "lucide-react";
+import { playCopySound, playPresetSound } from "@/lib/sound-effects";
 import {
   DiscordFormatStyle,
   DISCORD_FORMAT_STYLES,
@@ -123,6 +126,7 @@ export function TimestampGenerator() {
   const handleCopy = async (syntaxToCopy: string, identifier: string = "primary") => {
     try {
       await navigator.clipboard.writeText(syntaxToCopy);
+      playCopySound();
       setCopiedStyle(identifier);
       setTimeout(() => setCopiedStyle(null), 2200);
     } catch {
@@ -136,6 +140,7 @@ export function TimestampGenerator() {
     const url = `${window.location.origin}${window.location.pathname}?t=${epochSeconds}&s=${selectedStyle}`;
     try {
       await navigator.clipboard.writeText(url);
+      playCopySound();
       setShareCopied(true);
       setTimeout(() => setShareCopied(false), 2200);
     } catch {
@@ -143,9 +148,59 @@ export function TimestampGenerator() {
     }
   };
 
+  // Quick relative time offset (+15m, +1h, etc.)
+  const handleQuickOffset = (offsetMinutes: number) => {
+    startTransition(() => {
+      const target = new Date(Date.now() + offsetMinutes * 60 * 1000);
+      const year = target.getFullYear();
+      const month = String(target.getMonth() + 1).padStart(2, "0");
+      const day = String(target.getDate()).padStart(2, "0");
+      const hours = String(target.getHours()).padStart(2, "0");
+      const minutes = String(target.getMinutes()).padStart(2, "0");
+      setDate(`${year}-${month}-${day}`);
+      setTime(`${hours}:${minutes}`);
+      setNaturalFeedback(`Offset: +${offsetMinutes >= 60 ? Math.round(offsetMinutes / 60) + "h" : offsetMinutes + "m"}`);
+      playPresetSound();
+    });
+  };
+
+  // Preset calendar targets (tonight, tomorrow, weekend)
+  const handlePresetTarget = (targetType: "tonight" | "tomorrow" | "friday" | "next_week") => {
+    startTransition(() => {
+      const now = new Date();
+      const target = new Date();
+      if (targetType === "tonight") {
+        target.setHours(20, 0, 0, 0);
+        if (target.getTime() <= now.getTime()) {
+          target.setDate(target.getDate() + 1);
+        }
+      } else if (targetType === "tomorrow") {
+        target.setDate(target.getDate() + 1);
+        target.setHours(9, 0, 0, 0);
+      } else if (targetType === "friday") {
+        const day = target.getDay();
+        const diff = (5 - day + 7) % 7 || 7;
+        target.setDate(target.getDate() + diff);
+        target.setHours(18, 0, 0, 0);
+      } else if (targetType === "next_week") {
+        target.setDate(target.getDate() + 7);
+      }
+
+      const year = target.getFullYear();
+      const month = String(target.getMonth() + 1).padStart(2, "0");
+      const day = String(target.getDate()).padStart(2, "0");
+      const hours = String(target.getHours()).padStart(2, "0");
+      const minutes = String(target.getMinutes()).padStart(2, "0");
+      setDate(`${year}-${month}-${day}`);
+      setTime(`${hours}:${minutes}`);
+      playPresetSound();
+    });
+  };
+
   // Reset to current time
   const handleReset = () => {
     startTransition(() => {
+      playPresetSound();
       const now = new Date();
       const year = now.getFullYear();
       const month = String(now.getMonth() + 1).padStart(2, "0");
@@ -402,6 +457,75 @@ export function TimestampGenerator() {
                 <span>Parsed: {naturalFeedback}</span>
               </div>
             )}
+          </div>
+
+          {/* 1-Click Instant Time Presets Bar */}
+          <div className="mb-6 pb-5 border-b border-slate-800/80">
+            <div className="flex items-center justify-between mb-2.5">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                <Zap className="h-3.5 w-3.5 text-amber-400" />
+                <span>Instant Presets (1-Click)</span>
+              </span>
+              <span className="text-[11px] text-slate-400">Zero typing required</span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-1.5">
+              <button
+                type="button"
+                onClick={handleReset}
+                className="px-2 py-1.5 rounded-lg border border-slate-800 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-medium transition-all text-center active:scale-[0.97]"
+              >
+                ⚡ Right Now
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickOffset(15)}
+                className="px-2 py-1.5 rounded-lg border border-indigo-950/80 bg-indigo-950/30 hover:bg-indigo-900/40 text-indigo-300 hover:text-white text-xs font-medium transition-all text-center active:scale-[0.97]"
+              >
+                +15 Mins
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickOffset(60)}
+                className="px-2 py-1.5 rounded-lg border border-indigo-950/80 bg-indigo-950/30 hover:bg-indigo-900/40 text-indigo-300 hover:text-white text-xs font-medium transition-all text-center active:scale-[0.97]"
+              >
+                +1 Hour
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickOffset(180)}
+                className="px-2 py-1.5 rounded-lg border border-indigo-950/80 bg-indigo-950/30 hover:bg-indigo-900/40 text-indigo-300 hover:text-white text-xs font-medium transition-all text-center active:scale-[0.97]"
+              >
+                +3 Hours
+              </button>
+              <button
+                type="button"
+                onClick={() => handlePresetTarget("tonight")}
+                className="px-2 py-1.5 rounded-lg border border-slate-800 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-medium transition-all text-center active:scale-[0.97]"
+              >
+                Tonight 8 PM
+              </button>
+              <button
+                type="button"
+                onClick={() => handlePresetTarget("tomorrow")}
+                className="px-2 py-1.5 rounded-lg border border-slate-800 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-medium transition-all text-center active:scale-[0.97]"
+              >
+                Tomorrow 9 AM
+              </button>
+              <button
+                type="button"
+                onClick={() => handlePresetTarget("friday")}
+                className="px-2 py-1.5 rounded-lg border border-slate-800 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-medium transition-all text-center active:scale-[0.97]"
+              >
+                Friday 6 PM
+              </button>
+              <button
+                type="button"
+                onClick={() => handlePresetTarget("next_week")}
+                className="px-2 py-1.5 rounded-lg border border-slate-800 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-medium transition-all text-center active:scale-[0.97]"
+              >
+                Next Week
+              </button>
+            </div>
           </div>
 
           {/* Standard Input Controls Grid */}

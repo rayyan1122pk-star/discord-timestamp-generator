@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Copy, Check, AtSign, Hash, Smile, Terminal, Sparkles, MessageSquare } from "lucide-react";
+import { playCopySound } from "@/lib/sound-effects";
 
 type MentionType = "user" | "role" | "channel" | "emoji" | "animated_emoji" | "command";
 
@@ -55,6 +56,7 @@ export function DiscordMentionGenerator() {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(syntax);
+      playCopySound();
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {

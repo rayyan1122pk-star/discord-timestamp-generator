@@ -3,6 +3,7 @@
 import React, { useState, useId } from "react";
 import { Copy, Check, RotateCcw, RefreshCw, Skull, Zap, AlertTriangle } from "lucide-react";
 import { generateZalgo, ZalgoOptions } from "@/lib/zalgo";
+import { playCopySound, playPresetSound } from "@/lib/sound-effects";
 
 interface GlitchPreset {
   name: string;
@@ -73,6 +74,7 @@ export function DiscordGlitchEditor() {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(outputText);
+      playCopySound();
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -81,10 +83,12 @@ export function DiscordGlitchEditor() {
   };
 
   const handleReroll = () => {
+    playPresetSound();
     setSeed((prev) => prev + 1);
   };
 
   const applyPreset = (preset: GlitchPreset) => {
+    playPresetSound();
     setInputText(preset.text);
     setIntensity(preset.intensity);
     setGlitchUp(preset.up);

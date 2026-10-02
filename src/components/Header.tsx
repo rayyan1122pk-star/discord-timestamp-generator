@@ -21,8 +21,10 @@ import {
   PanelLeft,
   Type,
   AtSign,
+  Search,
 } from "lucide-react";
 import { SidebarDrawer } from "@/components/SidebarDrawer";
+import { CommandPalette } from "@/components/CommandPalette";
 
 export function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -229,10 +231,25 @@ export function Header() {
           </nav>
 
           {/* Quick CTA & Mobile Hamburger (both open sidebar on mobile) */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true }));
+              }}
+              className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-slate-800 bg-slate-900/90 hover:bg-slate-800 text-slate-400 hover:text-slate-200 text-xs transition-all shadow-sm"
+              title="Search tools and presets (Ctrl+K)"
+            >
+              <Search className="h-3.5 w-3.5 text-indigo-400" />
+              <span className="text-[11px] text-slate-300">Quick Find</span>
+              <kbd className="rounded border border-slate-700 bg-slate-950 px-1.5 py-0.2 text-[10px] font-mono text-slate-400">
+                ⌘K
+              </kbd>
+            </button>
+
             <Link
               href="/"
-              className="hidden sm:inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-semibold text-white bg-[#5865F2] hover:bg-[#4752c4] rounded-lg shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+              className="hidden md:inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-semibold text-white bg-[#5865F2] hover:bg-[#4752c4] rounded-lg shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 active:scale-[0.98]"
             >
               Create Timestamp
             </Link>
@@ -251,6 +268,9 @@ export function Header() {
 
       {/* Slide-Out Side Navigation Drawer */}
       <SidebarDrawer open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      {/* Global Command Palette */}
+      <CommandPalette />
     </>
   );
 }

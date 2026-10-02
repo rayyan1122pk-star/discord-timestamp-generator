@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Hash, Copy, Check, RotateCcw, Clock, Layers, ShieldCheck } from "lucide-react";
 import { decodeDiscordSnowflake, SnowflakeDecodeResult } from "@/lib/snowflake";
 import { renderDiscordFormatPreview } from "@/lib/time-utils";
+import { playCopySound, playPresetSound } from "@/lib/sound-effects";
 
 export function DiscordSnowflakeTool() {
   const [snowflakeInput, setSnowflakeInput] = useState<string>("803511102246789140");
@@ -14,6 +15,7 @@ export function DiscordSnowflakeTool() {
   const handleCopy = async (text: string, key: string) => {
     try {
       await navigator.clipboard.writeText(text);
+      playCopySound();
       setCopiedKey(key);
       setTimeout(() => setCopiedKey(null), 2000);
     } catch {
