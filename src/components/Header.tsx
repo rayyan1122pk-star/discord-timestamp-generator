@@ -22,6 +22,8 @@ import {
   Type,
   AtSign,
   Search,
+  Send,
+  Image as ImageIcon,
 } from "lucide-react";
 import { SidebarDrawer } from "@/components/SidebarDrawer";
 import { CommandPalette } from "@/components/CommandPalette";
@@ -90,6 +92,18 @@ export function Header() {
       label: "Markdown Cheatsheet",
       desc: "Formatting syntax and codeblocks",
       icon: FileCode2,
+    },
+    {
+      href: "/discord-webhook-sender",
+      label: "Webhook Sender",
+      desc: "Live message and embed dispatcher",
+      icon: Send,
+    },
+    {
+      href: "/discord-avatar-banner-size",
+      label: "Image Sizes & Checker",
+      desc: "Avatar, banner, and emoji dimensions",
+      icon: ImageIcon,
     },
     {
       href: "/discord-bot-timestamps",

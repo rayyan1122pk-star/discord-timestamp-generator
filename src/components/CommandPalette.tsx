@@ -22,6 +22,8 @@ import {
   X,
   Volume2,
   VolumeX,
+  Send,
+  Image as ImageIcon,
 } from "lucide-react";
 import { playCopySound, playPresetSound, isSoundEnabled, setSoundEnabled } from "@/lib/sound-effects";
 
@@ -228,6 +230,24 @@ export function CommandPalette() {
       badge: "Epoch Tool",
       href: "/unix-timestamp",
       description: "10-digit seconds vs 13-digit millisecond time conversions",
+    },
+    {
+      id: "tool-webhook-sender",
+      title: "Discord Webhook Sender & Tester",
+      category: "Tools",
+      icon: Send,
+      badge: "Live Dispatcher",
+      href: "/discord-webhook-sender",
+      description: "Send live messages, embeds, and dynamic timestamps directly to Discord",
+    },
+    {
+      id: "tool-avatar-banner-size",
+      title: "Discord Banner & Avatar Size Checker",
+      category: "Tools",
+      icon: ImageIcon,
+      badge: "Dimension Guide",
+      href: "/discord-avatar-banner-size",
+      description: "Image dimensions, aspect ratios, and file size checker for Discord",
     },
   ];
 

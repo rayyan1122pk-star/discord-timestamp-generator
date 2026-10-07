@@ -182,6 +182,34 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
       "discord invisible nickname",
     ],
   },
+  webhookSender: {
+    title: "Discord Webhook Sender & Embed Tester Tool",
+    description:
+      "Send custom Discord webhook messages with rich embeds, avatars, dynamic timestamps, and live Discord dark mode preview directly from your browser.",
+    canonical: `${siteConfig.url}/discord-webhook-sender`,
+    keywords: [
+      "discord webhook sender",
+      "discord webhook tester",
+      "send discord webhook online",
+      "discord embed sender",
+      "test discord webhook free",
+      "custom discord webhook avatar",
+    ],
+  },
+  avatarBannerSize: {
+    title: "Discord Avatar & Banner Size Dimensions Guide",
+    description:
+      "Exact Discord size specifications and image aspect ratio checker for avatars, profile banners, server icons, server banners, emojis, and stickers.",
+    canonical: `${siteConfig.url}/discord-avatar-banner-size`,
+    keywords: [
+      "discord avatar size",
+      "discord banner size",
+      "discord profile banner dimensions",
+      "discord server banner size",
+      "discord icon dimensions",
+      "discord sticker size requirements",
+    ],
+  },
   blog: {
     title: "Discord Developer Blog & Timestamps Tutorials",
     description:

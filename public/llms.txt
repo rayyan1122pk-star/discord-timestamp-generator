@@ -1,6 +1,7 @@
 # Discord Timestamp Generator
 
 > Discord Timestamp Generator (https://disctimestamps.site) is an open-source, client-side web utility and developer documentation hub for creating dynamic Discord timestamps (<t:TIMESTAMP:STYLE>), converting Unix epoch times, and formatting Discord markdown messages.
+> Comprehensive AI Reference: https://disctimestamps.site/llms-full.txt
 
 ## Core Utility & Functionality
 - **Syntax:** `<t:1700000000:R>` where `1700000000` is the Unix epoch timestamp in seconds, and `R` is the format flag.

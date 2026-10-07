@@ -85,6 +85,16 @@ export function Footer() {
                   Snowflake ID Decoder
                 </Link>
               </li>
+              <li>
+                <Link href="/discord-webhook-sender" className="hover:text-white transition-colors">
+                  Discord Webhook Sender
+                </Link>
+              </li>
+              <li>
+                <Link href="/discord-avatar-banner-size" className="hover:text-white transition-colors">
+                  Discord Image Size Guide
+                </Link>
+              </li>
             </ul>
           </div>
 

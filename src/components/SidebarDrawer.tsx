@@ -23,6 +23,7 @@ import {
   Terminal,
   Type,
   AtSign,
+  Image as ImageIcon,
 } from "lucide-react";
 
 interface SidebarDrawerProps {
@@ -50,11 +51,13 @@ const TOOLS: ToolItem[] = [
   { name: "Glitch / Zalgo Text", href: "/discord-glitch-text", icon: Sparkles, category: "MESSAGES" },
   { name: "Format Cheatsheet", href: "/discord-timestamp-formats", icon: Hash, category: "MESSAGES" },
 
-  // EMBEDS
+  // EMBEDS & WEBHOOKS
   { name: "Embed Builder", href: "/discord-embed-generator", icon: LayoutTemplate, category: "EMBEDS" },
-  { name: "Webhook Tester", href: "/discord-webhook-timestamps", icon: Send, category: "EMBEDS" },
+  { name: "Live Webhook Sender", href: "/discord-webhook-sender", icon: Send, category: "EMBEDS" },
+  { name: "Webhook Guide", href: "/discord-webhook-timestamps", icon: Send, category: "EMBEDS" },
 
-  // DEVELOPER
+  // DEVELOPER & DESIGN
+  { name: "Banner & Avatar Sizes", href: "/discord-avatar-banner-size", icon: ImageIcon, category: "DEVELOPER" },
   { name: "Snowflake Decoder", href: "/discord-snowflake-to-timestamp", icon: Hash, category: "DEVELOPER" },
   { name: "Unix Epoch Converter", href: "/unix-timestamp", icon: Binary, category: "DEVELOPER" },
   { name: "Bot Syntax Helper", href: "/discord-bot-timestamps", icon: Terminal, category: "DEVELOPER" },

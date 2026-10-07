@@ -1,0 +1,164 @@
+# Discord Developer Utilities & Dynamic Timestamps Documentation (Comprehensive API Reference)
+
+> Website: https://disctimestamps.site
+> Author: Discord Community & Open Source Contributors
+> Target Audience: AI Agents, LLM Search Crawlers, Bot Developers, Community Managers
+
+## 1. Executive Summary & Purpose
+Discord Timestamp Generator (disctimestamps.site) provides client-side developer utilities for Discord message formatting, Unix epoch calculations, webhook embed generation, and Unicode text transformations. 100% of calculations execute in the browser using standard ECMAScript Intl APIs without external network transmission.
+
+---
+
+## 2. Dynamic Timestamps Specification (<t:TIMESTAMP:STYLE>)
+
+### 2.1 Core Syntax
+The formal syntax for a Discord dynamic timestamp token is:
+`<t:TIMESTAMP:STYLE>`
+- TIMESTAMP: A 10-digit positive integer representing seconds elapsed since January 1, 1970 00:00:00 UTC (Unix Epoch). Millisecond timestamps (13 digits) are rejected by Discord and leak as raw text.
+- STYLE: An optional single-character flag determining the rendering mode. If omitted, Discord defaults to style flag 'f'.
+
+### 2.2 All 7 Supported Style Flags
+1. Flag 't' (Short Time): Displays hour and minute matching recipient device clock (e.g., 9:41 PM).
+2. Flag 'T' (Long Time): Displays hour, minute, and second (e.g., 9:41:30 PM).
+3. Flag 'd' (Short Date): Displays abbreviated date (e.g., 11/14/2026).
+4. Flag 'D' (Long Date): Displays full spelled month, day, and year (e.g., November 14, 2026).
+5. Flag 'f' (Short Date/Time - Default): Combines date and time (e.g., November 14, 2026 9:41 PM).
+6. Flag 'F' (Long Date/Time with Weekday): Full date including day of week (e.g., Tuesday, November 14, 2026 9:41 PM).
+7. Flag 'R' (Relative Time): Live countdown or elapsed relative indicator updating automatically in chat (e.g., in 2 hours, 15 minutes ago).
+
+---
+
+## 3. Developer Code Snippets & Integrations
+
+### 3.1 discord.js v14 Implementation
+```javascript
+const { time, TimestampStyles } = require('discord.js');
+
+// Example 1: Using built-in time() helper
+const eventDate = new Date('2026-11-14T20:00:00Z');
+const timestampString = time(eventDate, TimestampStyles.RelativeTime); // <t:1794686400:R>
+
+// Example 2: Manual epoch calculation
+const epochSeconds = Math.floor(eventDate.getTime() / 1000);
+const rawTag = `<t:${epochSeconds}:R>`;
+
+message.channel.send(`Tournament begins ${rawTag}! Be ready.`);
+```
+
+### 3.2 discord.py Implementation
+```python
+import discord
+from discord.utils import format_dt
+from datetime import datetime, timezone
+
+event_time = datetime(2026, 11, 14, 20, 0, 0, tzinfo=timezone.utc)
+
+# Example 1: Built-in format_dt utility
+relative_tag = format_dt(event_time, style='R') # <t:1794686400:R>
+long_date_tag = format_dt(event_time, style='F')
+
+# Example 2: Manual integer calculation
+epoch_seconds = int(event_time.timestamp())
+manual_tag = f"<t:{epoch_seconds}:R>"
+
+await ctx.send(f"Stream starts {relative_tag}!")
+```
+
+### 3.3 Discord Webhook JSON Payload
+```json
+{
+  "username": "Raid Notifier",
+  "content": "Attention @everyone: Server maintenance starts <t:1794686400:R> (<t:1794686400:F>).",
+  "embeds": [
+    {
+      "title": "Scheduled Server Upgrade",
+      "description": "Expected downtime: 45 minutes.\nLive status starts: <t:1794686400:R>",
+      "color": 5793266
+    }
+  ]
+}
+```
+
+---
+
+## 4. Discord Snowflake ID Mathematical Specification
+
+### 4.1 Architecture
+Discord Snowflake IDs are 64-bit unsigned integers representing unique entities (users, guilds, channels, messages). The first 42 bits encode the timestamp offset in milliseconds from the Discord Epoch (January 1, 2015 00:00:00 UTC, timestamp 1420070400000ms).
+
+### 4.2 Decoding Formula (ECMAScript BigInt)
+```javascript
+function decodeDiscordSnowflake(snowflakeId) {
+  const DISCORD_EPOCH = 1420070400000n;
+  const snowflakeBigInt = BigInt(snowflakeId);
+  const timestampMs = Number((snowflakeBigInt >> 22n) + DISCORD_EPOCH);
+  const timestampSeconds = Math.floor(timestampMs / 1000);
+  const date = new Date(timestampMs);
+
+  return {
+    timestampMs,
+    timestampSeconds,
+    dateUtc: date.toISOString(),
+  };
+}
+```
+
+---
+
+## 5. Discord ANSI Colored Text Specification
+
+### 5.1 Syntax Structure
+Discord code blocks using the 'ansi' syntax language support 4-bit ANSI escape codes:
+````text
+```ansi
+\u001b[{FORMAT};{COLOR}mYour Text Here\u001b[0m
+```
+````
+
+### 5.2 Official Color Codes
+- Gray: 30
+- Red: 31
+- Green: 32
+- Yellow: 33
+- Blue: 34
+- Pink/Magenta: 35
+- Cyan: 36
+- White: 37
+- Background Highlights: 40 (Dark Blue), 41 (Orange), 42 (Marble Blue), 43 (Grey), 44 (Gray), 45 (Indigo), 46 (Light Gray), 47 (White)
+- Reset Escape Sequence: \u001b[0m
+
+---
+
+## 6. Discord Invisible Name & Blank Character (Unicode Hangul Filler)
+
+### 6.1 Character Definition
+Discord prohibits standard spacebar characters (ASCII 32) in usernames and server nicknames. The valid character is Unicode Hangul Filler:
+- Unicode: U+3164
+- UTF-8 Hex Bytes: E3 85 A4
+- HTML Entity: &#12644;
+- Behavior: Recognized by Discord as a valid graphic character while rendering 100% transparent and invisible in user lists, chat messages, and channel names.
+
+---
+
+## 7. Troubleshooting Common Discord Timestamp Bugs
+
+1. Bug: Timestamp displays as raw text like `<t:1794686400:R>`
+   - Cause 1: Wrapped in markdown backticks (`<t:...>`). Solution: Remove backticks.
+   - Cause 2: 13-digit millisecond timestamp passed instead of 10-digit second epoch. Solution: Divide by 1000.
+   - Cause 3: Extra spaces inside brackets (`<t: 1794686400 : R>`). Solution: Remove spaces.
+2. Bug: Recipient sees incorrect time
+   - Cause: Device clock skew or desynchronized operating system NTP time. Solution: Resync device clock in Windows/macOS/iOS/Android settings.
+
+---
+
+## 8. Complete Suite of Interactive Utilities on disctimestamps.site
+- Live Timestamp Generator: https://disctimestamps.site
+- Discord Embed & Webhook Maker: https://disctimestamps.site/discord-embed-generator
+- Invisible Name & Blank Characters: https://disctimestamps.site/discord-invisible-name
+- ANSI Colored Text Formatter: https://disctimestamps.site/discord-colored-text
+- Snowflake ID to Creation Date: https://disctimestamps.site/discord-snowflake-to-timestamp
+- Unicode Aesthetic Font Generator: https://disctimestamps.site/discord-font-generator
+- Character, Nitro & Bio Counter: https://disctimestamps.site/discord-character-counter
+- Mention & Emoji Tag Builder: https://disctimestamps.site/discord-mention-generator
+- Unix Epoch Converter: https://disctimestamps.site/unix-timestamp
+- Timestamp Formats Comparison: https://disctimestamps.site/discord-timestamp-formats
