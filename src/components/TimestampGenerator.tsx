@@ -935,6 +935,41 @@ export function TimestampGenerator() {
           </table>
         </div>
       </section>
+
+      {/* Mobile Sticky Quick-Copy Action Dock */}
+      <div className="fixed bottom-0 inset-x-0 z-40 p-3 bg-[#0b0e14]/95 backdrop-blur-md border-t border-slate-800 sm:hidden shadow-2xl animate-in slide-in-from-bottom duration-200">
+        <div className="flex items-center justify-between gap-2.5 max-w-md mx-auto">
+          <div className="flex-1 min-w-0">
+            <div className="text-[10px] uppercase font-mono text-slate-400 truncate">
+              Ready to send ({selectedStyle ? `:${selectedStyle}` : ":f"}):
+            </div>
+            <div className="font-mono text-sm font-bold text-white truncate">
+              {activeSyntax}
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => handleCopy(activeSyntax, "mobile-dock")}
+            className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-bold text-xs transition-all shadow-md active:scale-95 ${
+              copiedStyle === "mobile-dock"
+                ? "bg-emerald-600 text-white"
+                : "bg-[#5865F2] hover:bg-[#4752c4] text-white"
+            }`}
+          >
+            {copiedStyle === "mobile-dock" ? (
+              <>
+                <Check className="h-4 w-4" />
+                <span>Copied!</span>
+              </>
+            ) : (
+              <>
+                <Copy className="h-4 w-4" />
+                <span>Copy Code</span>
+              </>
+            )}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
