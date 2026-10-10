@@ -1,44 +1,50 @@
 const sharp = require('sharp');
 const fs = require('fs');
-const path = require('path');
 
-// Google Favicon guideline:
-// Must be a multiple of 48px square, e.g. 48x48, 96x96, 144x144, 192x192, 512x512.
-// Must have contrast against both dark and light search engine themes (often rendered inside a 16x16 circle).
-// By giving the icon a full solid rounded-square base in Discord's signature Blurple (#5865F2),
-// it will NEVER appear as a raw white blob cut in half by Google's circular mask!
+// Generate icons with a solid premium dark container:
+// Background: Deep dark slate/charcoal (#121316 -> #0b0e14) with subtle dark border.
+// Discord Clyde: Signature Discord Blurple / White mascot that pops cleanly on dark or light search engine previews.
+// Lower right: Live emerald clock badge.
+// 100% full-bleed rounded base so Google circular crop always shows a dark background!
 
 const createIconSvg = () => `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Premium Discord Blurple Gradient -->
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+    <!-- Deep Dark Theme Gradient -->
+    <linearGradient id="darkBgGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1e2029" />
+      <stop offset="100%" stop-color="#0e1015" />
+    </linearGradient>
+
+    <!-- Discord Blurple Accent Gradient -->
+    <linearGradient id="blurpleGrad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#5865F2" />
       <stop offset="100%" stop-color="#4752C4" />
     </linearGradient>
 
-    <!-- Accent Emerald/Cyan Gradient for Timestamp Dial -->
-    <linearGradient id="clockGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3BA55C" />
-      <stop offset="100%" stop-color="#237F41" />
-    </linearGradient>
+    <!-- Subtle Ring Shadow -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
   </defs>
 
-  <!-- Discord Brand Solid Rounded Square Container (guarantees contrast on Google Search) -->
-  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <!-- Solid Dark Rounded Square Base Container (Fully opaque for search engines and site header) -->
+  <rect width="512" height="512" rx="112" fill="url(#darkBgGrad)" />
 
-  <!-- Inner subtle border highlight -->
-  <rect x="4" y="4" width="504" height="504" rx="108" fill="none" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="8" />
+  <!-- Subtle Rim Border for crisp separation against white/grey/black search themes -->
+  <rect x="4" y="4" width="504" height="504" rx="108" fill="none" stroke="#2d3139" stroke-width="8" />
 
-  <!-- Discord Clyde Mascot (Centered & Proportioned) -->
-  <g transform="translate(68, 86) scale(15.7)">
-    <path fill="#FFFFFF" d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+  <!-- Discord Clyde Mascot (Signature Blurple + White Silhouette for maximum pop on dark canvas) -->
+  <g transform="translate(68, 86) scale(15.7)" filter="url(#softGlow)">
+    <path fill="url(#blurpleGrad)" d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028z" />
+    <!-- White Eye cutouts in Clyde -->
+    <path fill="#FFFFFF" d="M8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
   </g>
 
   <!-- Dynamic Timestamp Clock Badge (Bottom-Right) -->
   <g transform="translate(372, 372)">
-    <!-- Dark outer ring to give clean contrast separation from Clyde -->
-    <circle cx="0" cy="0" r="92" fill="#18191C" />
+    <!-- Dark ring separator with subtle border -->
+    <circle cx="0" cy="0" r="94" fill="#0e1015" stroke="#2d3139" stroke-width="6" />
     <!-- Vibrant Emerald / Mint live time indicator dial -->
     <circle cx="0" cy="0" r="76" fill="#10B981" />
     <!-- Clock border ring -->
@@ -59,7 +65,7 @@ async function generateAll() {
   fs.writeFileSync('public/icon.png', icon512);
   fs.writeFileSync('src/app/icon.png', icon512);
   fs.writeFileSync('public/logo.png', icon512);
-  console.log('[OK] 512x512 icon.png & logo.png generated');
+  console.log('[OK] 512x512 icon.png & logo.png generated with dark background');
 
   // 2. Generate 192x192 PNG (standard PWA / Android / Google search crawler icon)
   const icon192 = await sharp(svgBuffer).resize(192, 192).png().toBuffer();

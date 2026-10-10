@@ -13,15 +13,17 @@ export function Footer() {
           <div className="md:col-span-1">
             <Link
               href="/"
-              className="flex items-center gap-2 font-bold text-white tracking-tight text-base mb-3"
+              className="flex items-center gap-2 font-bold text-white tracking-tight text-base mb-3 group"
             >
-              <Image
-                src="/logo.png"
-                alt="Discord Timestamps Logo"
-                width={26}
-                height={26}
-                className="h-6 w-6 object-contain"
-              />
+              <div className="h-7 w-7 rounded-lg bg-[#18191c] border border-slate-700/80 p-0.5 flex items-center justify-center shadow-sm overflow-hidden group-hover:border-indigo-500/60 transition-colors">
+                <Image
+                  src="/logo.png"
+                  alt="Discord Timestamps Logo"
+                  width={24}
+                  height={24}
+                  className="h-full w-full object-contain rounded-md"
+                />
+              </div>
               <span>Discord Timestamps</span>
             </Link>
             <p className="text-slate-400 leading-relaxed mb-4 text-xs">

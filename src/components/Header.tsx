@@ -146,16 +146,18 @@ export function Header() {
 
             <Link
               href="/"
-              className="flex items-center gap-2.5 font-bold text-white tracking-tight text-base sm:text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1"
+              className="flex items-center gap-2.5 font-bold text-white tracking-tight text-base sm:text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1 group"
             >
-              <Image
-                src="/logo.png"
-                alt="Discord Timestamps Logo"
-                width={34}
-                height={34}
-                className="h-8 w-8 object-contain"
-                priority
-              />
+              <div className="h-8 w-8 rounded-lg bg-[#18191c] border border-slate-700/80 p-0.5 flex items-center justify-center shadow-sm overflow-hidden group-hover:border-indigo-500/60 transition-colors">
+                <Image
+                  src="/logo.png"
+                  alt="Discord Timestamps Logo"
+                  width={32}
+                  height={32}
+                  className="h-full w-full object-contain rounded-md"
+                  priority
+                />
+              </div>
               <span className="flex items-baseline gap-1.5">
                 <span>Discord</span>
                 <span className="text-indigo-400 font-normal">Timestamps</span>
