@@ -210,6 +210,20 @@ export const routeMetadataMap: Record<string, RouteMetadata> = {
       "discord sticker size requirements",
     ],
   },
+  colorConverter: {
+    title: "Discord Color Converter: Hex to Decimal Embed Tool",
+    description:
+      "Convert colors between HEX, Discord API Decimal integers, and RGB for Discord bot embeds and webhooks with real-time dark theme preview.",
+    canonical: `${siteConfig.url}/discord-color-converter`,
+    keywords: [
+      "discord color converter",
+      "discord hex to decimal",
+      "discord embed color decimal",
+      "discord decimal color code",
+      "discord bot color converter",
+      "discord role color hex",
+    ],
+  },
   blog: {
     title: "Discord Developer Blog & Timestamps Tutorials",
     description:

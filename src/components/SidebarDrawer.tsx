@@ -58,6 +58,7 @@ const TOOLS: ToolItem[] = [
 
   // DEVELOPER & DESIGN
   { name: "Banner & Avatar Sizes", href: "/discord-avatar-banner-size", icon: ImageIcon, category: "DEVELOPER" },
+  { name: "Color & Decimal Tool", href: "/discord-color-converter", icon: Palette, category: "DEVELOPER" },
   { name: "Snowflake Decoder", href: "/discord-snowflake-to-timestamp", icon: Hash, category: "DEVELOPER" },
   { name: "Unix Epoch Converter", href: "/unix-timestamp", icon: Binary, category: "DEVELOPER" },
   { name: "Bot Syntax Helper", href: "/discord-bot-timestamps", icon: Terminal, category: "DEVELOPER" },

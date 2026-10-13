@@ -209,7 +209,7 @@ check('Mention Generator: Raw Discord Formatting Tags', () => {
 });
 
 // 11. SITE-WIDE ROUTE FILES & JSON-LD SCHEMAS
-check('Route Integrity: All 19 Core Pages Exist with page.tsx', () => {
+check('Route Integrity: All 20 Core Pages Exist with page.tsx', () => {
   const routes = [
     'src/app/page.tsx',
     'src/app/discord-colored-text/page.tsx',
@@ -222,6 +222,7 @@ check('Route Integrity: All 19 Core Pages Exist with page.tsx', () => {
     'src/app/discord-mention-generator/page.tsx',
     'src/app/discord-webhook-sender/page.tsx',
     'src/app/discord-avatar-banner-size/page.tsx',
+    'src/app/discord-color-converter/page.tsx',
     'src/app/discord-timestamp-formats/page.tsx',
     'src/app/discord-bot-timestamps/page.tsx',
     'src/app/discord-webhook-timestamps/page.tsx',
@@ -249,7 +250,8 @@ check('JSON-LD Validation: All Core Tool Pages Contain Schema Markup', () => {
     'src/app/discord-character-counter/page.tsx',
     'src/app/discord-mention-generator/page.tsx',
     'src/app/discord-webhook-sender/page.tsx',
-    'src/app/discord-avatar-banner-size/page.tsx'
+    'src/app/discord-avatar-banner-size/page.tsx',
+    'src/app/discord-color-converter/page.tsx'
   ];
   for (const tf of toolFiles) {
     const content = fs.readFileSync(path.join(ROOT_DIR, tf), 'utf8');

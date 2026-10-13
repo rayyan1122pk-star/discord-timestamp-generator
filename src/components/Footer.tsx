@@ -97,6 +97,11 @@ export function Footer() {
                   Discord Image Size Guide
                 </Link>
               </li>
+              <li>
+                <Link href="/discord-color-converter" className="hover:text-white transition-colors">
+                  Discord Color & Decimal Tool
+                </Link>
+              </li>
             </ul>
           </div>
 

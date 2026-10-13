@@ -106,6 +106,12 @@ export function Header() {
       icon: ImageIcon,
     },
     {
+      href: "/discord-color-converter",
+      label: "Color & Decimal Tool",
+      desc: "Convert HEX to Discord embed decimal",
+      icon: Palette,
+    },
+    {
       href: "/discord-bot-timestamps",
       label: "Bot Integration",
       desc: "Discord.js and Python syntax helpers",

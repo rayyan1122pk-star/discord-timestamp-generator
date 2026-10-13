@@ -249,6 +249,15 @@ export function CommandPalette() {
       href: "/discord-avatar-banner-size",
       description: "Image dimensions, aspect ratios, and file size checker for Discord",
     },
+    {
+      id: "tool-color-converter",
+      title: "Discord Color & Decimal Converter",
+      category: "Tools",
+      icon: Palette,
+      badge: "Embed Colors",
+      href: "/discord-color-converter",
+      description: "Convert HEX to Discord API decimal integer for bot embeds and webhooks",
+    },
   ];
 
   const docCommands: CommandItem[] = [
