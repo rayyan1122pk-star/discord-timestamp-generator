@@ -115,6 +115,17 @@ export default function DiscordAvatarBannerSizePage() {
         <DiscordAvatarBannerSize />
       </section>
 
+      {/* Desktop and Mobile Instructions with 1-Click Dimension Copy */}
+      <section className="mb-16 p-6 rounded-2xl border border-slate-800 bg-[#0d1017]">
+        <h2 className="text-xl font-bold text-white mb-3">How to Upload on Discord Desktop & Mobile Apps</h2>
+        <p className="text-sm text-slate-300 leading-relaxed mb-4">
+          To update your avatar or banner on <strong>desktop (PC / Mac / Web Browser)</strong>, navigate to <em>User Settings (gear icon) &gt; Profiles</em> and click <em>Change Avatar</em> or <em>Change Banner</em>. On the <strong>mobile app (iOS & Android phone)</strong>, tap your profile avatar icon in the bottom right corner, select <em>Edit Profile</em>, and upload your image.
+        </p>
+        <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400">
+          <span className="font-semibold text-slate-200">Recommended Quick Specs:</span> Avatar (128x128px), Banner (600x240px). Use 1-click copy in the tool above to inspect and copy exact pixel dimensions.
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="mt-16 pt-10 border-t border-slate-800/80 max-w-4xl mx-auto">
         <div className="text-center mb-8">

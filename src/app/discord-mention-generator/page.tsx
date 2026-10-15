@@ -82,8 +82,16 @@ export default function DiscordMentionGeneratorPage() {
         {/* Interactive Tool Widget */}
         <DiscordMentionGenerator />
 
+        {/* Desktop & Mobile App Usage Instructions */}
+        <section className="mt-12 p-6 rounded-2xl border border-slate-800 bg-[#0d1017]">
+          <h2 className="text-xl font-bold text-white mb-3">How to Use Raw Mentions on Desktop & Mobile</h2>
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            Raw mention tags like <code>&lt;@USER_ID&gt;</code>, <code>&lt;@&amp;ROLE_ID&gt;</code>, and <code>&lt;#CHANNEL_ID&gt;</code> allow bots and webhook managers to trigger notifications across all <strong>desktop (PC / Mac / Web Browser)</strong> and <strong>mobile (iOS & Android phone)</strong> Discord apps. Use the 1-click copy button above to paste formatted tags directly into chat.
+          </p>
+        </section>
+
         {/* Quick Links to Related Tools */}
-        <section className="mt-12 p-6 rounded-xl border border-slate-800 bg-[#0d1017] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <section className="mt-8 p-6 rounded-xl border border-slate-800 bg-[#0d1017] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <h3 className="text-base font-bold text-white">Need to Inspect a Snowflake ID?</h3>
             <p className="text-xs text-slate-400 mt-0.5">

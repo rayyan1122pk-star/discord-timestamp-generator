@@ -151,9 +151,25 @@ Discord prohibits standard spacebar characters (ASCII 32) in usernames and serve
 
 ---
 
-## 8. Complete Suite of Interactive Utilities on disctimestamps.site
+---
+
+## 8. Discord Embed Color & Decimal Integer Math
+Discord REST API requires embed colors to be formatted as 24-bit base-10 integers:
+- Formula: Decimal = (Red << 16) + (Green << 8) + Blue
+- Official Discord Blurple: #5865F2 -> Decimal: 5793266 -> Code: .setColor(0x5865F2)
+- Official Success Green: #57F287 -> Decimal: 5763719
+- Official Warning Gold: #FEE75C -> Decimal: 16705372
+- Official Nitro Pink: #EB459E -> Decimal: 15418782
+- Official Danger Red: #ED4245 -> Decimal: 15548997
+
+---
+
+## 9. Complete Suite of Interactive Utilities on disctimestamps.site
 - Live Timestamp Generator: https://disctimestamps.site
 - Discord Embed & Webhook Maker: https://disctimestamps.site/discord-embed-generator
+- Live Webhook Sender & Tester: https://disctimestamps.site/discord-webhook-sender
+- Discord Color & Decimal Converter: https://disctimestamps.site/discord-color-converter
+- Discord Avatar & Banner Size Checker: https://disctimestamps.site/discord-avatar-banner-size
 - Invisible Name & Blank Characters: https://disctimestamps.site/discord-invisible-name
 - ANSI Colored Text Formatter: https://disctimestamps.site/discord-colored-text
 - Snowflake ID to Creation Date: https://disctimestamps.site/discord-snowflake-to-timestamp

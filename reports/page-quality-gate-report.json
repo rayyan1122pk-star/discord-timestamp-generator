@@ -22,7 +22,40 @@
     "blockers": []
   },
   {
+    "path": "/discord-avatar-banner-size",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
+  },
+  {
     "path": "/discord-bot-timestamps",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
+  },
+  {
+    "path": "/discord-character-counter",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
+  },
+  {
+    "path": "/discord-color-converter",
     "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
@@ -45,6 +78,17 @@
   },
   {
     "path": "/discord-embed-generator",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
+  },
+  {
+    "path": "/discord-font-generator",
     "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",
@@ -88,6 +132,17 @@
     "blockers": []
   },
   {
+    "path": "/discord-mention-generator",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
+  },
+  {
     "path": "/discord-snowflake-to-timestamp",
     "status": "READY_TO_INDEX",
     "checks": {
@@ -111,6 +166,17 @@
   },
   {
     "path": "/discord-timestamp-guide",
+    "status": "READY_TO_INDEX",
+    "checks": {
+      "tool_above_fold": "PASS",
+      "json_ld_schema": "PASS",
+      "one_click_copy": "PASS",
+      "mobile_desktop_instructions": "PASS"
+    },
+    "blockers": []
+  },
+  {
+    "path": "/discord-webhook-sender",
     "status": "READY_TO_INDEX",
     "checks": {
       "tool_above_fold": "PASS",

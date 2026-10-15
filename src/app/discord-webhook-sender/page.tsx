@@ -115,6 +115,14 @@ export default function DiscordWebhookSenderPage() {
         <DiscordWebhookSender />
       </section>
 
+      {/* Desktop & Mobile App Usage Instructions */}
+      <section className="mb-16 p-6 rounded-2xl border border-slate-800 bg-[#0d1017]">
+        <h2 className="text-xl font-bold text-white mb-3">How to Create and Test Webhooks on Desktop & Mobile</h2>
+        <p className="text-sm text-slate-300 leading-relaxed mb-4">
+          To create a webhook on <strong>desktop (PC / Mac / Web Browser)</strong>, open <em>Server Settings &gt; Integrations &gt; Webhooks</em>, create a new webhook, and copy the URL. On the <strong>mobile app (iOS & Android phone)</strong>, access channel settings to view existing integrations. Once generated, paste your URL into the tester above to send customized embed notifications in real time.
+        </p>
+      </section>
+
       {/* FAQ Section */}
       <section className="mt-16 pt-10 border-t border-slate-800/80 max-w-4xl mx-auto">
         <div className="text-center mb-8">

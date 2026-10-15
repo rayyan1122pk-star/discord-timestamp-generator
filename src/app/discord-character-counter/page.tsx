@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Copy } from "lucide-react";
 import { DiscordCharacterCounter } from "@/components/DiscordCharacterCounter";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
@@ -87,8 +88,16 @@ export default function DiscordCharacterCounterPage() {
         {/* Interactive Tool Widget */}
         <DiscordCharacterCounter />
 
+        {/* Desktop & Mobile App Usage Instructions */}
+        <section className="mt-12 p-6 rounded-2xl border border-slate-800 bg-[#0d1017]">
+          <h2 className="text-xl font-bold text-white mb-3">Discord Message Limits on Desktop & Mobile</h2>
+          <p className="text-sm text-slate-300 leading-relaxed mb-4">
+            Standard Discord accounts have a strict 2,000 character limit per message on both <strong>desktop (PC / Mac / Web Browser)</strong> and <strong>mobile (iOS & Android phone)</strong> apps. Nitro subscribers enjoy an expanded 4,000 character limit. Use the 1-click copy button above to transfer your validated message into Discord with zero truncated words.
+          </p>
+        </section>
+
         {/* Quick Links to Related Tools */}
-        <section className="mt-12 p-6 rounded-xl border border-slate-800 bg-[#0d1017] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <section className="mt-8 p-6 rounded-xl border border-slate-800 bg-[#0d1017] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <h3 className="text-base font-bold text-white">Need to Build a Discord Embed?</h3>
             <p className="text-xs text-slate-400 mt-0.5">

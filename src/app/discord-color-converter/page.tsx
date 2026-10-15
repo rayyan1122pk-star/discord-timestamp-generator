@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Palette, Sparkles, HelpCircle } from "lucide-react";
+import { Palette, Sparkles, HelpCircle, Copy } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { FaqAccordion, FaqItem } from "@/components/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
@@ -112,6 +112,14 @@ export default function DiscordColorConverterPage() {
       {/* Interactive Tool Component */}
       <section className="mb-16">
         <DiscordColorConverter />
+      </section>
+
+      {/* Desktop & Mobile Instructions */}
+      <section className="mb-16 p-6 rounded-2xl border border-slate-800 bg-[#0d1017]">
+        <h2 className="text-xl font-bold text-white mb-3">How to Use Discord Embed Colors on Desktop & Mobile</h2>
+        <p className="text-sm text-slate-300 leading-relaxed mb-4">
+          When configuring bot embeds via discord.js, discord.py, or custom webhooks, pass the 24-bit decimal integer into the <code>color</code> parameter. The resulting embed border color renders identically on <strong>desktop (PC / Mac / Web Browser)</strong> and <strong>mobile (iOS & Android phone)</strong> Discord apps. Use the 1-click copy code buttons to export the exact format for your developer stack.
+        </p>
       </section>
 
       {/* FAQ Section */}
